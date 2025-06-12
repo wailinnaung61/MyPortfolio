@@ -1,0 +1,28 @@
+{
+    "firstName": "Wai",
+    "lastName": "Linn Aung",
+    "fullName": "Wai Linn Aung",
+    "thumbImage": "/images/formal-image.png",
+    "largeImage": "/images/about-image.jpg",
+    "bio": "I am a full-stack developer who builds clean, scalable, and interactive web applications. From front-end interfaces to back-end systems, I focus on delivering high-quality solutions that are both efficient and user-friendly.",
+    "age": 27,
+    "nationality": "Myanmar",
+    "languages": [
+        "Myanmar",
+        "Japan"
+    ],
+    "address": "121 King Street, Melbourne, United States",
+    "freelance": "Available",
+    "socialAddress": {
+        "facebook": "https://facebook.com",
+        "twitter": "https://twitter.com",
+        "github": "https://github.com",
+        "linkedin": "https://linkedin.com"
+    },
+    "phoneNumbers": [
+        "+81-80-9204-2669"
+    ],
+    "emailAddress": [
+        "wailinnaung12mm@gmail.com"
+    ]
+}
