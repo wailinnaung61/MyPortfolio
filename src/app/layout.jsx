@@ -17,7 +17,7 @@ export const metadata = {
 
 function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <RootClientLayout>
         <body className="relative">
           {children}

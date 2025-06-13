@@ -7,20 +7,16 @@ module.exports = {
 			colors: {
 				black: "#000000",
 				white: "#ffffff",
-
-				primary: "#72E2AE",
-				secondary: "#AEE272",
-
-				body: "#BFBECB",
-				heading: "#FAFAFA",
-				placeholder: "#707070",
-
-				border: "#282828",
-
+				primary: "var(--color-primary)",
+				secondary: "var(--color-secondary)",
+				body: "var(--color-body)",
+				heading: "var(--color-heading)",
+				placeholder: "var(--color-placeholder)",
+				border: "var(--color-border)",
 				grey: {
-					darken: "#0B1223",
-					DEFAULT: "#0F172A",
-					lighten: "#162033",
+					darken: "var(--color-grey-darken)",
+					DEFAULT: "var(--color-grey)",
+					lighten: "var(--color-grey-lighten)",
 				},
 			},
 			fontFamily: {

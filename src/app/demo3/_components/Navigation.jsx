@@ -130,7 +130,7 @@ const Navigation = () => {
               href="/demo3"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
-              {t("portfolio")}
+              {t("works")}
               <span className="absolute left-0 top-auto bottom-5 inline-block h-px w-full origin-top-right scale-0 bg-primary align-middle transition-transform duration-500 group-hover:origin-top-left group-hover:scale-100"></span>
             </Link>
           ) : (
@@ -143,7 +143,7 @@ const Navigation = () => {
               duration={1000}
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
-              {t("portfolio")}
+              {t("works")}
               <span className="absolute left-0 top-auto bottom-5 inline-block h-px w-full origin-top-right scale-0 bg-primary align-middle transition-transform duration-500 group-hover:origin-top-left group-hover:scale-100"></span>
             </ScrollLink>
           )}
@@ -188,9 +188,9 @@ const Navigation = () => {
             aria-label="Switch language"
             className="flex items-center gap-1 px-3 py-1 border border-primary text-white rounded-md hover:bg-primary/10 transition"
           >
-            <span>{lng === "en" ? "EN" : "JP"}</span>
+            <span className="text-heading">{lng === "en" ? "EN" : "JP"}</span>
             <svg
-              className="w-4 h-4 ml-1"
+              className="w-4 h-4 ml-1 text-heading"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -249,10 +249,10 @@ const Navigation = () => {
             }}
             className="appearance-none bg-transparent border-none p-0 m-0 text-white dark:text-white focus:outline-none"
           >
-            {isDark ? (
+            {!isDark ? (
               // Moon (dark)
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-heading"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -266,7 +266,7 @@ const Navigation = () => {
             ) : (
               // Sun (light)
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-heading"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"

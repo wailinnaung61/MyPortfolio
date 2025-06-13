@@ -12,8 +12,10 @@ const Logo = ({ url = "/", text = false }) => {
     }
     return i18next.language || "en";
   });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (typeof window !== "undefined") {
       const storedLng = window.localStorage.getItem("i18nextLng");
       if (storedLng && storedLng !== lng) {
@@ -26,6 +28,16 @@ const Logo = ({ url = "/", text = false }) => {
   }, []);
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
+
+  if (!mounted) {
+    return (
+      <Link href={url} className="sitelogo py-2">
+        <span className="text-4xl font-bold uppercase leading-none text-primary">
+          {"portfolio"}
+        </span>
+      </Link>
+    );
+  }
 
   return (
     <Link href={url} className="sitelogo py-2">

@@ -28,6 +28,30 @@
     14. Fullscreen menu
 *********** END TABLE **********/
 
+:root {
+  --color-primary: #018f01;
+  --color-secondary: #666666;
+  --color-body: #212121;
+  --color-heading: #212121;
+  --color-placeholder: #A0A0A0;
+  --color-border: #000000;
+  --color-grey-darken: #e3e3e3d7;
+  --color-grey: #ffffff;
+  --color-grey-lighten: #e6e3e3;
+}
+.dark {
+  --color-primary: #72E2AE;
+  --color-secondary: #AEE272;
+  --color-body: #BFBECB;
+  --color-heading: #FAFAFA;
+  --color-placeholder: #707070;
+  --color-border: #282828;
+  --color-grey-darken: #0B1223;
+  --color-grey: #0F172A;
+  --color-grey-lighten: #162033;
+}
+
+
 @import url("https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 
 @tailwind base;
