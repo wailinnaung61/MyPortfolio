@@ -15,6 +15,7 @@
 		"@emailjs/browser": "^3.11.0",
 		"axios": "^1.6.2",
 		"disqus-react": "^1.1.5",
+		"flag-icons": "^7.5.0",
 		"framer-motion": "^10.16.12",
 		"fslightbox-react": "^1.7.6",
 		"gray-matter": "^4.0.3",

@@ -10,11 +10,23 @@ import { getInformation } from "../../fetchers";
 import { childrenAnimation } from "../../lib/motion";
 import { shimmer, toBase64 } from "../../lib/utils";
 import { SocialIcons } from "../elements";
+import i18next from "i18next";
+import { useEffect, useState } from "react";
 
 const HeroSection = ({ blurred, scroll = true, typed = true }) => {
   const { data } = useQuery("information", getInformation);
+  const [lng, setLng] = useState(i18next.language);
+
+  useEffect(() => {
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
 
   if (!data) return null;
+
+  const fullName = data[`fullName_${lng}`] || data.fullName;
+  const bio = data[`bio_${lng}`] || data.bio;
 
   return (
     <div className="herosection relative overflow-hidden">
@@ -59,7 +71,9 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                 variants={childrenAnimation}
                 className="mb-5 text-heading"
               >
-                <span className="block sm:inline">Hi, I am</span>{" "}
+                <span className="block sm:inline">
+                  {lng === "jp" ? "こんにちは、私は" : "Hi, I am"}
+                </span>{" "}
                 {typed ? (
                   <ReactTyped
                     loop
@@ -67,14 +81,16 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                     backSpeed={20}
                     backDelay={2000}
                     strings={[
-                      data.fullName,
-                      "Full-stack Developer",
-                      "Web Developer",
+                      fullName,
+                      lng === "jp"
+                        ? "フルスタック開発者"
+                        : "Full-stack Developer",
+                      lng === "jp" ? "ウェブ開発者" : "Web Developer",
                     ]}
                     className="text-primary"
                   />
                 ) : (
-                  <span className="text-primary">{data.fullName}</span>
+                  <span className="text-primary">{fullName}</span>
                 )}
               </motion.h1>
               <motion.p
@@ -85,7 +101,7 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                 variants={childrenAnimation}
                 className="lead mb-0"
               >
-                {data.bio}
+                {bio}
               </motion.p>
               <motion.div
                 initial="hidden"

@@ -3,15 +3,17 @@
 import { Logo } from "@/components/utils";
 import useEventListener from "@/hooks/useEventListener";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiMenuLine } from "react-icons/ri";
 import { Link as ScrollLink } from "react-scroll";
 import MobileNavigation from "./MobileNavigation";
 import Navigation from "./Navigation";
+import i18next from "i18next";
 
 const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [lng, setLng] = useState(i18next.language);
 
   const isSticky = () => {
     const scrollTop = window.scrollY;
@@ -20,6 +22,13 @@ const Header = () => {
 
   useEventListener("scroll", isSticky);
 
+  useEffect(() => {
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
+
+  const t = (key) => i18next.t(key, { lng, ns: "common" });
   return (
     <header
       className={`header top-0 left-0 z-50 h-auto w-full ${
@@ -58,17 +67,17 @@ const Header = () => {
             <Navigation />
           </div>
           <div className="header-button hidden lg:block">
-            {/* <ScrollLink
-							activeClass="active"
-							to="section-contact"
-							spy={true}
-							smooth="easeInQuad"
-							offset={-74}
-							duration={1000}
-							className="btn"
-						>
-							<span>Hire Me</span>
-						</ScrollLink> */}
+            <ScrollLink
+              activeClass="active"
+              to="section-contact"
+              spy={true}
+              smooth="easeInQuad"
+              offset={-74}
+              duration={1000}
+              className="btn"
+            >
+              <span> {t("hireme")}</span>
+            </ScrollLink>
           </div>
         </div>
       </div>

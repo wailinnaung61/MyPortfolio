@@ -3,20 +3,42 @@ import { usePathname } from "next/navigation";
 import { Link as ScrollLink } from "react-scroll";
 import i18next from "@/i18n";
 import { useEffect, useState } from "react";
+import "flag-icons/css/flag-icons.min.css";
 
 const Navigation = () => {
   const pathname = usePathname();
   const checkroute = pathname === "/demo3";
   const [lng, setLng] = useState("en");
   const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
+  // Initialize dark mode and language
   useEffect(() => {
     setMounted(true);
+
     if (typeof window !== "undefined") {
+      // Language setup
       const storedLng =
         window.localStorage.getItem("i18nextLng") || i18next.language || "en";
       setLng(storedLng);
+
+      // Theme setup
+      const storedTheme = window.localStorage.getItem("theme");
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const html = document.documentElement;
+
+      if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+        html.classList.add("dark");
+        setIsDark(true); // 🟢 Track current mode in state
+      } else {
+        html.classList.remove("dark");
+        setIsDark(false);
+      }
     }
+
+    // i18n listener
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
     return () => i18next.off("languageChanged", handleLangChange);
@@ -164,7 +186,7 @@ const Navigation = () => {
           <button
             type="button"
             aria-label="Switch language"
-            className="btn flex items-center gap-1"
+            className="flex items-center gap-1 px-3 py-1 border border-primary text-white rounded-md hover:bg-primary/10 transition"
           >
             <span>{lng === "en" ? "EN" : "JP"}</span>
             <svg
@@ -181,35 +203,90 @@ const Navigation = () => {
               />
             </svg>
           </button>
-
-          <ul className="absolute left-0 mt-2 hidden min-w-[7rem] origin-top-right rounded-md border border-gray-200 bg-white shadow-lg group-hover:block z-50">
-            <li>
-              <button
-                onClick={() => {
-                  i18next.changeLanguage("en");
-                  if (typeof window !== "undefined") {
-                    window.localStorage.setItem("i18nextLng", "en");
-                  }
-                }}
-                className="block w-full px-4 py-2 text-sm text-left text-gray-800 hover:bg-gray-100 hover:text-primary rounded-none"
-              >
-                English
-              </button>
+          <ul className="absolute left-0 mt-2 hidden min-w-[7rem] origin-top-right border border-primary bg-gray-200 shadow-lg group-hover:block z-50 list-none">
+            <li
+              onClick={() => {
+                i18next.changeLanguage("en");
+                if (typeof window !== "undefined") {
+                  window.localStorage.setItem("i18nextLng", "en");
+                }
+              }}
+              className="flex items-center gap-1 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 cursor-default"
+            >
+              <span className="fi fi-gb flex-shrink-0 w-5 h-4"></span>
+              English
             </li>
-            <li>
-              <button
-                onClick={() => {
-                  i18next.changeLanguage("jp");
-                  if (typeof window !== "undefined") {
-                    window.localStorage.setItem("i18nextLng", "jp");
-                  }
-                }}
-                className="block w-full px-4 py-2 text-sm text-left text-gray-800 hover:bg-gray-100 hover:text-primary"
-              >
-                日本語
-              </button>
+            <li
+              onClick={() => {
+                i18next.changeLanguage("jp");
+                if (typeof window !== "undefined") {
+                  window.localStorage.setItem("i18nextLng", "jp");
+                }
+              }}
+              className="flex items-center gap-1 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 cursor-default"
+            >
+              <span className="fi fi-jp flex-shrink-0 w-5 h-4"></span>
+              日本語
             </li>
           </ul>
+        </li>
+        {/* Light/Dark Mode Switcher */}
+        <li className="relative top-3 inline-block align-middle">
+          <button
+            aria-label="Toggle dark mode"
+            onClick={() => {
+              const html = document.documentElement;
+              const newMode = !isDark;
+
+              if (newMode) {
+                html.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+              } else {
+                html.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+              }
+              setIsDark(newMode);
+            }}
+            className="appearance-none bg-transparent border-none p-0 m-0 text-white dark:text-white focus:outline-none"
+          >
+            {isDark ? (
+              // Moon (dark)
+              <svg
+                className="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+              </svg>
+            ) : (
+              // Sun (light)
+              <svg
+                className="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
         </li>
       </ul>
     </nav>

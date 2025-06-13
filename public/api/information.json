@@ -2,9 +2,13 @@
     "firstName": "Wai",
     "lastName": "Linn Aung",
     "fullName": "Wai Linn Aung",
+    "fullName_en": "Wai Linn Aung",
+    "fullName_jp": "ウェイリンアウン",
     "thumbImage": "/images/formal-image.png",
     "largeImage": "/images/about-image.jpg",
     "bio": "I am a full-stack developer who builds clean, scalable, and interactive web applications. From front-end interfaces to back-end systems, I focus on delivering high-quality solutions that are both efficient and user-friendly.",
+    "bio_en": "I am a full-stack developer who builds clean, scalable, and interactive web applications. From front-end interfaces to back-end systems, I focus on delivering high-quality solutions that are both efficient and user-friendly.",
+    "bio_jp": "私はクリーンでスケーラブル、かつインタラクティブなWebアプリケーションを構築するフルスタック開発者です。フロントエンドからバックエンドまで、高品質で効率的、かつユーザーフレンドリーなソリューションの提供に注力しています。",
     "age": 27,
     "nationality": "Myanmar",
     "languages": [
