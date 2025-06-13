@@ -11,12 +11,24 @@
     "bio_jp": "私はクリーンでスケーラブル、かつインタラクティブなWebアプリケーションを構築するフルスタック開発者です。フロントエンドからバックエンドまで、高品質で効率的、かつユーザーフレンドリーなソリューションの提供に注力しています。",
     "age": 27,
     "nationality": "Myanmar",
-    "languages": [
-        "Myanmar",
-        "Japan"
-    ],
-    "address": "121 King Street, Melbourne, United States",
+    "nationality_en": "Myanmar",
+    "nationality_jp": "ミャンマー",
+    "languages": {
+        "en": [
+            "Myanmar",
+            "Japanese"
+        ],
+        "jp": [
+            "ミャンマー語",
+            "日本語"
+        ]
+    },
+    "address": "〒124-0006 東京都葛飾区堀切2-10-3 Tokyoβ 堀切菖蒲園11　102号室",
+    "address_en": "Tokyo Beta, 2-10-3 Horikiri, Katsushika-ku, Tokyo 124-0006, Japan Room 102",
+    "address_jp": "〒124-0006 東京都葛飾区堀切2-10-3 Tokyoβ 堀切菖蒲園11　102号室",
     "freelance": "Available",
+    "freelance_en": "Available",
+    "freelance_jp": "対応可能",
     "socialAddress": {
         "facebook": "https://facebook.com",
         "twitter": "https://twitter.com",
@@ -28,5 +40,9 @@
     ],
     "emailAddress": [
         "wailinnaung12mm@gmail.com"
-    ]
+    ],
+    "firstName_en": "Wai",
+    "firstName_jp": "ウェイ",
+    "lastName_en": "Linn Aung",
+    "lastName_jp": "リンアウン"
 }

@@ -6,5 +6,18 @@
     "blog": "Blog",
     "contact": "Contact",
     "portfolio": "Portfolio",
-    "hireme": "Hire Me"
+    "hireme": "Hire Me",
+    "aboutme": "About Me",
+    "myskills": "My Skills",
+    "skills": "Skills",
+    "myservices": "My Services",
+    "services": "Services",
+    "myresume": "My Resume",
+    "clientreviews": "Client Reviews",
+    "reviews": "Reviews",
+    "latestblogs": "Latest Blogs",
+    "blogs": "Blogs",
+    "contactus": "Contact Us",
+    "myworks": "My Works",
+    "scrolldown": "Scroll Down"
 }

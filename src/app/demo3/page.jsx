@@ -1,3 +1,6 @@
+"use client";
+
+import i18next from "i18next";
 import {
   AboutSection,
   ContactSection,
@@ -10,16 +13,29 @@ import {
 } from "@/components/containers";
 import { SectionHeading } from "@/components/utils";
 import SectionWrapper from "@/components/utils/SectionWrapper";
-import { getPostsByPage } from "@/lib/blogging";
 import React from "react";
 import BlogSection from "./_components/BlogSection";
 
-export const metadata = {
-  title: "Homepage",
-};
-
 const Homepage2 = () => {
-  const { posts } = getPostsByPage();
+  const [lng, setLng] = React.useState(i18next.language || "en");
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    if (typeof window !== "undefined") {
+      setLng(
+        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+      );
+    }
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
+
+  const t = (key) => i18next.t(key, { lng, ns: "common" });
+
+  // Prevent hydration mismatch: do not render until mounted on client
+  if (!mounted) return null;
 
   return (
     <React.Fragment>
@@ -35,7 +51,11 @@ const Homepage2 = () => {
         className="about-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="About Me" watermark="About" />
+          <SectionHeading
+            animated={false}
+            title={t("aboutme")}
+            watermark={t("about")}
+          />
           <AboutSection />
         </div>
       </SectionWrapper>
@@ -49,8 +69,8 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="My Skills"
-            watermark="Skills"
+            title={t("myskills")}
+            watermark={t("skills")}
           />
           <SkillsSection />
         </div>
@@ -65,8 +85,8 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="My Services"
-            watermark="Services"
+            title={t("myservices")}
+            watermark={t("services")}
           />
           <ServicesSection />
         </div>
@@ -81,8 +101,8 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="My Resume"
-            watermark="Resume"
+            title={t("myresume")}
+            watermark={t("resume")}
           />
           <ResumeSection />
         </div>
@@ -95,7 +115,11 @@ const Homepage2 = () => {
         className="portfolios-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="My Works" watermark="Works" />
+          <SectionHeading
+            animated={false}
+            title={t("myworks")}
+            watermark={t("portfolio")}
+          />
           <PortfoliosSection />
         </div>
       </SectionWrapper>
@@ -109,8 +133,8 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="Client Reviews"
-            watermark="Reviews"
+            title={t("clientreviews")}
+            watermark={t("reviews")}
           />
           <ReviewsSection />
         </div>
@@ -125,10 +149,10 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="Latest Blogs"
-            watermark="Blogs"
+            title={t("latestblogs")}
+            watermark={t("blogs")}
           />
-          <BlogSection posts={posts} />
+          <BlogSection />
         </div>
       </SectionWrapper>
       {/* End Blog Section */}
@@ -141,8 +165,8 @@ const Homepage2 = () => {
         <div className="container mx-auto">
           <SectionHeading
             animated={false}
-            title="Contact Us"
-            watermark="Contact"
+            title={t("contactus")}
+            watermark={t("contact")}
           />
           <ContactSection />
         </div>

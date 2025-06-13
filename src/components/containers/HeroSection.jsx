@@ -134,7 +134,7 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                 className="cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary"
               >
                 <RiArrowDownLine className="inline animate-bounce text-base" />
-                <span className="pl-2">Scroll Down</span>
+                <span className="pl-2">{i18next.t("scrolldown", { lng })}</span>
               </Link>
             </motion.div>
           ) : null}
