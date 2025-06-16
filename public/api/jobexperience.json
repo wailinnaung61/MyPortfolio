@@ -1,23 +1,32 @@
 [
-    {
-        "id": 1,
-        "title": "UI/UX Designer",
-        "meta": "Abc Company.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2015 - 2017"
-    },
-    {
-        "id": 2,
-        "title": "Front-end Developer",
-        "meta": "Def Company.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2017 - 2019"
-    },
-    {
-        "id": 3,
-        "title": "Back-end Developer",
-        "meta": "Ghi Company.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2019 - Present"
-    }
+  {
+    "id": 1,
+    "title_en": "Software Engineer",
+    "title_jp": "ソフトウェアエンジニア",
+    "meta_en": "Myanmar Software Integrated Solution (MSIS)",
+    "meta_jp": "ミャンマー・ソフトウェア・インテグレーテッド・ソリューション（MSIS）",
+    "text_en": "Handled cloud deployment on AWS and contributed to the development of enterprise applications using Java, C#, PHP, and React. Collaborated across teams to ensure smooth delivery of backend and frontend systems.",
+    "text_jp": "AWSによるクラウド展開を担当し、Java、C#、PHP、Reactを使用して企業向けアプリケーションの開発に貢献。チーム間で連携し、バックエンドおよびフロントエンドシステムの円滑な提供を実現。",
+    "year": "2019 - 2022"
+  },
+  {
+    "id": 2,
+    "title_en": "Software Engineer",
+    "title_jp": "ソフトウェアエンジニア",
+    "meta_en": "Global Innovation Consulting (GIC)",
+    "meta_jp": "グローバル・イノベーション・コンサルティング（GIC）",
+    "text_en": "Developed Windows desktop applications for various business use cases. Focused on UI/UX, system performance, and seamless integration with backend services.",
+    "text_jp": "多様なビジネス用途に対応したWindowsデスクトップアプリケーションを開発。UI/UX、システム性能、バックエンドサービスとのシームレスな統合に注力。",
+    "year": "2022 - 2023"
+  },
+  {
+    "id": 3,
+    "title_en": "Software Engineer",
+    "title_jp": "ソフトウェアエンジニア",
+    "meta_en": "Star Se Company (Japan)",
+    "meta_jp": "スター・セー株式会社（日本）",
+    "text_en": "Currently working in Japan with hands-on experience across a wide range of technologies and domains. Involved in full-cycle software development, large-scale system maintenance, and high-level client interaction. Gained extensive experience in real-world enterprise projects.",
+    "text_jp": "日本にて勤務中。幅広い技術と分野にわたる実務経験を有する。ソフトウェア開発の全工程、大規模システムの保守、高度な顧客対応に従事。実際の企業プロジェクトで豊富な経験を積む。",
+    "year": "2023 - Present"
+  }
 ]

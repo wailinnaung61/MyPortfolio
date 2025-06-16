@@ -1,23 +1,32 @@
 [
-    {
-        "id": 1,
-        "title": "Higher School Graduation",
-        "meta": "Abc College.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2008 - 2010"
-    },
-    {
-        "id": 2,
-        "title": "Bachelor of Sciences",
-        "meta": "Def University.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2010 - 2014"
-    },
-    {
-        "id": 3,
-        "title": "Masters of Sciences",
-        "meta": "Def University.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2014 - 2016"
-    }
+  {
+    "id": 1,
+    "title_en": "High School Graduation",
+    "title_jp": "高校卒業",
+    "meta_en": "No.3 Basic Education High School, Dagon Myothit (South), Myanmar",
+    "meta_jp": "第3基礎教育高等学校（ダゴン・ミョーティット南区、ミャンマー）",
+    "text_en": "Successfully completed secondary education with strong academic performance. Focused on science and technology-related subjects.",
+    "text_jp": "優れた学業成績で高等教育を修了。科学と技術関連科目に重点を置いて学習。",
+    "year": "2012 - 2014"
+  },
+  {
+    "id": 2,
+    "title_en": "Bachelor of Computer Science (Honours)",
+    "title_jp": "コンピュータサイエンス学士（優等）",
+    "meta_en": "Dagon University, Myanmar",
+    "meta_jp": "ダゴン大学（ミャンマー）",
+    "text_en": "Studied core and advanced topics in Computer Science, including software development, algorithms, databases, and computer systems. Graduated with honours.",
+    "text_jp": "ソフトウェア開発、アルゴリズム、データベース、コンピュータシステムなど、コンピュータサイエンスの基礎および高度な分野を学習。優等で卒業。",
+    "year": "2015 - 2019"
+  },
+  {
+    "id": 3,
+    "title_en": "Certifications",
+    "title_jp": "資格",
+    "meta_en": "JLPT N2, Linux Essentials, AWS Cloud Practitioner, AWS Developer Associate",
+    "meta_jp": "日本語能力試験 N2、Linux Essentials、AWS クラウドプラクティショナー、AWS デベロッパーアソシエイト",
+    "text_en": "Achieved multiple technical and language certifications demonstrating both software development and communication expertise.",
+    "text_jp": "ソフトウェア開発とコミュニケーション能力の両方を証明する、複数の技術および語学資格を取得。",
+    "year": "2019 - 2024"
+  }
 ]
