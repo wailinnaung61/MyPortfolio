@@ -2,21 +2,29 @@
     {
         "id": 1,
         "title": "UI/UX Design",
-        "percentage": 85
+        "title_en": "UI/UX Design",
+        "title_jp": "UI/UXデザイン",
+        "percentage": 10
     },
     {
         "id": 2,
         "title": "Back-end Development",
-        "percentage": 80
+        "title_en": "Back-end Development",
+        "title_jp": "バックエンド開発",
+        "percentage": 95
     },
     {
         "id": 3,
         "title": "Front-end Development",
-        "percentage": 95
+        "title_en": "Front-end Development",
+        "title_jp": "フロントエンド開発",
+        "percentage": 80
     },
     {
         "id": 4,
         "title": "Mobile App Development",
-        "percentage": 75
+        "title_en": "Mobile App Development",
+        "title_jp": "モバイルアプリ開発",
+        "percentage": 20
     }
 ]

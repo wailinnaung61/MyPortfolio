@@ -30,6 +30,19 @@ const AboutSection = () => {
   const freelance = data[`freelance_${lng}`] || data.freelance;
   const languages = (data.languages && data.languages[lng]) || [];
 
+  // Add this handler inside your component
+  const handleDownloadAll = () => {
+    const files = ["/cv.pdf", "/resume.pdf"];
+    files.forEach((file) => {
+      const link = document.createElement("a");
+      link.href = file;
+      link.download = file.split("/").pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <div className="grid grid-cols-2 items-center gap-7">
       <div className="col-span-2 lg:col-span-1">
@@ -132,11 +145,16 @@ const AboutSection = () => {
               </li>
             )}
           </ul>
-          <a href="/resume.pdf" className="btn mt-3">
+          {/* Replace the <a> with a button for multiple downloads */}
+          <button
+            type="button"
+            className="btn mt-3"
+            onClick={handleDownloadAll}
+          >
             <span>
               {lng === "jp" ? "履歴書をダウンロード" : "Download Resume"}
             </span>
-          </a>
+          </button>
         </motion.div>
       </div>
     </div>

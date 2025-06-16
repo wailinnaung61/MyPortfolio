@@ -6,10 +6,15 @@ import { useEffect, useState } from "react";
 import "flag-icons/css/flag-icons.min.css";
 
 const Navigation = () => {
+  const [mounted, setMounted] = useState(false);
+  // Set initial language from i18next.language or localStorage (if available)
+  const [lng, setLng] = useState(
+    typeof window !== "undefined"
+      ? window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+      : i18next.language || "en"
+  );
   const pathname = usePathname();
   const checkroute = pathname === "/demo3";
-  const [lng, setLng] = useState("en");
-  const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   // Initialize dark mode and language
@@ -17,11 +22,6 @@ const Navigation = () => {
     setMounted(true);
 
     if (typeof window !== "undefined") {
-      // Language setup
-      const storedLng =
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en";
-      setLng(storedLng);
-
       // Theme setup
       const storedTheme = window.localStorage.getItem("theme");
       const prefersDark =
@@ -44,10 +44,10 @@ const Navigation = () => {
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
+  if (!mounted) return null;
+
   // Use i18next.t for translations from JSON files, but let i18next handle the language
   const t = (key) => i18next.t(key, { lng, ns: "common" });
-
-  if (!mounted) return null;
 
   return (
     <nav className="flex-grow px-5 text-center">

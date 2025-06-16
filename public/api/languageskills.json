@@ -1,42 +1,42 @@
 [
     {
         "id": 1,
-        "title": "Javascript",
-        "percentage": 85
-    },
-    {
-        "id": 2,
-        "title": "Node Js",
+        "title": "HTML, CSS, JavaScript",
         "percentage": 90
     },
     {
+        "id": 2,
+        "title": "React",
+        "percentage": 50
+    },
+    {
         "id": 3,
-        "title": "React Js",
-        "percentage": 80
+        "title": "Java, Spring Boot",
+        "percentage": 90
     },
     {
         "id": 4,
-        "title": "React Native",
-        "percentage": 70
+        "title": "MySQL,SQL Server, PostgreSQL",
+        "percentage": 85
     },
     {
         "id": 5,
-        "title": "Html & Css",
-        "percentage": 95
+        "title": "C#, ASP.NET Core",
+        "percentage": 90
     },
     {
         "id": 6,
-        "title": "Photoshop",
+        "title": "AWS (EC2, S3, RDS etc.)",
         "percentage": 75
     },
     {
         "id": 7,
-        "title": "Illustrator",
-        "percentage": 70
+        "title": "Git (GitHub, GitLab)",
+        "percentage": 90
     },
     {
         "id": 8,
-        "title": "Figma",
-        "percentage": 90
+        "title": "Docker, Jenkins",
+        "percentage": 50
     }
 ]

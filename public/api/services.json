@@ -1,20 +1,32 @@
 [
-    {
-        "id": 1,
-        "title": "Ui/Ux Design",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
-        "icon": "/icons/quill-pen-line.svg"
-    },
-    {
-        "id": 2,
-        "title": "Web Development",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
-        "icon": "/icons/code-s-slash-line.svg"
-    },
-    {
-        "id": 3,
-        "title": "Mobile App Development",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
-        "icon": "/icons/smartphone-line.svg"
-    }
+  {
+    "id": 1,
+    "title": "Backend Development",
+    "title_en": "Backend Development",
+    "title_jp": "バックエンド開発",
+    "text": "Experienced in scalable backend systems using Java, C#, .NET, Spring Boot, and PHP. Skilled in SQL databases, API integration, and backend architecture.",
+    "text_en": "Experienced in scalable backend systems using Java, C#, .NET, Spring Boot, and PHP. Skilled in SQL databases, API integration, and backend architecture.",
+    "text_jp": "Java、C#、.NET、Spring Boot、PHP を使用したスケーラブルなバックエンドシステムの開発経験あり。SQLデータベース、API連携、バックエンドアーキテクチャに精通。",
+    "icon": "/icons/quill-pen-line.svg"
+  },
+  {
+    "id": 2,
+    "title": "Frontend & DevOps",
+    "title_en": "Frontend & DevOps",
+    "title_jp": "フロントエンド＆DevOps",
+    "text": "Proficient in HTML, CSS, JavaScript, React, Bootstrap, and jQuery. Experienced with deployment, AWS, CI/CD pipelines, and web server configuration.",
+    "text_en": "Proficient in HTML, CSS, JavaScript, React, Bootstrap, and jQuery. Experienced with deployment, AWS, CI/CD pipelines, and web server configuration.",
+    "text_jp": "HTML、CSS、JavaScript、React、Bootstrap、jQuery に熟練。デプロイ、AWS、CI/CDパイプライン、Webサーバー構成の経験あり。",
+    "icon": "/icons/code-s-slash-line.svg"
+  },
+  {
+    "id": 3,
+    "title": "Mobile & Tools",
+    "title_en": "Mobile & Tools",
+    "title_jp": "モバイル＆ツール",
+    "text": "Light experience in mobile development. Strong in development tools, remote access utilities, IDEs, testing, and collaborative tools.",
+    "text_en": "Light experience in mobile development. Strong in development tools, remote access utilities, IDEs, testing, and collaborative tools.",
+    "text_jp": "モバイル開発の経験は浅いが、開発ツール、リモートアクセスツール、IDE、テスト、コラボレーションツールに強みあり。",
+    "icon": "/icons/smartphone-line.svg"
+  }
 ]
