@@ -7,7 +7,7 @@ module.exports = {
 			colors: {
 				black: "#000000",
 				white: "#ffffff",
-				primary: "var(--color-primary)",
+				primary: "#498f6e",
 				secondary: "var(--color-secondary)",
 				body: "var(--color-body)",
 				heading: "var(--color-heading)",
