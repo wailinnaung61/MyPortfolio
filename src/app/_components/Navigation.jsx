@@ -14,7 +14,7 @@ const Navigation = () => {
       : i18next.language || "en"
   );
   const pathname = usePathname();
-  const checkroute = pathname === "/demo3";
+  const checkroute = pathname === "/";
   const [isDark, setIsDark] = useState(false);
 
   // Initialize dark mode and language
@@ -55,7 +55,7 @@ const Navigation = () => {
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
-              href="/demo3"
+              href="/"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
               {t("home")}
@@ -79,7 +79,7 @@ const Navigation = () => {
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
-              href="/demo3"
+              href="/"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
               {t("about")}
@@ -103,7 +103,7 @@ const Navigation = () => {
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
-              href="/demo3"
+              href="/"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
               {t("resume")}
@@ -127,7 +127,7 @@ const Navigation = () => {
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
-              href="/demo3"
+              href="/"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
               {t("works")}
@@ -150,7 +150,7 @@ const Navigation = () => {
         </li>
         <li className="inline-block align-middle">
           <Link
-            href="/demo3/posts/1"
+            href="/posts/1"
             className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
           >
             {t("blog")}
@@ -160,7 +160,7 @@ const Navigation = () => {
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
-              href="/demo3"
+              href="/"
               className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
             >
               {t("contact")}

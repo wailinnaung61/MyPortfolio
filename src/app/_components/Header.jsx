@@ -14,6 +14,7 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [lng, setLng] = useState(i18next.language);
+  const [mounted, setMounted] = useState(false);
 
   const isSticky = () => {
     const scrollTop = window.scrollY;
@@ -23,10 +24,13 @@ const Header = () => {
   useEventListener("scroll", isSticky);
 
   useEffect(() => {
+    setMounted(true);
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
+
+  if (!mounted) return null;
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
   return (
@@ -39,7 +43,7 @@ const Header = () => {
     >
       <div className="container mx-auto">
         <div className="header-inner flex items-center justify-between">
-          <Logo url="/demo3" />
+          <Logo url="/" />
           <div className="header-mobilenav block lg:hidden">
             <button
               className="btn btn-small btn-transparent px-3 text-3xl"

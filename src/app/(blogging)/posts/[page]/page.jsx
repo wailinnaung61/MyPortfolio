@@ -1,27 +1,23 @@
 import { Breadcrumb } from "@/components/elements";
 import {
   getAllCategories,
-  getPostsByCategory,
+  getPostsByPage,
   getRecentPosts,
 } from "@/lib/blogging";
 
 import Link from "next/link";
 import React from "react";
-import PostsShowcase from "../../../_components/PostsShowcase";
-import PostsSidebar from "../../../_components/PostsSidebar";
+import PostsShowcase from "../../_components/PostsShowcase";
+import PostsSidebar from "../../_components/PostsSidebar";
 
-export function generateMetadata({ params }) {
-  const { slug } = params;
-
-  return {
-    title: slug.charAt(0).toUpperCase() + slug.slice(1),
-  };
-}
+export const metadata = {
+  title: "Posts",
+};
 
 export default function PostsPage({ params }) {
-  const { slug, page } = params;
+  const { page } = params;
 
-  const { posts, hasMore } = getPostsByCategory(slug, page, 6);
+  const { posts, hasMore } = getPostsByPage(parseInt(page));
   const categories = getAllCategories();
   const recentPosts = getRecentPosts();
 
@@ -36,10 +32,6 @@ export default function PostsPage({ params }) {
           },
           {
             name: "Blogs",
-            link: "/demo3/posts/1",
-          },
-          {
-            name: slug,
             link: "",
           },
         ]}
@@ -53,9 +45,7 @@ export default function PostsPage({ params }) {
               <div className="flex gap-3 pt-10 text-center">
                 {page !== "1" && (
                   <Link
-                    href={`/demo3/category/${slug}/${String(
-                      parseInt(page) - 1
-                    )}`}
+                    href={`/posts/${String(parseInt(page) - 1)}`}
                     className="btn btn-small"
                   >
                     <span>Prev</span>
@@ -63,9 +53,7 @@ export default function PostsPage({ params }) {
                 )}
                 {hasMore && (
                   <Link
-                    href={`/demo3/category/${slug}/${String(
-                      parseInt(page) + 1
-                    )}`}
+                    href={`/posts/${String(parseInt(page) + 1)}`}
                     className="btn btn-small"
                   >
                     <span>Next</span>
