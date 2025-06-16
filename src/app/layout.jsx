@@ -6,24 +6,24 @@ import "../styles/globals.scss";
 
 export const metadata = {
   title: {
-    template: "%s | Bieber",
-    default: "Bieber",
+    template: "%s | Wai Linn Aung",
+    default: "Wai Linn Aung - Portfolio",
   },
   description:
-    "Bieber - is a creative personal portfolio React template build with NextJS and Tailwindcss.",
-  keywords: "React Template, Portfolio Template",
-  author: "Nuclear Themes",
+    "Wai Linn Aung - is a creative personal portfolio React template build with NextJS and Tailwindcss.",
+  keywords: "React, Portfolio ",
+  author: "Wai Linn Aung",
 };
 
 function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <RootClientLayout>
-        <body className="relative">
+      <body className="relative">
+        <RootClientLayout>
           {children}
           <div className="portal-root"></div>
-        </body>
-      </RootClientLayout>
+        </RootClientLayout>
+      </body>
     </html>
   );
 }
