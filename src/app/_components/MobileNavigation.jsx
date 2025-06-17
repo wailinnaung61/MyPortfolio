@@ -50,13 +50,18 @@ const MobileNavigation = ({ changeState }) => {
       >
         <RiCloseLine className="inline" />
       </button>
-      <nav className="relative max-h-full w-full overflow-y-auto flex flex-col items-center justify-center min-h-screen bg-gray-900 dark:bg-gray-900">
+      <nav
+        className={`relative max-h-full w-full overflow-y-auto flex flex-col items-center justify-center min-h-screen 
+        ${isDark ? "bg-gray-900" : "bg-white"}
+      `}
+      >
         <ul className="mb-0 list-none pl-0 w-full flex flex-col items-center justify-center">
           <li className="block">
             {!checkroute ? (
               <Link
                 href="/"
-                className="group relative inline-block cursor-pointer py-2 text-lg uppercase tracking-wider text-heading before:text-primary"
+                className="group relative inline-block cursor-pointer py-2 text-lg uppercase tracking-wider 
+                  ${isDark ? 'text-white' : 'text-heading'} before:text-primary"
                 onClick={() => handleClick()}
               >
                 {t("home")}
@@ -199,7 +204,12 @@ const MobileNavigation = ({ changeState }) => {
             <button
               type="button"
               aria-label="Switch language"
-              className="flex items-center justify-between w-24 px-3 py-1 border border-primary text-heading dark:text-white bg-gray-900 dark:bg-gray-900 rounded-md hover:bg-primary/10 dark:hover:bg-primary-dark/10 transition focus:outline-none focus:ring-2 focus:ring-primary"
+              className={`flex items-center justify-between w-24 px-3 py-1 border border-primary rounded-md transition focus:outline-none focus:ring-2 focus:ring-primary
+                ${
+                  isDark
+                    ? "bg-gray-900 text-white hover:bg-primary-dark/10"
+                    : "bg-white text-heading hover:bg-primary/10"
+                }`}
               onClick={() => setShowLangDropdown((prev) => !prev)}
               tabIndex={0}
             >
@@ -222,14 +232,22 @@ const MobileNavigation = ({ changeState }) => {
               </svg>
             </button>
             {showLangDropdown && (
-              <ul className="absolute left-0 mt-2 w-24 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 z-50">
+              <ul
+                className={`absolute left-0 mt-2 w-24 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50
+                ${isDark ? "bg-gray-900" : "bg-white"}`}
+              >
                 {["en", "jp"]
                   .filter((code) => code !== lng)
                   .map((code) => (
                     <li key={code}>
                       <button
                         type="button"
-                        className="flex items-center w-full px-3 py-1 text-heading dark:text-dark bg-primary dark: hover:bg-primary/10 dark:hover:bg-primary-dark/10 rounded-md transition"
+                        className={`flex items-center w-full px-3 py-1 rounded-md transition font-semibold
+                          ${
+                            isDark
+                              ? "text-white hover:bg-primary-dark/10"
+                              : "text-heading hover:bg-primary/10"
+                          }`}
                         onClick={() => {
                           i18next.changeLanguage(code);
                           if (typeof window !== "undefined") {
@@ -269,7 +287,8 @@ const MobileNavigation = ({ changeState }) => {
               }
               setIsDark(newMode);
             }}
-            className="appearance-none bg-transparent border-none p-0 m-0 text-heading dark:text-white focus:outline-none"
+            className={`appearance-none bg-transparent border-none p-0 m-0 focus:outline-none 
+              ${isDark ? "text-white" : "text-heading"}`}
           >
             {isDark ? (
               <svg
@@ -316,7 +335,9 @@ const MobileNavigation = ({ changeState }) => {
             smooth="easeInQuad"
             offset={-74}
             duration={1000}
-            className="btn btn-small"
+            className={`btn btn-small ${
+              isDark ? "" : "text-white bg-primary hover:bg-primary-dark"
+            }`}
             onClick={() => handleClick()}
           >
             <span>{t("hireme")}</span>

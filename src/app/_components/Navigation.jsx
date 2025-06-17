@@ -4,8 +4,10 @@ import { Link as ScrollLink } from "react-scroll";
 import i18next from "@/i18n";
 import { useEffect, useState } from "react";
 import "flag-icons/css/flag-icons.min.css";
+import { useAppContext } from "@/context/appContext";
 
 const Navigation = () => {
+  const { isDark, setIsDark } = useAppContext();
   const [mounted, setMounted] = useState(false);
   // Set initial language from i18next.language or localStorage (if available)
   const [lng, setLng] = useState(
@@ -15,12 +17,9 @@ const Navigation = () => {
   );
   const pathname = usePathname();
   const checkroute = pathname === "/";
-  const [isDark, setIsDark] = useState(false);
-
   // Initialize dark mode and language
   useEffect(() => {
     setMounted(true);
-
     if (typeof window !== "undefined") {
       // Theme setup
       const storedTheme = window.localStorage.getItem("theme");
@@ -28,10 +27,9 @@ const Navigation = () => {
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
       const html = document.documentElement;
-
       if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
         html.classList.add("dark");
-        setIsDark(true); // 🟢 Track current mode in state
+        setIsDark(true); // 🟢 Track current mode in context
       } else {
         html.classList.remove("dark");
         setIsDark(false);
@@ -237,7 +235,6 @@ const Navigation = () => {
             onClick={() => {
               const html = document.documentElement;
               const newMode = !isDark;
-
               if (newMode) {
                 html.classList.add("dark");
                 localStorage.setItem("theme", "dark");

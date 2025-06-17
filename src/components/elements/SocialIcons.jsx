@@ -3,8 +3,8 @@ import {
     RiFacebookFill,
     RiGithubFill,
     RiLinkedinBoxFill,
-    RiTwitterFill,
 } from "react-icons/ri";
+import XIcon from "./XIcon";
 
 const SocialIcons = ({ data, rounded }) => {
     if (!data) return null;
@@ -41,10 +41,10 @@ const SocialIcons = ({ data, rounded }) => {
                         }`}
                     >
                         <span className="front relative left-0 top-0 flex h-full w-full translate-y-0 transform items-center justify-center rounded bg-grey transition-all duration-500 group-hover:-translate-y-full">
-                            <RiTwitterFill className="inline-block" />
+                            <XIcon className="inline-block" />
                         </span>
                         <span className="back absolute left-0 top-0 flex h-full w-full translate-y-full items-center justify-center rounded bg-primary text-grey transition-all duration-500 group-hover:translate-y-0">
-                            <RiTwitterFill className="inline-block" />
+                            <XIcon className="inline-block" />
                         </span>
                     </a>
                 </li>

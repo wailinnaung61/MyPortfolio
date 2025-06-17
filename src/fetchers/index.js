@@ -40,13 +40,13 @@ const getEducationBackground = async () => {
 	return res.data;
 };
 
-const getClientReviews = async () => {
-	let res = await http.get(`api/clientsreview.json`);
+const getCertificates = async () => {
+	let res = await http.get(`api/certificates.json`);
 	return res.data;
 };
 
 export {
-	getClientReviews,
+	getCertificates,
 	getEducationBackground,
 	getInformation,
 	getJobExperience,

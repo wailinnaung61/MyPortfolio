@@ -13,11 +13,12 @@
     "myservices": "My Services",
     "services": "Services",
     "myresume": "My Resume",
-    "clientreviews": "Client Reviews",
-    "reviews": "Reviews",
+    "clientreviews": "Certifications",
+    "reviews": "Certifications",
     "latestblogs": "Latest Blogs",
     "blogs": "Blogs",
     "contactus": "Contact Us",
     "myworks": "My Works",
-    "scrolldown": "Scroll Down"
+    "scrolldown": "Scroll Down",
+    "downloadall": "Download All"
 }

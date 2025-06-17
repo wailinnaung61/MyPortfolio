@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "name_en": "AWS Certified Developer – Associate",
+    "name_jp": "AWS認定デベロッパー – アソシエイト",
+    "meta": "06/2025",
+    "text_en": "Successfully earned the certification, showcasing in-depth knowledge of AWS development.",
+    "text_jp": "AWS開発に関する深い知識を証明する認定資格を取得しました。",
+    "certificateFile": "aws-certified-developer-associate.pdf"
+  },
+  {
+    "id": 2,
+    "name_en": "AWS Academy Cloud Developing",
+    "name_jp": "AWSアカデミー クラウド開発",
+    "meta": "03/2025",
+    "text_en": "Completed the course with strong understanding of AWS cloud development practices.",
+    "text_jp": "AWSクラウド開発の実践的な知識を身につけたコースを修了しました。",
+    "certificateFile": "aws-academy-cloud-developing.pdf"
+  },
+  {
+    "id": 3,
+    "name_en": "AWS Academy Cloud Foundations",
+    "name_jp": "AWSアカデミー クラウド基礎",
+    "meta": "02/2025",
+    "text_en": "Completed the foundational AWS course, gaining solid cloud computing skills.",
+    "text_jp": "AWSの基礎コースを修了し、クラウドコンピューティングの確かなスキルを習得しました。",
+    "certificateFile": "aws-academy-cloud-foundations.pdf"
+  },
+  {
+    "id": 4,
+    "name_en": "AWS Cloud Partitioner",
+    "name_jp": "AWSクラウドパーティショナー",
+    "meta": "02/2025",
+    "text_en": "Achieved certification demonstrating cloud partitioning and infrastructure planning abilities.",
+    "text_jp": "クラウドのパーティショニングとインフラ計画の能力を証明する認定を取得しました。",
+    "certificateFile": "aws-cloud-partitioner.pdf"
+  },
+  {
+    "id": 5,
+    "name_en": "JLPT N2",
+    "name_jp": "日本語能力試験N2",
+    "meta": "12/2024",
+    "text_en": "Passed the JLPT N2 exam, proving advanced Japanese language proficiency.",
+    "text_jp": "日本語能力試験N2に合格し、高度な日本語能力を証明しました。",
+    "certificateFile": "jlpt-n2.pdf"
+  },
+  {
+    "id": 6,
+    "name_en": "Linux Essentials",
+    "name_jp": "Linuxエッセンシャルズ",
+    "meta": "01/2022",
+    "text_en": "Earned the certification, validating essential skills in Linux systems and administration.",
+    "text_jp": "Linuxシステムと管理の基本的なスキルを証明する認定を取得しました。",
+    "certificateFile": "linux-essentials.pdf"
+  },
+  {
+    "id": 7,
+    "name_en": "VCTA Data Center Virtualization Course",
+    "name_jp": "VCTAデータセンター仮想化コース",
+    "meta": "01/2022",
+    "text_en": "Completed training on virtualization technologies used in modern data centers.",
+    "text_jp": "最新のデータセンターで使用される仮想化技術のトレーニングを修了しました。",
+    "certificateFile": "vcta-data-center-virtualization.pdf"
+  },
+  {
+    "id": 8,
+    "name_en": "Web Application Penetration Testing Course",
+    "name_jp": "Webアプリケーション ペネトレーションテストコース",
+    "meta": "11/2021",
+    "text_en": "Gained practical skills in identifying and mitigating web application security risks.",
+    "text_jp": "Webアプリケーションのセキュリティリスクの特定と対策に関する実践的なスキルを習得しました。",
+    "certificateFile": "web-application-penetration-testing.pdf"
+  },
+  {
+    "id": 9,
+    "name_en": "Linux Essentials Course",
+    "name_jp": "Linuxエッセンシャルズコース",
+    "meta": "08/2021",
+    "text_en": "Built foundational knowledge in Linux operating systems and command-line tools.",
+    "text_jp": "Linuxオペレーティングシステムとコマンドラインツールの基礎知識を身につけました。",
+    "certificateFile": "linux-essentials-course.pdf"
+  },
+  {
+    "id": 10,
+    "name_en": "JavaEE Programming Language",
+    "name_jp": "JavaEEプログラミング言語",
+    "meta": "06/2018",
+    "text_en": "Developed strong expertise in JavaEE for enterprise-level application development.",
+    "text_jp": "エンタープライズ向けアプリケーション開発のためのJavaEEの高度な専門知識を習得しました。",
+    "certificateFile": "javaee-programming-language.pdf"
+  },
+  {
+    "id": 11,
+    "name_en": "C# Programming Language",
+    "name_jp": "C#プログラミング言語",
+    "meta": "12/2018",
+    "text_en": "Acquired key skills in C# programming and object-oriented software development.",
+    "text_jp": "C#プログラミングとオブジェクト指向ソフトウェア開発の主要なスキルを習得しました。",
+    "certificateFile": "csharp-programming-language.pdf"
+  },
+  {
+    "id": 12,
+    "name_en": "Android Programming Language",
+    "name_jp": "Androidプログラミング言語",
+    "meta": "11/2018",
+    "text_en": "Learned to design and develop mobile applications using Android SDK.",
+    "text_jp": "Android SDKを使用したモバイルアプリケーションの設計と開発を学びました。",
+    "certificateFile": "android-programming-language.pdf"
+  },
+  {
+    "id": 13,
+    "name_en": "PHP Programming Language",
+    "name_jp": "PHPプログラミング言語",
+    "meta": "11/2017",
+    "text_en": "Mastered server-side programming and dynamic web development using PHP.",
+    "text_jp": "PHPを用いたサーバーサイドプログラミングと動的Web開発を習得しました。",
+    "certificateFile": "php-programming-language.pdf"
+  },
+  {
+    "id": 14,
+    "name_en": "Web Fundamentals",
+    "name_jp": "Webファンダメンタルズ",
+    "meta": "11/2016",
+    "text_en": "Gained fundamental knowledge of web development and internet technologies.",
+    "text_jp": "Web開発とインターネット技術の基本的な知識を習得しました。",
+    "certificateFile": "web-fundamentals.pdf"
+  },
+  {
+    "id": 15,
+    "name_en": "Basic & Advanced Java Programming (J2SE)",
+    "name_jp": "基礎＆応用Javaプログラミング（J2SE）",
+    "meta": "06/2016",
+    "text_en": "Mastered both basic and advanced concepts of Java Standard Edition programming.",
+    "text_jp": "Java Standard Editionプログラミングの基礎と応用の両方の概念を習得しました。",
+    "certificateFile": "basic-advanced-java-j2se.pdf"
+  },
+  {
+    "id": 16,
+    "name_en": "Basic Spoken English",
+    "name_jp": "基礎英会話",
+    "meta": "12/2015",
+    "text_en": "Enhanced spoken English skills for everyday conversations and professional use.",
+    "text_jp": "日常会話やビジネスで使える英会話スキルを向上させました。",
+    "certificateFile": "basic-spoken-english.pdf"
+  },
+  {
+    "id": 17,
+    "name_en": "Graphic Design Course",
+    "name_jp": "グラフィックデザインコース",
+    "meta": "09/2014",
+    "text_en": "Completed training in graphic design principles, tools, and visual communication.",
+    "text_jp": "グラフィックデザインの原則、ツール、ビジュアルコミュニケーションに関するトレーニングを修了しました。",
+    "certificateFile": "graphic-design-course.pdf"
+  },
+  {
+    "id": 18,
+    "name_en": "Pre-Intermediate General English",
+    "name_jp": "準中級一般英語",
+    "meta": "09/2014",
+    "text_en": "Improved English communication skills at a pre-intermediate level.",
+    "text_jp": "準中級レベルの英語コミュニケーションスキルを向上させました。",
+    "certificateFile": "pre-intermediate-general-english.pdf"
+  },
+  {
+    "id": 19,
+    "name_en": "Elementary General English",
+    "name_jp": "初級一般英語",
+    "meta": "06/2014",
+    "text_en": "Built basic English reading, writing, listening, and speaking skills.",
+    "text_jp": "英語の基本的な読解、作文、リスニング、スピーキングスキルを身につけました。",
+    "certificateFile": "elementary-general-english.pdf"
+  }
+]

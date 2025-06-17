@@ -1,14 +1,15 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getClientReviews } from "../../fetchers";
+import { getCertificates } from "../../fetchers";
 import { Review } from "../elements";
+import i18next from "@/i18n";
 
 const ReviewsSection = () => {
-  const { data } = useQuery("clientreviews", getClientReviews);
+  const { data } = useQuery("certificates", getCertificates);
 
   const sliderRef = useRef(null);
 
@@ -20,6 +21,36 @@ const ReviewsSection = () => {
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
+  }, []);
+
+  const handleDownloadAll = () => {
+    // Get unique certificate files from data
+    const files = Array.from(new Set(data.map((cert) => cert.certificateFile)));
+    files.forEach((file) => {
+      const link = document.createElement("a");
+      link.href = `/certificates/${file}`;
+      link.download = file;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
+  const [lng, setLng] = useState(
+    i18next.language ||
+      (typeof window !== "undefined"
+        ? window.localStorage.getItem("i18nextLng")
+        : "en")
+  );
+  useEffect(() => {
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    // Also check localStorage in case language is set there
+    if (typeof window !== "undefined") {
+      const storedLng = window.localStorage.getItem("i18nextLng");
+      if (storedLng && storedLng !== lng) setLng(storedLng);
+    }
+    return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
   if (!data) return null;
@@ -55,8 +86,30 @@ const ReviewsSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <button className="swiper-button-prev" onClick={handlePrev}></button>
-      <button className="swiper-button-next" onClick={handleNext}></button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "1rem",
+          marginTop: "1rem",
+        }}
+      >
+        <button className="btn" onClick={handleDownloadAll}>
+          <span>{lng === "jp" ? "すべてダウンロード" : "Download All"}</span>
+        </button>
+      </div>
+      <button
+        className={`swiper-button-prev ${
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        }`}
+        onClick={handlePrev}
+      ></button>
+      <button
+        className={`swiper-button-next ${
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        }`}
+        onClick={handleNext}
+      ></button>
     </div>
   );
 };
