@@ -2,13 +2,25 @@
 
 import { SocialIcons } from "@/components/elements";
 import { getInformation } from "@/fetchers";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
 const Footer = () => {
   const { data } = useQuery("information", getInformation);
+  const { t, i18n } = useTranslation("common");
+  const [lng, setLng] = useState(i18n.language);
+  const [mounted, setMounted] = useState(false);
 
-  if (!data) return null;
+  useEffect(() => {
+    setMounted(true);
+    const handleLangChange = (lng) => setLng(lng);
+    i18n.on("languageChanged", handleLangChange);
+    return () => i18n.off("languageChanged", handleLangChange);
+  }, [i18n]);
+
+  if (!data || !mounted) return null;
 
   return (
     <footer className="footer relative z-20 border-t border-white border-opacity-10 bg-grey bg-opacity-95 backdrop-blur backdrop-filter">
@@ -18,12 +30,12 @@ const Footer = () => {
             <SocialIcons data={data.socialAddress} />
           </div>
           <p className="mb-0 w-full md:w-auto">
-            &copy; {new Date().getFullYear()}, All right reserved
+            &copy; {new Date().getFullYear()}, {t("allrightsreserved")}
             <Link
               href="/"
               className="pl-1.5 font-medium text-heading no-underline hover:text-primary"
             >
-              Wai Linn Aung
+              {lng === "jp" ? "ウェイリンアウン" : "Wai Linn Aung"}
             </Link>
           </p>
         </div>

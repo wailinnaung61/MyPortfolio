@@ -1,3 +1,5 @@
+"use client";
+
 import { useAppContext } from "@/context/appContext";
 
 const TimelineItem = ({ timeline: { title, meta, text, year } }) => {
