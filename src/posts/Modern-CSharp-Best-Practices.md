@@ -1,9 +1,9 @@
 ---
 title: "Modern C# Best Practices"
-date: "2025-06-18"
+date: "2025-04-14"
 category: ["Technology"]
 cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+thumb: "/images/blog/sm/blog-image-12.jpg"
 ---
 
 C# (C-Sharp) is a powerful **object-oriented** language used for everything from desktop apps to web services. It runs on the .NET platform and emphasizes _readability_ and maintainability. Experienced .NET developers follow style guidelines to make code consistent. For example, Microsoft recommends using C# type keywords (`int`, `string`, etc.) instead of full .NET types (`System.Int32`, `System.String`) to keep code concise. By adhering to naming conventions (PascalCase for types, camelCase for variables), your code is more self-documenting.

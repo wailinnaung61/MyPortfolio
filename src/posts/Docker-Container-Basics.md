@@ -1,9 +1,9 @@
 ---
 title: "Docker Container Basics"
-date: "2025-06-18"
+date: "2025-05-28"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-4.jpg"
+thumb: "/images/blog/sm/blog-image-4.jpg"
 ---
 
 Docker lets you package applications into **containers**, which are isolated execution environments. As the Docker docs explain, “What is a container? Simply put, containers are isolated processes for each of your app’s components”. Each container includes everything needed to run (code, runtime, system tools), so it behaves the same on any machine. This means you avoid “it works on my machine” problems.

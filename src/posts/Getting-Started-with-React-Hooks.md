@@ -2,8 +2,8 @@
 title: "Getting Started with React Hooks"
 date: "2025-06-18"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-5.jpg"
+thumb: "/images/blog/sm/blog-image-5.jpg"
 ---
 
 React Hooks enable functional components to use state and lifecycle features. Rather than class components, hooks like `useState` and `useEffect` make code shorter and more intuitive. React’s documentation notes that _state lets a component “remember” information like user input_. For example, you can store a form’s input value or track a counter across renders.

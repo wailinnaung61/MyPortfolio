@@ -1,9 +1,9 @@
 ---
 title: "Mastering SQL Joins"
-date: "2025-06-18"
+date: "2025-04-15"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-11.jpg"
+thumb: "/images/blog/sm/blog-image-11.jpg"
 ---
 
 Joins are fundamental in SQL for querying related tables. An **INNER JOIN** returns rows that have matching values in both tables. In other words, it “selects records that have matching values in both tables”. For instance, to list employees with their departments:

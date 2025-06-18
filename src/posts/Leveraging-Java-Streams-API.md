@@ -1,9 +1,9 @@
 ---
 title: "Leveraging Java Streams API"
-date: "2025-06-18"
+date: "2025-05-20"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-9.jpg"
+thumb: "/images/blog/sm/blog-image-9.jpg"
 ---
 
 Java’s _Streams_ API (introduced in Java 8) enables **functional-style** operations on collections. Instead of explicit loops, you can use streams to filter, map, and reduce data with concise code. For example, you can “process data sequences without numerous for-loops” using streams. This means you can chain operations like `filter()`, `map()`, and `collect()` to express data transformations clearly.

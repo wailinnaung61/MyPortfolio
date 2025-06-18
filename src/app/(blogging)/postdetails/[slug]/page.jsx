@@ -1,14 +1,28 @@
 "use client";
 
 import { Breadcrumb } from "@/components/elements";
-import { Comments } from "@/components/utils";
 import React, { useEffect, useState } from "react";
 import PostDetails from "./_components/PostDetails";
+import i18next from "i18next";
 
 export default function PostDetailsPage({ params: { slug } }) {
   const [postData, setPostData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [mounted, setMounted] = useState(false);
+  const [lng, setLng] = useState(i18next.language || "en");
+
+  useEffect(() => {
+    setMounted(true);
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    if (typeof window !== "undefined") {
+      setLng(
+        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+      );
+    }
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -26,10 +40,20 @@ export default function PostDetailsPage({ params: { slug } }) {
     fetchPost();
   }, [slug]);
 
-  if (loading) return <div className="text-center py-20">Loading...</div>;
+  const t = (key) => i18next.t(key, { lng, ns: "common" });
+
+  // Don't render anything until mounted to prevent hydration issues
+  if (!mounted) return null;
+
+  if (loading) return <div className="text-center py-20">{t("loading")}</div>;
   if (error)
-    return <div className="text-center py-20 text-red-500">Error: {error}</div>;
-  if (!postData) return <div className="text-center py-20">Post not found</div>;
+    return (
+      <div className="text-center py-20 text-red-500">
+        {t("error")}: {error}
+      </div>
+    );
+  if (!postData)
+    return <div className="text-center py-20">{t("postNotFound")}</div>;
 
   return (
     <>
@@ -37,11 +61,11 @@ export default function PostDetailsPage({ params: { slug } }) {
         title={postData.title}
         paths={[
           {
-            name: "Home",
+            name: t("home"),
             link: "/",
           },
           {
-            name: "Blogs",
+            name: t("blogs"),
             link: "/posts/1",
           },
           {
@@ -54,9 +78,6 @@ export default function PostDetailsPage({ params: { slug } }) {
       <div className="single-post py-24 lg:py-28 xl:pt-32">
         <div className="container mx-auto">
           <PostDetails postData={postData} />
-          <div className="post-comments mt-8">
-            <Comments title={postData.title} slug={postData.slug} />
-          </div>
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
 ---
 title: "GraphQL vs. REST API Design"
-date: "2025-06-18"
+date: "2025-05-09"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-6.jpg"
+thumb: "/images/blog/sm/blog-image-6.jpg"
 ---
 
 GraphQL and REST are two approaches to building APIs. A key difference is how data is requested and returned. GraphQL allows clients to specify exactly what fields they want, whereas REST has fixed endpoints. For example, a GraphQL query like:

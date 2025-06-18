@@ -2,8 +2,8 @@
 title: "Building a Neural Network with TensorFlow"
 date: "2025-06-18"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-1.jpg"
+thumb: "/images/blog/sm/blog-image-1.jpg"
 ---
 
 TensorFlow (with Keras) simplifies building and training neural networks. In TensorFlow 2, you often use the `tf.keras.Sequential` API to stack layers. For example, to classify 28×28 images, the tutorial shows:

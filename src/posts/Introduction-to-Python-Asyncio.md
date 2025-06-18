@@ -1,9 +1,9 @@
 ---
 title: "Introduction to Python Asyncio"
-date: "2025-06-18"
+date: "2025-05-07"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-7.jpg"
+thumb: "/images/blog/sm/blog-image-7.jpg"
 ---
 
 Python’s `asyncio` library enables writing **asynchronous** (concurrent) code using `async`/`await`. It’s ideal for I/O-bound tasks (network calls, file I/O) and can handle many tasks efficiently. The official docs describe it as “a library to write concurrent code using the async/await syntax”. This means you define `async` functions (coroutines) and use `await` to pause and resume them.

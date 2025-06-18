@@ -1,9 +1,9 @@
 ---
 title: "Continuous Integration with GitHub Actions"
-date: "2025-06-18"
+date: "2025-06-16"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-3.jpg"
+thumb: "/images/blog/sm/blog-image-3.jpg"
 ---
 
 GitHub Actions is a CI/CD platform built into GitHub. It lets you define workflows (in YAML) that run on events like pushes or pull requests. For example, you can automatically build and test code on every push. The official quickstart states: _"GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform…you can create workflows that run tests whenever you push a change"_.

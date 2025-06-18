@@ -1,9 +1,9 @@
 ---
 title: "Concurrent Programming in Go with Goroutines"
-date: "2025-06-18"
+date: "2025-06-17"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-2.jpg"
+thumb: "/images/blog/sm/blog-image-2.jpg"
 ---
 
 Go’s concurrency model uses **goroutines**: lightweight threads managed by the Go runtime. According to Go’s examples, _“A goroutine is a lightweight thread of execution.”_ You simply prefix a function call with `go` to run it concurrently:

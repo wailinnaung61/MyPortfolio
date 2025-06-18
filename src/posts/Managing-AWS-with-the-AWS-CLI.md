@@ -1,9 +1,9 @@
 ---
 title: "Managing AWS with the AWS CLI"
-date: "2025-06-18"
+date: "2025-04-20"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-10.jpg"
+thumb: "/images/blog/sm/blog-image-10.jpg"
 ---
 
 The AWS Command Line Interface (CLI) provides a powerful way to manage AWS services from the terminal. You can script calls to AWS (S3, EC2, IAM, etc.) without using the console. Commands follow the pattern `aws <service> <command>`, for example `aws s3 ls` to list buckets. As an illustration, AWS docs show using `aws s3 mb` to make a bucket:

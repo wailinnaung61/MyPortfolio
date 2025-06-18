@@ -18,7 +18,13 @@
     "latestblogs": "Latest Blogs",
     "blogs": "Blogs",
     "contactus": "Contact Us",
-    "myworks": "My Works",
-    "scrolldown": "Scroll Down",
-    "allrightsreserved": "All rights reserved"
+    "loading": "Loading",
+    "error": "Error occurred",
+    "postNotFound": "Post not found",
+    "readMore": "Read More",
+    "postedOn": "Posted on",
+    "publishedIn": "Published in",
+    "category": "Category",
+    "categories": "Categories",
+    "relatedPosts": "Related Posts"
 }

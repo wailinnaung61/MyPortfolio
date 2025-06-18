@@ -1,9 +1,9 @@
 ---
 title: "Why Use TypeScript?"
-date: "2025-06-18"
+date: "2025-04-03"
 category: ["Technology"]
-cover: /images/blog/blog-image-11.jpg
-thumbnail: /images/blog/sm/blog-image-11.jpg
+cover: "/images/blog/blog-image-15.jpg"
+thumb: "/images/blog/sm/blog-image-15.jpg"
 ---
 
 TypeScript is a **superset of JavaScript** that adds static types. It offers all JavaScript features plus a powerful type system. The TypeScript handbook notes that a major benefit is catching “unexpected behavior” before runtime, reducing bugs. Since JavaScript lacks type checks, TypeScript can infer or enforce types, making code more robust. For example:

@@ -1,9 +1,9 @@
 ---
 title: "Kubernetes Pods and YAML"
-date: "2025-06-18"
+date: "2025-06-01"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-8.jpg"
+thumb: "/images/blog/sm/blog-image-8.jpg"
 ---
 
 In Kubernetes, a **Pod** is the smallest deployable unit. As Kubernetes docs describe, _“A Pod is a group of one or more containers, with shared storage and network resources... A Pod’s contents are always co-located and co-scheduled, and run in a shared context”_. You typically run one container per Pod (though multiple tightly-coupled containers can share a Pod).

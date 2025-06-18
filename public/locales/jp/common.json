@@ -18,7 +18,14 @@
     "latestblogs": "最新のブログ",
     "blogs": "ブログ",
     "contactus": "お問い合わせ",
-    "myworks": "私の作品",
-    "scrolldown": "スクロールダウン",
+    "loading": "読み込み中",
+    "error": "エラー",
+    "postNotFound": "投稿が見つかりません",
+    "readMore": "もっと読む",
+    "postedOn": "投稿日",
+    "publishedIn": "公開",
+    "category": "カテゴリー",
+    "categories": "カテゴリー",
+    "relatedPosts": "関連記事",
     "allrightsreserved": "全著作権所有"
 }

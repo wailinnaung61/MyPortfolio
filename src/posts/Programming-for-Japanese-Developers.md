@@ -1,9 +1,9 @@
 ---
 title: "Programming for Japanese Developers"
-date: "2025-06-18"
+date: "2025-04-12"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-13.jpg"
+thumb: "/images/blog/sm/blog-image-13.jpg"
 ---
 
 When developing software in Japanese, **internationalization** (i18n) is key. Always use UTF-8 encoding so Japanese characters are handled correctly (many Japanese sites like Yahoo use UTF-8 by default). According to localization guides, failing to properly support encodings can make Japanese text appear as garbled symbols.

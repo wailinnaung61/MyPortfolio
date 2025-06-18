@@ -1,9 +1,9 @@
 ---
 title: "Serverless Functions with Azure"
-date: "2025-06-18"
+date: "2025-04-11"
 category: ["Technology"]
-cover: "/images/blog/blog-image-12.jpg"
-thumbnail: "/images/blog/sm/blog-image-12.jpg"
+cover: "/images/blog/blog-image-14.jpg"
+thumb: "/images/blog/sm/blog-image-14.jpg"
 ---
 
 Azure Functions is Microsoft’s **serverless** platform for running code in response to events. It’s a PaaS where you write just the function code and Azure handles scaling and infrastructure. As Microsoft describes it, Azure Functions is _“event-driven and scheduled compute resources”_, providing “scalable and serverless hosting for your code projects”. You can trigger functions on HTTP requests, database changes, message queue messages, timers, and more.
