@@ -24,16 +24,13 @@ const ReviewsSection = () => {
   }, []);
 
   const handleDownloadAll = () => {
-    // Get unique certificate files from data
-    const files = Array.from(new Set(data.map((cert) => cert.certificateFile)));
-    files.forEach((file) => {
-      const link = document.createElement("a");
-      link.href = `/certificates/${file}`;
-      link.download = file;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
+    // Download only the combined PDF file
+    const link = document.createElement("a");
+    link.href = "/certificates/all-certificates.pdf";
+    link.download = "all-certificates.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const [lng, setLng] = useState(
@@ -89,7 +86,7 @@ const ReviewsSection = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "flex-start",
           marginBottom: "1rem",
           marginTop: "1rem",
         }}

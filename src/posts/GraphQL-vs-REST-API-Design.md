@@ -1,0 +1,31 @@
+---
+title: "GraphQL vs. REST API Design"
+date: "2025-06-18"
+category: ["Technology"]
+cover: "/images/blog/blog-image-12.jpg"
+thumbnail: "/images/blog/sm/blog-image-12.jpg"
+---
+
+GraphQL and REST are two approaches to building APIs. A key difference is how data is requested and returned. GraphQL allows clients to specify exactly what fields they want, whereas REST has fixed endpoints. For example, a GraphQL query like:
+
+```graphql
+query {
+  post(id: 1) {
+    id
+    title
+    content
+  }
+}
+```
+
+returns only the `id`, `title`, and `content` of that post. The AWS blog notes that GraphQL “returns only the data specified in the structure given by the client”. In contrast, a REST endpoint like `/posts/1` might return the entire JSON for that post by default.
+
+##### Design Differences
+
+- **Endpoints:** REST uses multiple URLs (e.g. `/posts`, `/users`), while GraphQL uses a **single endpoint** (e.g. `/graphql`).
+- **Data Returned:** REST returns data in a fixed structure defined by the server. GraphQL returns data in a flexible structure defined by the client.
+- **Typed Schema:** GraphQL APIs have a server-side schema (types, queries, mutations) that’s strongly typed. This means invalid requests are caught by the schema, producing clear errors. REST typically does not enforce schema on the client side.
+
+GraphQL is often preferred when clients need specific or varied data (reducing over- and under-fetching). For example, fetching a blog post with or without comments can be done in one GraphQL query rather than multiple REST calls. However, REST can be simpler for small or well-defined APIs. AWS’s guide suggests GraphQL for “large, complex, and interrelated data sources”, while REST suits simpler resource models.
+
+**References:** The AWS comparison notes that GraphQL is a query language with a schema, whereas REST is an architectural style for resources. It emphasizes that GraphQL offers clients control over returned data structures.

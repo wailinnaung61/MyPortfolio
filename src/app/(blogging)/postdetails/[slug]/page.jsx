@@ -1,24 +1,38 @@
+"use client";
+
 import { Breadcrumb } from "@/components/elements";
 import { Comments } from "@/components/utils";
-import { getSinglePost } from "@/lib/blogging";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PostDetails from "./_components/PostDetails";
 
-export function generateMetadata({ params }) {
-  const { slug } = params;
-
-  const postData = getSinglePost(slug);
-
-  return {
-    title: postData.title,
-  };
-}
-
 export default function PostDetailsPage({ params: { slug } }) {
-  const postData = getSinglePost(slug);
+  const [postData, setPostData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(`/api/posts/${slug}`);
+        if (!response.ok) throw new Error("Failed to fetch post");
+        const data = await response.json();
+        setPostData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPost();
+  }, [slug]);
+
+  if (loading) return <div className="text-center py-20">Loading...</div>;
+  if (error)
+    return <div className="text-center py-20 text-red-500">Error: {error}</div>;
+  if (!postData) return <div className="text-center py-20">Post not found</div>;
 
   return (
-    <React.Fragment>
+    <>
       <Breadcrumb
         title={postData.title}
         paths={[
@@ -37,7 +51,7 @@ export default function PostDetailsPage({ params: { slug } }) {
         ]}
         blurred
       />
-      <div className="single-post py-24 lg:py-28 xl:py-32">
+      <div className="single-post py-24 lg:py-28 xl:pt-32">
         <div className="container mx-auto">
           <PostDetails postData={postData} />
           <div className="post-comments mt-8">
@@ -45,6 +59,6 @@ export default function PostDetailsPage({ params: { slug } }) {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

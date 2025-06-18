@@ -19,6 +19,7 @@ import BlogSection from "./_components/BlogSection";
 const Homepage2 = () => {
   const [lng, setLng] = React.useState(i18next.language || "en");
   const [mounted, setMounted] = React.useState(false);
+  const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     setMounted(true);
@@ -30,6 +31,20 @@ const Homepage2 = () => {
       );
     }
     return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
+
+  React.useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("/api/posts");
+        if (!response.ok) throw new Error("Failed to fetch posts");
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPosts();
   }, []);
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
@@ -152,7 +167,7 @@ const Homepage2 = () => {
             title={t("latestblogs")}
             watermark={t("blogs")}
           />
-          <BlogSection />
+          <BlogSection posts={posts} />
         </div>
       </SectionWrapper>
       {/* End Blog Section */}

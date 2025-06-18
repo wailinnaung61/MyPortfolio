@@ -30,7 +30,13 @@ const BlogSection = ({ posts }) => {
 				<Spinner />
 			</div>
 		);
-	if (!posts) return null;
+	if (!posts || posts.length === 0) {
+		return (
+			<div className="block py-20 text-center">
+				<p>No blog posts found.</p>
+			</div>
+		);
+	}
 
 	return (
 		<div className="swiper-holder">
