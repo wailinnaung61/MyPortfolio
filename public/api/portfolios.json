@@ -1,179 +1,167 @@
 [
-    {
-        "id": 1,
-        "title": "Candle",
-        "subtitle": "Creative Candle Light",
-        "coverimage": "/images/portfolios/portfolio-image-19.jpg",
-        "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-19.jpg",
-            "/images/portfolios/portfolio-image-lg-18.jpg",
-            "/images/portfolios/portfolio-image-lg-17.jpg"
-        ],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["react"]
-    },
-    {
-        "id": 2,
-        "title": "Paint",
-        "subtitle": "Creative wall painting",
-        "coverimage": "/images/portfolios/portfolio-image-2.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux"]
-    },
-    {
-        "id": 3,
-        "title": "UI/UX Sample",
-        "subtitle": "UI/UX Sample design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-3.jpg",
-        "imagegallery": false,
-        "videogallery": ["https://www.youtube.com/watch?v=HHBsvKnCkwI"],
-        "url": "https://dribbble.com",
-        "filters": ["html", "react"]
-    },
-    {
-        "id": 4,
-        "title": "Packet",
-        "subtitle": "Packet design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-4.jpg",
-        "imagegallery": ["/images/portfolios/portfolio-image-lg-4.jpg"],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux", "node"]
-    },
-    {
-        "id": 5,
-        "title": "Packet",
-        "subtitle": "Another packet design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-5.jpg",
-        "imagegallery": ["/images/portfolios/portfolio-image-lg-5.jpg"],
-        "videogallery": ["https://www.youtube.com/watch?v=HHBsvKnCkwI"],
-        "url": "https://dribbble.com",
-        "filters": ["uiux", "html"]
-    },
-    {
-        "id": 6,
-        "title": "Cream",
-        "subtitle": "Creative cream box design",
-        "coverimage": "/images/portfolios/portfolio-image-6.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["html", "node"]
-    },
-    {
-        "id": 7,
-        "title": "NFT",
-        "subtitle": "Creative NFT Design",
-        "coverimage": "/images/portfolios/portfolio-image-7.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["react", "uiux"]
-    },
-    {
-        "id": 8,
-        "title": "Atar",
-        "subtitle": "Atar box design",
-        "coverimage": "/images/portfolios/portfolio-image-8.jpg",
-        "imagegallery": ["/images/portfolios/portfolio-image-lg-8.jpg"],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux"]
-    },
-    {
-        "id": 9,
-        "title": "Cream",
-        "subtitle": "Another cream box design",
-        "coverimage": "/images/portfolios/portfolio-image-9.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["html", "react"]
-    },
-    {
-        "id": 10,
-        "title": "Hair Gel",
-        "subtitle": "Hair gel box design",
-        "coverimage": "/images/portfolios/portfolio-image-10.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux", "node"]
-    },
-    {
-        "id": 11,
-        "title": "Hair Gel",
-        "subtitle": "Hair gel tube design",
-        "coverimage": "/images/portfolios/portfolio-image-11.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux", "html"]
-    },
-    {
-        "id": 12,
-        "title": "NFT",
-        "subtitle": "Creative NFT Text",
-        "coverimage": "/images/portfolios/portfolio-image-12.jpg",
-        "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-12.jpg",
-            "/images/portfolios/portfolio-image-lg-11.jpg"
-        ],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["html", "node"]
-    },
-    {
-        "id": 13,
-        "title": "Wallpaper",
-        "subtitle": "Creative wallpaper design",
-        "coverimage": "/images/portfolios/portfolio-image-13.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["react", "uiux"]
-    },
-    {
-        "id": 14,
-        "title": "Wallpaper",
-        "subtitle": "Creative desktop wallpaper",
-        "coverimage": "/images/portfolios/portfolio-image-14.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["uiux"]
-    },
-    {
-        "id": 15,
-        "title": "NFT",
-        "subtitle": "Creative NFT Design",
-        "coverimage": "/images/portfolios/portfolio-image-15.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": ["html", "react"]
-    },
-    {
-        "id": 16,
-        "title": "Art",
-        "subtitle": "Creative wall art",
-        "coverimage": "/images/portfolios/portfolio-image-16.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": false,
-        "filters": ["uiux", "node"]
-    },
-    {
-        "id": 17,
-        "title": "Wallpaper2",
-        "subtitle": "Creative wallpaper art",
-        "coverimage": "/images/portfolios/portfolio-image-1.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": false,
-        "filters": ["uiux"]
-    }
+  {
+    "id": 1,
+    "title_en": "E-Library CheckIn/Out System",
+    "title_jp": "図書館ICカード入退館システム",
+    "subtitle_en": "Tap card for instant check-in/out, real-time data sync, admin search and CSV export",
+    "subtitle_jp": "ICカードで即時チェックイン・チェックアウト、リアルタイム同期、管理者検索とCSV出力対応",
+    "coverimage": "/images/portfolios/custom-project-2.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "java",
+      "web"
+    ]
+  },
+  {
+    "id": 2,
+    "title_en": "E-Resources Myanmar",
+    "title_jp": "電子書籍配信システム",
+    "subtitle_en": "Search, read, upload e-books, user management, tracking",
+    "subtitle_jp": "電子書籍の検索・閲覧・アップロード、ユーザー管理、利用履歴の追跡",
+    "coverimage": "/images/portfolios/custom-project-3.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "healthcare"
+    ]
+  },
+  {
+    "id": 3,
+    "title_en": "Electronic Document Management System",
+    "title_jp": "入札管理システム",
+    "subtitle_en": "Supports and manages various bidding types including open and selective competitive bidding",
+    "subtitle_jp": "一般競争入札、指名競争入札など様々な入札形態をサポート、管理",
+    "coverimage": "/images/portfolios/custom-project-4.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "php",
+      "education"
+    ]
+  },
+  {
+    "id": 4,
+    "title_en": "Learning Management System",
+    "title_jp": "学習管理システム",
+    "subtitle_en": "Moodle-based LMS with course and user management",
+    "subtitle_jp": "MoodleベースのLMS、コース・ユーザー管理機能搭載",
+    "coverimage": "/images/portfolios/custom-project-5.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "production"
+    ]
+  },
+  {
+    "id": 5,
+    "title_en": "Hospital Management System",
+    "title_jp": "医療機関管理システム",
+    "subtitle_en": "Patient, inventory, room management, and access control",
+    "subtitle_jp": "患者・在庫・病室の管理、アクセス制御機能あり",
+    "coverimage": "/images/portfolios/custom-project-6.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "finance"
+    ]
+  },
+  {
+    "id": 6,
+    "title_en": "AWS Deployments",
+    "title_jp": "AWSデプロイメント",
+    "subtitle_en": "Deploy and manage apps on AWS using EC2, S3, RDS, Route53 with Linux & Windows servers",
+    "subtitle_jp": "EC2、S3、RDS、Route53などを利用したAWS上でのアプリ展開・運用（Linux/Windows対応）",
+    "coverimage": "/images/portfolios/custom-project-7.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "tool"
+    ]
+  },
+  {
+    "id": 7,
+    "title_en": "Production Management System",
+    "title_jp": "生産管理システム",
+    "subtitle_en": "Order management, delivery scheduling, cost estimation",
+    "subtitle_jp": "受注管理、納期スケジューリング、コスト見積もり",
+    "coverimage": "/images/portfolios/custom-project-8.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "android",
+      "java"
+    ]
+  },
+  {
+    "id": 8,
+    "title_en": "New NISA System",
+    "title_jp": "新NISAシステム",
+    "subtitle_en": "Stock order/cancel screens, IPO, PO, TOB, balance inquiry",
+    "subtitle_jp": "株式注文・取消、IPO・PO・TOB、残高照会機能",
+    "coverimage": "/images/portfolios/custom-project-9.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "dashboard"
+    ]
+  },
+  {
+    "id": 9,
+    "title_en": "Elevator Status Monitoring System",
+    "title_jp": "故障情報WEB表示概略システム",
+    "subtitle_en": "Smartphone app displaying elevator operation status and real-time condition data",
+    "subtitle_jp": "エレベーターの運行状況と現況データを表示するスマートフォンアプリ",
+    "coverimage": "/images/portfolios/custom-project-10.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "support"
+    ]
+  },
+  {
+    "id": 10,
+    "title_en": "Employee Benefit Point System",
+    "title_jp": "従業員ベネフィットシステム",
+    "subtitle_en": "App-based system for employees to earn and use points based on months worked",
+    "subtitle_jp": "勤務月数に応じてポイントを獲得・利用できるアプリベースのシステム",
+    "coverimage": "/images/portfolios/custom-project-11.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "management"
+    ]
+  },
+  {
+    "id": 11,
+    "title_en": "Store Support Tool System",
+    "title_jp": "店舗支援課支援ツールシステム",
+    "subtitle_en": "Check store PC status, push files, log tracking, VNC integration",
+    "subtitle_jp": "店舗PCの状態確認、ファイル配信、ログ追跡、VNC連携対応",
+    "coverimage": "/images/portfolios/custom-project-11.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": false,
+    "filters": [
+      "csharp",
+      "management"
+    ]
+  }
 ]
