@@ -11,7 +11,7 @@
     "url": false,
     "filters": [
       "java",
-      "web"
+      "window"
     ]
   },
   {
@@ -25,8 +25,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "csharp",
-      "healthcare"
+      "java",
+      "web"
     ]
   },
   {
@@ -40,8 +40,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "php",
-      "education"
+      "csharp",
+      "web"
     ]
   },
   {
@@ -55,8 +55,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "csharp",
-      "production"
+      "php",
+      "web"
     ]
   },
   {
@@ -71,7 +71,7 @@
     "url": false,
     "filters": [
       "csharp",
-      "finance"
+      "web"
     ]
   },
   {
@@ -85,8 +85,7 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "csharp",
-      "tool"
+      "aws"
     ]
   },
   {
@@ -100,8 +99,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "android",
-      "java"
+      "csharp",
+      "window"
     ]
   },
   {
@@ -116,7 +115,7 @@
     "url": false,
     "filters": [
       "csharp",
-      "dashboard"
+      "web"
     ]
   },
   {
@@ -130,8 +129,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "csharp",
-      "support"
+      "java",
+      "web"
     ]
   },
   {
@@ -145,8 +144,8 @@
     "videogallery": false,
     "url": false,
     "filters": [
-      "csharp",
-      "management"
+      "java",
+      "web"
     ]
   },
   {
@@ -161,7 +160,7 @@
     "url": false,
     "filters": [
       "csharp",
-      "management"
+      "window"
     ]
   }
 ]

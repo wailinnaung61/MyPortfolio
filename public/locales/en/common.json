@@ -2,7 +2,7 @@
     "home": "Home",
     "about": "About",
     "resume": "Resume",
-    "works": "Works",
+    "myworks": "Works",
     "blog": "Blog",
     "contact": "Contact",
     "portfolio": "Portfolio",
@@ -13,7 +13,7 @@
     "myservices": "My Services",
     "services": "Services",
     "myresume": "My Resume",
-    "clientreviews": "Certifications and Agreements",
+    "clientreviews": "Certifications and Recommendations",
     "reviews": "Certifications and Agreements",
     "latestblogs": "Latest Blogs",
     "blogs": "Blogs",
@@ -27,5 +27,7 @@
     "category": "Category",
     "categories": "Categories",
     "relatedPosts": "Related Posts",
-    "scrolldown": "Scroll Down"
+    "scrolldown": "Scroll Down",
+    "next": "Next",
+    "previous": "Previous"
 }

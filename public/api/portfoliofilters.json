@@ -6,8 +6,8 @@
     },
     {
         "id": 2,
-        "title": "Csharp",
-        "value": "c#"
+        "title": "C#",
+        "value": "csharp"
     },
     {
         "id": 3,
@@ -21,12 +21,12 @@
     },
     {
         "id": 5,
-        "title": "Education",
-        "value": "education"
+        "title": "Web Development",
+        "value": "web"
     },
     {
         "id": 6,
-        "title": "Finance",
-        "value": "finance"
+        "title": "Window Development",
+        "value": "window"
     }
 ]

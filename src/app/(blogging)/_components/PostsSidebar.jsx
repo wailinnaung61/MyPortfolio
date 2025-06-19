@@ -1,11 +1,20 @@
 "use client";
-
+import { useState, useEffect } from "react";
+import i18next from "i18next";
 import { createSlug } from "@/lib";
 import { childrenAnimation } from "@/lib/motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function PostsSidebar({ categories, recentPosts }) {
+  const [lng, setLng] = useState(i18next.language);
+
+  useEffect(() => {
+    const handleLangChange = (lng) => setLng(lng);
+    i18next.on("languageChanged", handleLangChange);
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
+
   return (
     <div className="widget sticky top-[107px] mt-8 space-y-10 lg:mt-0">
       <motion.div
@@ -17,7 +26,7 @@ export default function PostsSidebar({ categories, recentPosts }) {
         className="widget widget-category card rounded p-4"
       >
         <h5 className="border-b border-white border-opacity-20 pb-2 font-medium text-primary">
-          Categories
+          {lng === "jp" ? "カテゴリ" : "Category"}
         </h5>
         <ul className="styledlist mb-0 list-none pl-0">
           {categories.map((category) => (
@@ -42,7 +51,7 @@ export default function PostsSidebar({ categories, recentPosts }) {
         className="widget widget-recentpost card rounded p-4"
       >
         <h5 className="border-b border-white border-opacity-20 pb-2 font-medium text-primary">
-          Recent Posts
+          {lng === "jp" ? "最近の投稿" : "Recent Posts"}
         </h5>
         <ul className="mb-0 list-none pl-0">
           {recentPosts.map((post, index) => (

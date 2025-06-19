@@ -2,7 +2,7 @@
     "home": "ホーム",
     "about": "アバウト",
     "resume": "履歴書",
-    "works": "作品",
+    "myworks": "作品",
     "blog": "ブログ",
     "contact": "連絡先",
     "portfolio": "ポートフォリオ",
@@ -13,7 +13,7 @@
     "myservices": "私のサービス",
     "services": "サービス",
     "myresume": "私の履歴書",
-    "clientreviews": "資格証明書・契約書",
+    "clientreviews": "資格証明書・推薦状",
     "reviews": "資格",
     "latestblogs": "最新のブログ",
     "blogs": "ブログ",
@@ -28,5 +28,7 @@
     "categories": "カテゴリー",
     "relatedPosts": "関連記事",
     "allrightsreserved": "全著作権所有",
-    "scrolldown": "スクロールダウン"
+    "scrolldown": "スクロールダウン",
+    "next": "次へ",
+    "previous": "前へ"
 }
