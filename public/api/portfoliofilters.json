@@ -1,32 +1,44 @@
 [
-    {
-        "id": 1,
-        "title": "Java",
-        "value": "java"
-    },
-    {
-        "id": 2,
-        "title": "C#",
-        "value": "csharp"
-    },
-    {
-        "id": 3,
-        "title": "Php",
-        "value": "php"
-    },
-    {
-        "id": 4,
-        "title": "AWS",
-        "value": "aws"
-    },
-    {
-        "id": 5,
-        "title": "Web Development",
-        "value": "web"
-    },
-    {
-        "id": 6,
-        "title": "Window Development",
-        "value": "window"
-    }
+  {
+    "id": 1,
+    "title": "Java",
+    "title_en": "Java",
+    "title_jp": "Java",
+    "value": "java"
+  },
+  {
+    "id": 2,
+    "title": "C#",
+    "title_en": "C#",
+    "title_jp": "C#",
+    "value": "csharp"
+  },
+  {
+    "id": 3,
+    "title": "Php",
+    "title_en": "PHP",
+    "title_jp": "PHP",
+    "value": "php"
+  },
+  {
+    "id": 4,
+    "title": "AWS",
+    "title_en": "AWS",
+    "title_jp": "AWS",
+    "value": "aws"
+  },
+  {
+    "id": 5,
+    "title": "Web Development",
+    "title_en": "Web Development",
+    "title_jp": "Web開発",
+    "value": "web"
+  },
+  {
+    "id": 6,
+    "title": "Window Development",
+    "title_en": "Windows Development",
+    "title_jp": "Windows開発",
+    "value": "window"
+  }
 ]
