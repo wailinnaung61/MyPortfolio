@@ -518,67 +518,52 @@
 	margin-bottom: 68px;
 }
 .swiper {
-	&-button-next,
-	&-button-prev {
-		@apply z-10 inline-block h-10 min-h-0 w-10 rounded-full border-2 border-white border-opacity-20 p-0 text-center text-white transition duration-300;
-		top: calc(100% + 50px);
-		font-size: 0;
-		backface-visibility: hidden;
+  &-button-next,
+  &-button-prev {
+    @apply z-10 inline-block h-10 min-h-0 w-10 rounded-full border-2 border-gray-300 bg-gray-300 text-slate-800 p-0 text-center transition duration-300 shadow-sm;
+    top: calc(100% + 50px);
+    font-size: 0;
+    backface-visibility: hidden;
 
-		&::after {
-			@apply text-sm leading-9 text-white transition duration-300;
-		}
+    &::after {
+      @apply text-sm leading-9 text-gray-500 transition duration-300;
+    }
 
-		&:hover {
-			@apply border-primary text-primary;
-			&::after {
-				@apply text-primary;
-			}
-		}
-	}
-	&-button-prev {
-		left: auto;
-		right: calc(50% + 10px);
-	}
-	&-button-next {
-		right: auto;
-		left: calc(50% + 10px);
-	}
-	.dark &-button-next,
-	.dark &-button-prev {
-  		@apply border-[#434b63] text-white;
+    &:hover {
+      @apply border-primary text-primary;
 
-		&:hover {
-			@apply border-primary text-primary
-		}
+      &::after {
+        @apply text-primary;
+      }
+    }
+  }
 
-		&::after {
-			@apply text-white;
+  &-button-prev {
+    left: auto;
+    right: calc(50% + 10px);
+  }
 
-			&:hover {
-			@apply text-primary;
-			}
-		}
-		}
+  &-button-next {
+    right: auto;
+    left: calc(50% + 10px);
+  }
 
-	.light .swiper-button-next,
-	.light .swiper-button-prev {
-		background-color: #f3f4f6; /* Tailwind gray-100 */
-		border: 2px solid #d1d5db; /* Tailwind gray-300 */
-		color: #1e293b; /* Tailwind slate-800 for arrow */
-		box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
-	}
-	.light .swiper-button-next:hover,
-	.light .swiper-button-prev:hover {
-		background-color: #e5e7eb; /* Tailwind gray-200 */
-		border-color: #498f6e; /* primary */
-		color: #498f6e;
-	}
-	.light .swiper-button-next::after,
-	.light .swiper-button-prev::after {
-		color: #1e293b;
-	}
+  // ✅ Dark mode styles (override default)
+  .dark &-button-next,
+  .dark &-button-prev {
+    @apply border-[#434b63] text-white bg-transparent;
+
+    &:hover {
+      @apply border-primary text-primary;
+    }
+
+    &::after {
+      @apply text-white;
+    }
+  }
 }
+
+
 
 @screen 2xl {
 	.swiper-holder {

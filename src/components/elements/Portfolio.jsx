@@ -75,7 +75,7 @@ const Portfolio = ({
           ) : null}
         </div> */}
       </div>
-      <div className="portfolio-content mt-4">
+      <div className="portfolio-content mt-4 cursor-pointer">
         <h5 className="mb-0">{lng === "jp" ? title_jp : title_en}</h5>
         <p>{lng === "jp" ? subtitle_jp : subtitle_en}</p>
       </div>
