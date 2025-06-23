@@ -5,7 +5,7 @@ import Image from "next/image";
 import { RiArrowDownLine } from "react-icons/ri";
 import { useQuery } from "react-query";
 import { Link } from "react-scroll";
-import ReactTyped from "react-typed";
+import { TypeAnimation } from "react-type-animation";
 import { getInformation } from "../../fetchers";
 import { childrenAnimation } from "../../lib/motion";
 import { shimmer, toBase64 } from "../../lib/utils";
@@ -75,18 +75,19 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                   {lng === "jp" ? "こんにちは、私は" : "Hi, I am"}
                 </span>{" "}
                 {typed ? (
-                  <ReactTyped
-                    loop
-                    typeSpeed={100}
-                    backSpeed={20}
-                    backDelay={2000}
-                    strings={[
+                  <TypeAnimation
+                    sequence={[
                       fullName,
+                      2000,
                       lng === "jp"
                         ? "フルスタック開発者"
                         : "Full-stack Developer",
+                      2000,
                       lng === "jp" ? "ウェブ開発者" : "Web Developer",
+                      2000,
                     ]}
+                    speed={20}
+                    repeat={Infinity}
                     className="text-primary"
                   />
                 ) : (
