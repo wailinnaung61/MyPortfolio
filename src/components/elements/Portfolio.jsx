@@ -33,7 +33,7 @@ const Portfolio = ({
   return (
     <div className="portfolio card hovercard group p-4 md:p-5">
       <div className="portfolio-top relative overflow-hidden">
-        <div className="portfolio-image fiximage blur-0 filter transition-all duration-500 group-hover:blur">
+        <div className="portfolio-image fiximage blur-0 filter transition-all duration-500 group-hover:blur-[2px]">
           <Image
             loader={imageLoader}
             unoptimized={true}
@@ -47,7 +47,7 @@ const Portfolio = ({
             )}`}
           />
         </div>
-        <div className="portfolio-hovercontent absolute left-0 top-0 z-20 flex h-full w-full -translate-x-full transform items-center justify-center gap-4 overflow-hidden bg-grey bg-opacity-80 transition-all duration-500 group-hover:translate-x-0">
+        {/*<div className="portfolio-hovercontent absolute left-0 top-0 z-20 flex h-full w-full -translate-x-full transform items-center justify-center gap-4 overflow-hidden bg-grey bg-opacity-80 transition-all duration-500 group-hover:translate-x-0">
           {imagegallery.length ? (
             <button
               className="inline-flex h-10 min-h-0 w-10 items-center justify-center rounded-full bg-primary p-0 text-center text-lg text-grey"
@@ -73,7 +73,7 @@ const Portfolio = ({
               <RiExternalLinkLine />
             </Link>
           ) : null}
-        </div>
+        </div> */}
       </div>
       <div className="portfolio-content mt-4">
         <h5 className="mb-0">{lng === "jp" ? title_jp : title_en}</h5>

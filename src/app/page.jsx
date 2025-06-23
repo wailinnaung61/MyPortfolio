@@ -23,13 +23,14 @@ const Homepage2 = () => {
 
   React.useEffect(() => {
     setMounted(true);
+
+    const storedLang = window.localStorage.getItem("i18nextLng") || "en";
+    i18next.changeLanguage(storedLang); // 🔐 Force i18next to use stored language
+    setLng(storedLang);
+
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
-    if (typeof window !== "undefined") {
-      setLng(
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
-      );
-    }
+
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
