@@ -22,7 +22,7 @@
   --color-placeholder: #A0A0A0;
   --color-border: #000000;
   --color-grey-darken: #e3e3e3d7;
-  --color-grey: #ffffff;
+  --color-grey: #f5f5f5;
   --color-grey-lighten: #e6e3e3;
 }
 .dark {
@@ -363,11 +363,17 @@
 			@apply transition duration-500;
 		}
 
-		&::after {
-			content: "";
-			@apply absolute left-0 top-0 inline-block h-full w-full origin-bottom scale-y-0 transform bg-white transition-transform duration-500;
-		}
-		&:hover {
+		 &::after {
+    content: "";
+    
+	@apply absolute left-0 top-0 inline-block h-full w-full origin-bottom scale-y-0 transform transition-transform duration-500;
+		background-color: #498f6e; /* fallback light mode */
+  	}
+
+  	.dark &::after {
+    	background-color: theme('colors.white'); /* override in dark mode */
+  	}
+	&:hover {
 			&::after {
 				@apply origin-top scale-y-100;
 			}

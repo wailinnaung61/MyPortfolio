@@ -32,7 +32,10 @@ const AboutSection = () => {
 
   // Add this handler inside your component
   const handleDownloadAll = () => {
-    const files = ["/cv.pdf", "/resume.pdf"];
+    const files = [
+      "/ウェイリンアウン_履歴書.pdf",
+      "/ウェイリンアウン職務経歴書.pdf",
+    ];
     files.forEach((file) => {
       const link = document.createElement("a");
       link.href = file;
