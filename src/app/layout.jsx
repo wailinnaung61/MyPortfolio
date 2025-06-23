@@ -1,3 +1,4 @@
+// app/layout.jsx or app/layout.tsx
 import RootClientLayout from "@/components/utils/RootClientLayout";
 import BackToTop from "./_components/BackToTop";
 import Footer from "./_components/Footer";
@@ -20,7 +21,25 @@ export const metadata = {
 
 function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
+      <head>
+        {/* ✅ Inline script to enforce dark mode on first load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="relative">
         <RootClientLayout>
           <div className="wrapper relative min-h-screen w-full bg-grey">
