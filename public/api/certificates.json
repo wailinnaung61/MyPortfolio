@@ -45,7 +45,25 @@
     "certificateFile": "jlpt-n2.pdf"
   },
   {
-    "id": 6,
+  "id": 6,
+  "name_en": "GIC Recommendation Letter",
+  "name_jp": "GIC推薦状",
+  "meta": "05/2023",
+  "text_en": "Received a recommendation letter from Global Innovation Consulting (GIC), acknowledging strong technical skills and professional conduct.",
+  "text_jp": "グローバルイノベーションコンサルティング株式会社（GIC）より、優れた技術力と職業的態度を評価する推薦状をいただきました。",
+  "certificateFile": "gic-recommendation.pdf"
+  },
+  {
+  "id": 7,
+  "name_en": "MSIS Recommendation Letter",
+  "name_jp": "MSIS推薦状",
+  "meta": "08/2022",
+  "text_en": "Received a formal recommendation letter from Myanmar Software Integrated Solution (MSIS), recognizing professional competence and character.",
+  "text_jp": "ミャンマーソフトウェア統合ソリューション株式会社（MSIS）より、専門的能力と人間性を評価する正式な推薦状を受け取りました。",
+  "certificateFile": "msis-recommendation.pdf"
+  },
+  {
+    "id": 8,
     "name_en": "Linux Essentials",
     "name_jp": "Linuxエッセンシャルズ",
     "meta": "01/2022",
@@ -54,7 +72,7 @@
     "certificateFile": "linux-essentials.pdf"
   },
   {
-    "id": 7,
+    "id": 9,
     "name_en": "VCTA Data Center Virtualization Course",
     "name_jp": "VCTAデータセンター仮想化コース",
     "meta": "01/2022",
@@ -63,7 +81,7 @@
     "certificateFile": "vcta-data-center-virtualization.pdf"
   },
   {
-    "id": 8,
+    "id": 10,
     "name_en": "Web Application Penetration Testing Course",
     "name_jp": "Webアプリケーション ペネトレーションテストコース",
     "meta": "11/2021",
@@ -72,7 +90,7 @@
     "certificateFile": "web-application-penetration-testing.pdf"
   },
   {
-    "id": 9,
+    "id": 11,
     "name_en": "Linux Essentials Course",
     "name_jp": "Linuxエッセンシャルズコース",
     "meta": "08/2021",
@@ -81,7 +99,7 @@
     "certificateFile": "linux-essentials-course.pdf"
   },
   {
-    "id": 10,
+    "id": 12,
     "name_en": "JavaEE Programming Language",
     "name_jp": "JavaEEプログラミング言語",
     "meta": "06/2018",
@@ -90,7 +108,7 @@
     "certificateFile": "javaee-programming-language.pdf"
   },
   {
-    "id": 11,
+    "id": 13,
     "name_en": "C# Programming Language",
     "name_jp": "C#プログラミング言語",
     "meta": "12/2018",
@@ -99,7 +117,7 @@
     "certificateFile": "csharp-programming-language.pdf"
   },
   {
-    "id": 12,
+    "id": 14,
     "name_en": "Android Programming Language",
     "name_jp": "Androidプログラミング言語",
     "meta": "11/2018",
@@ -108,7 +126,7 @@
     "certificateFile": "android-programming-language.pdf"
   },
   {
-    "id": 13,
+    "id": 15,
     "name_en": "PHP Programming Language",
     "name_jp": "PHPプログラミング言語",
     "meta": "11/2017",
@@ -117,7 +135,7 @@
     "certificateFile": "php-programming-language.pdf"
   },
   {
-    "id": 14,
+    "id": 16,
     "name_en": "Web Fundamentals",
     "name_jp": "Webファンダメンタルズ",
     "meta": "11/2016",
@@ -126,7 +144,7 @@
     "certificateFile": "web-fundamentals.pdf"
   },
   {
-    "id": 15,
+    "id": 17,
     "name_en": "Basic & Advanced Java Programming (J2SE)",
     "name_jp": "基礎＆応用Javaプログラミング（J2SE）",
     "meta": "06/2016",
@@ -135,7 +153,7 @@
     "certificateFile": "basic-advanced-java-j2se.pdf"
   },
   {
-    "id": 16,
+    "id": 18,
     "name_en": "Basic Spoken English",
     "name_jp": "基礎英会話",
     "meta": "12/2015",
@@ -144,7 +162,7 @@
     "certificateFile": "basic-spoken-english.pdf"
   },
   {
-    "id": 17,
+    "id": 19,
     "name_en": "Graphic Design Course",
     "name_jp": "グラフィックデザインコース",
     "meta": "09/2014",
@@ -153,7 +171,7 @@
     "certificateFile": "graphic-design-course.pdf"
   },
   {
-    "id": 18,
+    "id": 20,
     "name_en": "Pre-Intermediate General English",
     "name_jp": "準中級一般英語",
     "meta": "09/2014",
@@ -162,7 +180,7 @@
     "certificateFile": "pre-intermediate-general-english.pdf"
   },
   {
-    "id": 19,
+    "id": 21,
     "name_en": "Elementary General English",
     "name_jp": "初級一般英語",
     "meta": "06/2014",

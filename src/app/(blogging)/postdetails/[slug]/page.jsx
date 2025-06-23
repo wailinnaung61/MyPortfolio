@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/elements";
 import React, { useEffect, useState } from "react";
 import PostDetails from "./_components/PostDetails";
 import i18next from "i18next";
+import Loading from "@/app/loading";
 
 export default function PostDetailsPage({ params: { slug } }) {
   const [postData, setPostData] = useState(null);
@@ -45,7 +46,7 @@ export default function PostDetailsPage({ params: { slug } }) {
   // Don't render anything until mounted to prevent hydration issues
   if (!mounted) return null;
 
-  if (loading) return <div className="text-center py-20">{t("loading")}</div>;
+  if (loading) return Loading();
   if (error)
     return (
       <div className="text-center py-20 text-red-500">
