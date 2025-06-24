@@ -602,7 +602,7 @@
 			a {
 				&::before {
 					counter-increment: section;
-					content: counter(section, decimal-leading-zero) ".";
+					// content: counter(section, decimal-leading-zero) ".";
 					@apply pr-1;
 				}
 			}
