@@ -53,7 +53,7 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                 <div className="herosection-image fiximage relative z-20 inline-block h-[150px] w-[150px] overflow-hidden rounded-full border-6 border-primary border-opacity-10 align-middle">
                   <Image
                     src={data.thumbImage}
-                    alt={data.fullName}
+                    alt={fullName}
                     height={150}
                     width={150}
                     placeholder="blur"
@@ -76,6 +76,7 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                 </span>{" "}
                 {typed ? (
                   <TypeAnimation
+                    key={lng}
                     sequence={[
                       fullName,
                       2000,

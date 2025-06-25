@@ -92,7 +92,11 @@ const ReviewsSection = () => {
         }}
       >
         <button className="btn" onClick={handleDownloadAll}>
-          <span>{lng === "jp" ? "すべてダウンロード" : "Download All"}</span>
+          <span>
+            {lng === "jp"
+              ? `すべてダウンロード (${data.length})`
+              : `Download All (${data.length})`}
+          </span>
         </button>
       </div>
       <button
