@@ -1,0 +1,11 @@
+{
+  "title": "Docker Container Basics",
+  "date": "2025-05-28",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-4.jpg",
+  "thumb": "/images/blog/sm/blog-image-4.jpg",
+  "content": "\nDocker lets you package applications into **containers**, which are isolated execution environments. As the Docker docs explain, “What is a container? Simply put, containers are isolated processes for each of your app’s components”. Each container includes everything needed to run (code, runtime, system tools), so it behaves the same on any machine. This means you avoid “it works on my machine” problems.\n\n##### Container Characteristics\n\n- **Self-contained:** Each Docker container has its own filesystem and libraries, independent of the host.\n- **Isolated:** Containers run in isolation (using Linux namespaces), so they don’t interfere with each other or the host.\n- **Portable:** A container image built on one environment runs the same in production, on another machine, or in the cloud.\n- **Efficient:** Containers share the host OS kernel, so they’re lightweight compared to full VMs.\n\n##### Example Dockerfile\n\n```dockerfile\n# Sample Dockerfile for a Node.js app\nFROM node:14\nWORKDIR /app\nCOPY package.json ./\nRUN npm install\nCOPY . .\nCMD [\"npm\", \"start\"]\n```\n\nThis Dockerfile starts from a Node 14 image, installs dependencies, and sets the startup command.\n\nTo try Docker, you might `docker build -t myapp .` and then `docker run -d -p 3000:3000 myapp`. For official guidance, see the [Docker Getting Started guide](https://docs.docker.com/get-started/). It provides a hands-on introduction. Containers are a foundation of modern DevOps, enabling consistent environments and simpler deployments.\n\n**References:** Docker’s documentation defines containers and their benefits clearly.\n",
+  "slug": "Docker-Container-Basics"
+}

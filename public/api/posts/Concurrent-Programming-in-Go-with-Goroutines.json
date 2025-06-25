@@ -1,0 +1,11 @@
+{
+  "title": "Concurrent Programming in Go with Goroutines",
+  "date": "2025-06-17",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-2.jpg",
+  "thumb": "/images/blog/sm/blog-image-2.jpg",
+  "content": "\nGo’s concurrency model uses **goroutines**: lightweight threads managed by the Go runtime. According to Go’s examples, _“A goroutine is a lightweight thread of execution.”_ You simply prefix a function call with `go` to run it concurrently:\n\n```go\npackage main\n\nimport (\n    \"fmt\"\n    \"time\"\n)\n\nfunc printNums(prefix string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(prefix, i)\n    }\n}\n\nfunc main() {\n    printNums(\"direct\")\n    go printNums(\"goroutine\")  // runs concurrently\n    go func(msg string) {\n        fmt.Println(msg)\n    }(\"async\")\n\n    time.Sleep(time.Second)  // wait for goroutines\n    fmt.Println(\"done\")\n}\n```\n\nIn this code, `go printNums(\"goroutine\")` starts `printNums` in a new goroutine, which runs concurrently with the main function. The main goroutine then continues and eventually waits for one second to let others finish. When run, the outputs from the goroutine may interleave with the main output, demonstrating concurrency.\n\n##### Key Points\n\n- **Goroutine Syntax:** Use `go functionCall()` to start a goroutine.\n- **No `Thread` Keywords:** Goroutines are multiplexed onto OS threads automatically.\n- **Synchronization:** For communication or ordering, use channels (Go’s concurrency primitives).\n- **Very Lightweight:** Creating thousands of goroutines is feasible, as each uses little memory.\n\nFor more on Go routines and channels, see the [Go by Example Goroutines](https://gobyexample.com/goroutines) tutorial. The example demonstrates that using `go` runs the function asynchronously. This simple concurrency model makes Go great for network servers, pipelines, and any task that benefits from easy parallelism.\n\n**References:** Go’s official tutorials show using `go f(s)` to launch concurrent functions, confirming that the new goroutine runs alongside the original.\n",
+  "slug": "Concurrent-Programming-in-Go-with-Goroutines"
+}

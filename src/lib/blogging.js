@@ -162,6 +162,7 @@ const getRecentPosts = () => {
 };
 
 export {
+	getAllPostsData,
 	getAllCategories,
 	getCategoryPaths,
 	getPagesPath,

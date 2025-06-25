@@ -52,11 +52,15 @@
     "prettier-plugin-tailwindcss": "^0.5.8",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.3.2"
-  },
-  "scripts": {
+  },  "scripts": {
     "dev": "next dev",
+    "clean": "powershell -ExecutionPolicy Bypass -File clean-out.ps1",
+    "prebuild": "npm run clean && node scripts/generate-api.js",
     "build": "next build",
-    "start": "next start",
+    "export": "next export",
+    "start": "npx serve@latest out",
+    "serve": "npx serve@latest out",
+    "preview": "npx serve@latest out",
     "lint": "eslint ."
   }
 }

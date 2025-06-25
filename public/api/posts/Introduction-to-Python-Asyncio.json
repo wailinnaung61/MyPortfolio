@@ -1,0 +1,11 @@
+{
+  "title": "Introduction to Python Asyncio",
+  "date": "2025-05-07",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-7.jpg",
+  "thumb": "/images/blog/sm/blog-image-7.jpg",
+  "content": "\nPython’s `asyncio` library enables writing **asynchronous** (concurrent) code using `async`/`await`. It’s ideal for I/O-bound tasks (network calls, file I/O) and can handle many tasks efficiently. The official docs describe it as “a library to write concurrent code using the async/await syntax”. This means you define `async` functions (coroutines) and use `await` to pause and resume them.\n\n##### Asyncio Example\n\n```python\nimport asyncio\n\nasync def say(text, delay):\n    await asyncio.sleep(delay)\n    print(text)\n\nasync def main():\n    task1 = asyncio.create_task(say(\"Hello\", 1))\n    task2 = asyncio.create_task(say(\"World\", 2))\n    await task1\n    await task2\n\nasyncio.run(main())\n```\n\nIn this code, `say` is an async function that sleeps then prints. Using `asyncio.create_task`, `say(\"Hello\")` and `say(\"World\")` run concurrently. The `asyncio.run(main())` starts the event loop and executes `main()`. This runs “Hello” after 1s and “World” after 2s, in parallel.\n\n##### Key Points\n\n- **`async def`**: Defines a coroutine. Use `await` inside to yield control.\n- **`asyncio.run()`**: Entrypoint to run async code (creates event loop and runs until complete).\n- **Tasks:** Use `asyncio.create_task()` or `asyncio.gather()` to run multiple coroutines concurrently.\n- **No blocking:** Other tasks run while one is `await`ing. (In our example, total runtime \\~2s, not 3s.)\n\nThe asyncio docs provide more examples (such as printing “hello” then “world” with delays). By using asyncio, you can efficiently manage concurrency without threads. For deep dives, see [Python’s official asyncio guide](https://docs.python.org/3/library/asyncio.html).\n\n**References:** Official Python docs demonstrate async examples like:\n\n```\nasync def main():\n    print('hello')\n    await asyncio.sleep(1)\n    print('world')\nasyncio.run(main())\n```\n\nwhich prints “hello” then “world”.\n",
+  "slug": "Introduction-to-Python-Asyncio"
+}

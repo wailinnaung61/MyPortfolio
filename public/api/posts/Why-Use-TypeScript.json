@@ -1,0 +1,11 @@
+{
+  "title": "Why Use TypeScript?",
+  "date": "2025-04-03",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-15.jpg",
+  "thumb": "/images/blog/sm/blog-image-15.jpg",
+  "content": "\nTypeScript is a **superset of JavaScript** that adds static types. It offers all JavaScript features plus a powerful type system. The TypeScript handbook notes that a major benefit is catching “unexpected behavior” before runtime, reducing bugs. Since JavaScript lacks type checks, TypeScript can infer or enforce types, making code more robust. For example:\n\n```ts\ninterface User {\n  name: string;\n  id: number;\n}\nconst user: User = { name: \"Alice\", id: 42 };\n// If we try: const user: User = { username: \"Alice\" }; TypeScript will error\n```\n\nHere, the `User` interface defines a shape. TypeScript will warn you if `user` is missing a property or has the wrong type. In contrast, plain JavaScript would silently accept that object.\n\n##### Key Advantages\n\n- **Type Inference:** TS can infer types (e.g., `let x = \"Hello\";` infers `x: string`).\n- **Interfaces and Enums:** You can define `interface` and `enum` to structure code.\n- **Tooling:** Editors (like VS Code) use TS for IntelliSense, even for JS code, improving autocomplete and refactoring.\n- **Compatibility:** TS code compiles to plain JS, so it runs anywhere JavaScript runs.\n\nTypeScript’s docs emphasize that your existing JS is valid TS. You can start by adding type annotations gradually. For a quick intro see the [TypeScript docs](https://www.typescriptlang.org/docs/) or the \"TypeScript in 5 minutes\" guide. By ensuring correct types at compile-time, you make large codebases easier to maintain and catch errors early.\n",
+  "slug": "Why-Use-TypeScript"
+}

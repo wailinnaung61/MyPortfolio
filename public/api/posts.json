@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "Building-a-Neural-Network-with-TensorFlow",
+    "title": "Building a Neural Network with TensorFlow",
+    "date": "2025-06-18",
+    "category": [
+      "Technology"
+    ],
+    "cover": "/images/blog/blog-image-1.jpg",
+    "thumb": "/images/blog/sm/blog-image-1.jpg"
+  },
+  {
+    "slug": "Concurrent-Programming-in-Go-with-Goroutines",
+    "title": "Concurrent Programming in Go with Goroutines",
+    "date": "2025-06-17",
+    "category": [
+      "Technology"
+    ],
+    "cover": "/images/blog/blog-image-2.jpg",
+    "thumb": "/images/blog/sm/blog-image-2.jpg"
+  },
+  {
+    "slug": "Continuous-Integration-with-GitHub-Actions",
+    "title": "Continuous Integration with GitHub Actions",
+    "date": "2025-06-16",
+    "category": [
+      "Technology"
+    ],
+    "cover": "/images/blog/blog-image-3.jpg",
+    "thumb": "/images/blog/sm/blog-image-3.jpg"
+  },
+  {
+    "slug": "Docker-Container-Basics",
+    "title": "Docker Container Basics",
+    "date": "2025-05-28",
+    "category": [
+      "Technology"
+    ],
+    "cover": "/images/blog/blog-image-4.jpg",
+    "thumb": "/images/blog/sm/blog-image-4.jpg"
+  },
+  {
+    "slug": "Getting-Started-with-React-Hooks",
+    "title": "Getting Started with React Hooks",
+    "date": "2025-06-18",
+    "category": [
+      "Technology"
+    ],
+    "cover": "/images/blog/blog-image-5.jpg",
+    "thumb": "/images/blog/sm/blog-image-5.jpg"
+  }
+]

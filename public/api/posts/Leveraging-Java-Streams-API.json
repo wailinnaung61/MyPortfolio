@@ -1,0 +1,11 @@
+{
+  "title": "Leveraging Java Streams API",
+  "date": "2025-05-20",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-9.jpg",
+  "thumb": "/images/blog/sm/blog-image-9.jpg",
+  "content": "\nJava’s _Streams_ API (introduced in Java 8) enables **functional-style** operations on collections. Instead of explicit loops, you can use streams to filter, map, and reduce data with concise code. For example, you can “process data sequences without numerous for-loops” using streams. This means you can chain operations like `filter()`, `map()`, and `collect()` to express data transformations clearly.\n\n##### Stream Example\n\n```java\nList<String> names = Arrays.asList(\"Alice\", \"Bob\", \"Andrew\");\nList<String> filtered = names.stream()\n    .filter(n -> n.startsWith(\"A\"))\n    .map(String::toUpperCase)\n    .collect(Collectors.toList());\nSystem.out.println(filtered); // Output: [ALICE, ANDREW]\n```\n\n##### Benefits of Streams\n\n- **Conciseness:** Streams let you perform operations in one pipeline (filtering, mapping, etc.) in fewer lines.\n- **Readability:** The code reads left-to-right like a sentence (e.g., filter names starting with \"A\", then map to upper case).\n- **Parallelism:** Easily run streams in parallel by using `names.parallelStream()` for large datasets.\n\nStreams don’t modify the original collection; they produce new results, helping avoid side effects. For more details and examples, consult the [Oracle Java Stream documentation](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html). Modern Java code often uses streams for data processing, improving maintainability and expressing intent more clearly.\n",
+  "slug": "Leveraging-Java-Streams-API"
+}

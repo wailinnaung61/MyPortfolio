@@ -14,19 +14,17 @@ import {
 import { SectionHeading } from "@/components/utils";
 import SectionWrapper from "@/components/utils/SectionWrapper";
 import React from "react";
-import BlogSection from "./_components/BlogSection";
+import BlogSection from "../_components/BlogSection";
 
 const Homepage2 = () => {
-  const [lng, setLng] = React.useState(i18next.language || "en");
+  const [lng, setLng] = React.useState("en");
   const [mounted, setMounted] = React.useState(false);
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     setMounted(true);
-
-    const storedLang = window.localStorage.getItem("i18nextLng") || "en";
-    i18next.changeLanguage(storedLang); // 🔐 Force i18next to use stored language
-    setLng(storedLang);
+    i18next.changeLanguage("en");
+    window.localStorage.setItem("i18nextLng", "en");
 
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
@@ -36,18 +34,19 @@ const Homepage2 = () => {
   React.useEffect(() => {
     const fetchPosts = async () => {
       try {
-        // For client-side, fetch from public API files
         const response = await fetch("/api/posts.json");
         const data = await response.json();
         setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
+        // Set empty array as fallback
+        setPosts([]);
       }
     };
     fetchPosts();
   }, []);
 
-  const t = (key) => i18next.t(key, { lng, ns: "common" });
+  const t = (key) => i18next.t(key, { lng: "en", ns: "common" });
 
   // Prevent hydration mismatch: do not render until mounted on client
   if (!mounted) return null;

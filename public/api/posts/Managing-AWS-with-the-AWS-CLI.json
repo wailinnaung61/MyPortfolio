@@ -1,0 +1,11 @@
+{
+  "title": "Managing AWS with the AWS CLI",
+  "date": "2025-04-20",
+  "category": [
+    "Technology"
+  ],
+  "cover": "/images/blog/blog-image-10.jpg",
+  "thumb": "/images/blog/sm/blog-image-10.jpg",
+  "content": "\nThe AWS Command Line Interface (CLI) provides a powerful way to manage AWS services from the terminal. You can script calls to AWS (S3, EC2, IAM, etc.) without using the console. Commands follow the pattern `aws <service> <command>`, for example `aws s3 ls` to list buckets. As an illustration, AWS docs show using `aws s3 mb` to make a bucket:\n\n```bash\n# Create a new S3 bucket\naws s3 mb s3://my-bucket-name\n\n# List all S3 buckets\naws s3 ls\n```\n\n##### Benefits and Tips\n\n- **Automation:** Combine CLI commands in scripts or CI/CD pipelines to automate deployments.\n- **Powerful Options:** Each command has flags, e.g., `--region`, `--profile`, and JSON support for complex arguments.\n- **Configurations:** Use `aws configure` to set up credentials and default region/profile.\n\nFor example, to upload files to S3:\n\n```bash\naws s3 cp ./local-file.txt s3://my-bucket-name/path/ --acl public-read\n```\n\nThis copies `local-file.txt` to the bucket with public-read permissions.\n\nFor detailed command references, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/). Using the CLI lets you manage AWS resources in code or scripts easily; for instance, the S3 docs note that `aws s3 mb s3://bucket` makes a new bucket.\n\n**References:** Official AWS CLI docs and tutorials are great resources for advanced usage and scripting examples.\n",
+  "slug": "Managing-AWS-with-the-AWS-CLI"
+}
