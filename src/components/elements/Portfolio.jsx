@@ -2,9 +2,8 @@
 
 import FsLightbox from "fslightbox-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import { RiExternalLinkLine, RiImageLine, RiVideoLine } from "react-icons/ri";
+import { RiFileTextLine } from "react-icons/ri";
 import { Portal } from "react-portal";
 import { imageLoader, shimmer, toBase64 } from "../../lib/utils";
 import i18next from "i18next";
@@ -30,6 +29,13 @@ const Portfolio = ({
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
+  const selectedImage =
+    imagegallery && imagegallery.length > 1
+      ? lng === "jp"
+        ? imagegallery[1]
+        : imagegallery[0]
+      : imagegallery && imagegallery[0];
+
   return (
     <div className="portfolio card hovercard group p-4 md:p-5">
       <div className="portfolio-top relative overflow-hidden">
@@ -47,33 +53,16 @@ const Portfolio = ({
             )}`}
           />
         </div>
-        {/*<div className="portfolio-hovercontent absolute left-0 top-0 z-20 flex h-full w-full -translate-x-full transform items-center justify-center gap-4 overflow-hidden bg-grey bg-opacity-80 transition-all duration-500 group-hover:translate-x-0">
+        <div className="portfolio-hovercontent absolute left-0 top-0 z-20 flex h-full w-full -translate-x-full transform items-center justify-center gap-4 overflow-hidden backdrop-blur-sm transition-all duration-500 group-hover:translate-x-0">
           {imagegallery.length ? (
             <button
               className="inline-flex h-10 min-h-0 w-10 items-center justify-center rounded-full bg-primary p-0 text-center text-lg text-grey"
               onClick={() => setImageGalleryOpen((prev) => !prev)}
             >
-              <RiImageLine />
+              <RiFileTextLine />
             </button>
           ) : null}
-          {videogallery.length ? (
-            <button
-              className="inline-flex h-10 min-h-0 w-10 items-center justify-center rounded-full bg-primary p-0 text-center text-lg text-grey"
-              onClick={() => setVideoGalleryOpen((prev) => !prev)}
-            >
-              <RiVideoLine />
-            </button>
-          ) : null}
-          {url ? (
-            <Link
-              href={url}
-              target="_blank"
-              className="inline-flex h-10 min-h-0 w-10 items-center justify-center rounded-full bg-primary p-0 text-center text-lg text-grey"
-            >
-              <RiExternalLinkLine />
-            </Link>
-          ) : null}
-        </div> */}
+        </div>
       </div>
       <div className="portfolio-content mt-4 cursor-pointer">
         <h5 className="mb-0">{lng === "jp" ? title_jp : title_en}</h5>
@@ -81,7 +70,10 @@ const Portfolio = ({
       </div>
       {imagegallery && (
         <Portal>
-          <FsLightbox toggler={imageGalleryOpen} sources={imagegallery} />
+          <FsLightbox
+            toggler={imageGalleryOpen}
+            sources={selectedImage ? [selectedImage] : []}
+          />
         </Portal>
       )}
       {videogallery && (

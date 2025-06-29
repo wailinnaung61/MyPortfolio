@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import i18next from "i18next";
-import { createSlug } from "@/lib";
 import { childrenAnimation } from "@/lib/motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -27,17 +26,13 @@ export default function PostsSidebar({ categories, recentPosts }) {
       >
         <h5 className="border-b border-white border-opacity-20 pb-2 font-medium text-primary">
           {lng === "jp" ? "カテゴリ" : "Category"}
-        </h5>
-        <ul className="styledlist mb-0 list-none pl-0">
+        </h5>        <ul className="styledlist mb-0 list-none pl-0">
           {categories.map((category) => (
             <li key={category.name}>
-              <Link
-                href={`/category/${createSlug(category.name)}/1`}
-                className="clearfix hover:text-primary"
-              >
+              <span className="clearfix block">
                 {category.name}
                 <span className="float-right">({category.count})</span>
-              </Link>
+              </span>
             </li>
           ))}
         </ul>
