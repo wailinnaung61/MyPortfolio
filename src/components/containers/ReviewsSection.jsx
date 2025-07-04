@@ -39,16 +39,21 @@ const ReviewsSection = () => {
         ? window.localStorage.getItem("i18nextLng")
         : "en")
   );
+
   useEffect(() => {
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
+
     // Also check localStorage in case language is set there
     if (typeof window !== "undefined") {
       const storedLng = window.localStorage.getItem("i18nextLng");
-      if (storedLng && storedLng !== lng) setLng(storedLng);
+      if (storedLng && storedLng !== lng) {
+        setLng(storedLng);
+      }
     }
+
     return () => i18next.off("languageChanged", handleLangChange);
-  }, []);
+  }, []); // Remove lng from dependency array to prevent infinite loop
 
   if (!data) return null;
 
@@ -101,13 +106,19 @@ const ReviewsSection = () => {
       </div>
       <button
         className={`swiper-button-prev ${
-          document.documentElement.classList.contains("dark") ? "dark" : "light"
+          typeof window !== "undefined" &&
+          document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light"
         }`}
         onClick={handlePrev}
       ></button>
       <button
         className={`swiper-button-next ${
-          document.documentElement.classList.contains("dark") ? "dark" : "light"
+          typeof window !== "undefined" &&
+          document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light"
         }`}
         onClick={handleNext}
       ></button>

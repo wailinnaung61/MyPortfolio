@@ -1,48 +1,46 @@
-import { http } from "./http";
-
 const getInformation = async () => {
-	let res = await http.get(`api/information.json`);
-	return res.data;
+	const res = await fetch(`/api/information.json`);
+	return res.json();
 };
 
 const getServices = async () => {
-	let res = await http.get(`api/services.json`);
-	return res.data;
+	const res = await fetch(`/api/services.json`);
+	return res.json();
 };
 
 const getTechskills = async () => {
-	let res = await http.get(`api/techskills.json`);
-	return res.data;
+	const res = await fetch(`/api/techskills.json`);
+	return res.json();
 };
 
 const getLanguageskills = async () => {
-	let res = await http.get(`api/languageskills.json`);
-	return res.data;
+	const res = await fetch(`/api/languageskills.json`);
+	return res.json();
 };
 
 const getPortfolioFilters = async () => {
-	let res = await http.get(`api/portfoliofilters.json`);
-	return res.data;
+	const res = await fetch(`/api/portfoliofilters.json`);
+	return res.json();
 };
 
 const getPortfolios = async () => {
-	let res = await http.get(`api/portfolios.json`);
-	return res.data;
+	const res = await fetch(`/api/portfolios.json`);
+	return res.json();
 };
 
 const getJobExperience = async () => {
-	let res = await http.get(`api/jobexperience.json`);
-	return res.data;
+	const res = await fetch(`/api/jobexperience.json`);
+	return res.json();
 };
 
 const getEducationBackground = async () => {
-	let res = await http.get(`api/educationbackground.json`);
-	return res.data;
+	const res = await fetch(`/api/educationbackground.json`);
+	return res.json();
 };
 
 const getCertificates = async () => {
-	let res = await http.get(`api/certificates.json`);
-	return res.data;
+	const res = await fetch(`/api/certificates.json`);
+	return res.json();
 };
 
 export {

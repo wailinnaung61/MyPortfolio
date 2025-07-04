@@ -25,7 +25,7 @@ const Logo = ({ url = "/", text = false }) => {
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
     return () => i18next.off("languageChanged", handleLangChange);
-  }, []);
+  }, []); // Remove lng from dependency array to prevent infinite loop
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
 

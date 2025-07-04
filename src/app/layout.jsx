@@ -3,6 +3,7 @@ import RootClientLayout from "@/components/utils/RootClientLayout";
 import BackToTop from "./_components/BackToTop";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "normalize.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -23,6 +24,8 @@ function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics */}
+        <GoogleAnalytics />
         {/* ✅ Inline script to enforce dark mode on first load */}
         <script
           dangerouslySetInnerHTML={{

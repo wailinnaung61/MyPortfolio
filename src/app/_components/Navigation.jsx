@@ -40,7 +40,7 @@ const Navigation = () => {
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
     return () => i18next.off("languageChanged", handleLangChange);
-  }, []);
+  }, [setIsDark]);
 
   if (!mounted) return null;
 
