@@ -40,7 +40,7 @@ const Navigation = () => {
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
     return () => i18next.off("languageChanged", handleLangChange);
-  }, [setIsDark]);
+  }, []); // Empty dependency array - this should only run once on mount
 
   if (!mounted) return null;
 
@@ -148,7 +148,7 @@ const Navigation = () => {
         </li>
         <li className="inline-block align-middle">
           <Link
-            href="/posts/1"
+            href="/blog"
             className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
           >
             {t("blog")}
