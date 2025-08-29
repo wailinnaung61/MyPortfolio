@@ -3,7 +3,7 @@ import Image from "next/image";
 import i18next from "i18next";
 
 export default function NotFound() {
-  const lng = i18next.language || "en";
+  const lng = i18next.language || "jp";
   const t = (key) => i18next.t(key, { lng, ns: "common" });
 
   return (

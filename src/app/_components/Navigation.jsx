@@ -9,17 +9,59 @@ import { useAppContext } from "@/context/appContext";
 const Navigation = () => {
   const { isDark, setIsDark } = useAppContext();
   const [mounted, setMounted] = useState(false);
-  // Set initial language from i18next.language or localStorage (if available)
-  const [lng, setLng] = useState(
-    typeof window !== "undefined"
-      ? window.localStorage.getItem("i18nextLng") || i18next.language || "en"
-      : i18next.language || "en"
-  );
+  const [lng, setLng] = useState("jp");
+  const [i18nReady, setI18nReady] = useState(false);
   const pathname = usePathname();
   const checkroute = pathname === "/";
+
   // Initialize dark mode and language
   useEffect(() => {
     setMounted(true);
+
+    // Wait for i18next to be ready
+    const initLanguage = async () => {
+      try {
+        // Ensure i18next is initialized
+        if (!i18next.isInitialized) {
+          await i18next.init();
+        }
+
+        // Language setup - ensure Japanese is default
+        const storedLang =
+          typeof window !== "undefined"
+            ? window.localStorage.getItem("i18nextLng")
+            : null;
+
+        // Force Japanese as default for new visitors
+        if (!storedLang) {
+          setLng("jp");
+          await i18next.changeLanguage("jp");
+          if (typeof window !== "undefined") {
+            window.localStorage.setItem("i18nextLng", "jp");
+          }
+        } else if (storedLang && (storedLang === "en" || storedLang === "jp")) {
+          setLng(storedLang);
+          await i18next.changeLanguage(storedLang);
+        } else {
+          // Fallback to Japanese
+          setLng("jp");
+          await i18next.changeLanguage("jp");
+          if (typeof window !== "undefined") {
+            window.localStorage.setItem("i18nextLng", "jp");
+          }
+        }
+
+        setI18nReady(true);
+      } catch (error) {
+        console.error("Failed to initialize i18next:", error);
+        // Fallback
+        setLng("jp");
+        setI18nReady(true);
+      }
+    };
+
+    initLanguage();
+
     if (typeof window !== "undefined") {
       // Theme setup
       const storedTheme = window.localStorage.getItem("theme");
@@ -42,7 +84,8 @@ const Navigation = () => {
     return () => i18next.off("languageChanged", handleLangChange);
   }, []); // Empty dependency array - this should only run once on mount
 
-  if (!mounted) return null;
+  // Wait for mounting, language initialization, and i18n resources
+  if (!mounted || !lng || !i18nReady) return null;
 
   // Use i18next.t for translations from JSON files, but let i18next handle the language
   const t = (key) => i18next.t(key, { lng, ns: "common" });

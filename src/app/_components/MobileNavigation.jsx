@@ -16,7 +16,7 @@ const MobileNavigation = ({ changeState }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedLng =
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en";
+        window.localStorage.getItem("i18nextLng") || i18next.language || "jp";
       setLng(storedLng);
       const storedTheme = window.localStorage.getItem("theme");
       const prefersDark =

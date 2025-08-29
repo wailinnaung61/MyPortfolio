@@ -16,7 +16,7 @@ export default function PostsPageCategory({
   categories,
   recentPosts,
 }) {
-  const [lng, setLng] = useState(i18next.language || "en");
+  const [lng, setLng] = useState(i18next.language || "jp");
 
   useEffect(() => {
     const handleLangChange = (lng) => setLng(lng);
@@ -24,7 +24,7 @@ export default function PostsPageCategory({
 
     if (typeof window !== "undefined") {
       setLng(
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+        window.localStorage.getItem("i18nextLng") || i18next.language || "jp"
       );
     }
 

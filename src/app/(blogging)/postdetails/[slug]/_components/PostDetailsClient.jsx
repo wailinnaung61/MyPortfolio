@@ -6,12 +6,12 @@ import PostDetails from "./PostDetails";
 import i18next from "i18next";
 
 export default function PostDetailsClient({ postData }) {
-  const [lng, setLng] = React.useState(i18next.language || "en");
+  const [lng, setLng] = React.useState(i18next.language || "jp");
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
-    const storedLang = window.localStorage.getItem("i18nextLng") || "en";
+    const storedLang = window.localStorage.getItem("i18nextLng") || "jp";
     i18next.changeLanguage(storedLang);
     setLng(storedLang);
 

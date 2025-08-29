@@ -9,7 +9,7 @@ const SectionHeading = ({ title, watermark, animated = true }) => {
   const [tWatermark, setTWatermark] = useState(watermark);
 
   useEffect(() => {
-    const lng = i18next.language || "en";
+    const lng = i18next.language || "jp";
     setTTitle(i18next.t(title));
     setTWatermark(i18next.t(watermark));
     const handleLanguageChanged = () => {

@@ -15,7 +15,7 @@ export default function PostsPageClient({
   categories,
   recentPosts,
 }) {
-  const [lng, setLng] = useState(i18next.language || "en");
+  const [lng, setLng] = useState(i18next.language || "jp");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function PostsPageClient({
     i18next.on("languageChanged", handleLangChange);
     if (typeof window !== "undefined") {
       setLng(
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+        window.localStorage.getItem("i18nextLng") || i18next.language || "jp"
       );
     }
     return () => i18next.off("languageChanged", handleLangChange);

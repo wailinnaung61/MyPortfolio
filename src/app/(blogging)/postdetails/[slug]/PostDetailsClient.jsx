@@ -11,7 +11,7 @@ export default function PostDetailsClient({ slug }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [mounted, setMounted] = useState(false);
-  const [lng, setLng] = useState(i18next.language || "en");
+  const [lng, setLng] = useState(i18next.language || "jp");
 
   useEffect(() => {
     setMounted(true);
@@ -19,7 +19,7 @@ export default function PostDetailsClient({ slug }) {
     i18next.on("languageChanged", handleLangChange);
     if (typeof window !== "undefined") {
       setLng(
-        window.localStorage.getItem("i18nextLng") || i18next.language || "en"
+        window.localStorage.getItem("i18nextLng") || i18next.language || "jp"
       );
     }
     return () => i18next.off("languageChanged", handleLangChange);
