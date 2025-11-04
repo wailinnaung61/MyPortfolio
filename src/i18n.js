@@ -8,8 +8,8 @@ if (!i18n.isInitialized) {
     .use(HttpBackend)
     .use(initReactI18next)
     .init({
-      lng: "jp",
-      fallbackLng: "jp",
+      lng: "en",
+      fallbackLng: "en",
       debug: false,
       ns: ["common"],
       defaultNS: "common",

@@ -2,25 +2,26 @@
 
 import { SocialIcons } from "@/components/elements";
 import { getInformation } from "@/fetchers";
-import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import i18next from "i18next";
 
 const Footer = () => {
   const { data } = useQuery("information", getInformation);
-  const { t, i18n } = useTranslation("common");
-  const [lng, setLng] = useState(i18n.language);
+  const [lng, setLng] = useState(i18next.language || "en");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const handleLangChange = (lng) => setLng(lng);
-    i18n.on("languageChanged", handleLangChange);
-    return () => i18n.off("languageChanged", handleLangChange);
-  }, [i18n]);
+    i18next.on("languageChanged", handleLangChange);
+    return () => i18next.off("languageChanged", handleLangChange);
+  }, []);
 
   if (!data || !mounted) return null;
+
+  const t = (key) => i18next.t(key, { lng, ns: "common" });
 
   return (
     <footer className="footer relative z-20 border-t border-white border-opacity-10 bg-grey bg-opacity-95 backdrop-blur backdrop-filter">

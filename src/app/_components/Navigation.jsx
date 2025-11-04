@@ -9,7 +9,7 @@ import { useAppContext } from "@/context/appContext";
 const Navigation = () => {
   const { isDark, setIsDark } = useAppContext();
   const [mounted, setMounted] = useState(false);
-  const [lng, setLng] = useState("jp");
+  const [lng, setLng] = useState("en");
   const [i18nReady, setI18nReady] = useState(false);
   const pathname = usePathname();
   const checkroute = pathname === "/";
@@ -26,28 +26,28 @@ const Navigation = () => {
           await i18next.init();
         }
 
-        // Language setup - ensure Japanese is default
+        // Language setup - ensure English is default
         const storedLang =
           typeof window !== "undefined"
             ? window.localStorage.getItem("i18nextLng")
             : null;
 
-        // Force Japanese as default for new visitors
+        // Force English as default for new visitors
         if (!storedLang) {
-          setLng("jp");
-          await i18next.changeLanguage("jp");
+          setLng("en");
+          await i18next.changeLanguage("en");
           if (typeof window !== "undefined") {
-            window.localStorage.setItem("i18nextLng", "jp");
+            window.localStorage.setItem("i18nextLng", "en");
           }
         } else if (storedLang && (storedLang === "en" || storedLang === "jp")) {
           setLng(storedLang);
           await i18next.changeLanguage(storedLang);
         } else {
-          // Fallback to Japanese
-          setLng("jp");
-          await i18next.changeLanguage("jp");
+          // Fallback to English
+          setLng("en");
+          await i18next.changeLanguage("en");
           if (typeof window !== "undefined") {
-            window.localStorage.setItem("i18nextLng", "jp");
+            window.localStorage.setItem("i18nextLng", "en");
           }
         }
 
@@ -55,7 +55,7 @@ const Navigation = () => {
       } catch (error) {
         console.error("Failed to initialize i18next:", error);
         // Fallback
-        setLng("jp");
+        setLng("en");
         setI18nReady(true);
       }
     };

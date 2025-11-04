@@ -17,14 +17,14 @@ import React from "react";
 import BlogSection from "./_components/BlogSection";
 
 const Homepage2 = () => {
-  const [lng, setLng] = React.useState(i18next.language || "jp");
+  const [lng, setLng] = React.useState(i18next.language || "en");
   const [mounted, setMounted] = React.useState(false);
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     setMounted(true);
 
-    const storedLang = window.localStorage.getItem("i18nextLng") || "jp";
+    const storedLang = window.localStorage.getItem("i18nextLng") || "en";
     i18next.changeLanguage(storedLang); // 🔐 Force i18next to use stored language
     setLng(storedLang);
 
