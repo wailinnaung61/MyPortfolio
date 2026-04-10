@@ -9,7 +9,7 @@ import "flag-icons/css/flag-icons.min.css";
 const MobileNavigation = ({ changeState }) => {
   const pathname = usePathname();
   const checkroute = pathname === "/";
-  const [lng, setLng] = useState("en");
+  const [lng, setLng] = useState("jp");
   const [isDark, setIsDark] = useState(false);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
@@ -199,30 +199,25 @@ const MobileNavigation = ({ changeState }) => {
           </li>
         </ul>
         {/* Language Switcher */}
-        <li className="block relative mt-4">
-          <div className="relative inline-block text-left w-full">
+        <li className="relative mt-5 block">
+          <div className="relative inline-block w-full text-left">
             <button
               type="button"
               aria-label="Switch language"
-              className={`flex items-center justify-between w-24 px-3 py-1 border border-primary rounded-md transition focus:outline-none focus:ring-2 focus:ring-primary
-                ${
-                  isDark
-                    ? "bg-gray-900 text-white hover:bg-primary-dark/10"
-                    : "bg-white text-heading hover:bg-primary/10"
-                }`}
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-4 py-2 text-heading shadow-[0_4px_20px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-primary/35 hover:bg-primary/10"
               onClick={() => setShowLangDropdown((prev) => !prev)}
-              tabIndex={0}
             >
               <span
-                className={`fi ${
-                  lng === "en" ? "fi-gb" : "fi-jp"
-                } w-5 h-4 mr-2`}
+                className={`fi ${lng === "en" ? "fi-gb" : "fi-jp"} h-4 w-5 flex-shrink-0 rounded-sm`}
               ></span>
-              <span className="font-semibold">
-                {lng === "en" ? "EN" : "JP"}
+              <span className="text-sm font-semibold">
+                {lng === "en" ? "English" : "日本語"}
               </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.7)]"></span>
               <svg
-                className="w-4 h-4 ml-2"
+                className={`h-3.5 w-3.5 text-heading/70 transition-transform duration-300 ${
+                  showLangDropdown ? "rotate-180" : ""
+                }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -233,40 +228,39 @@ const MobileNavigation = ({ changeState }) => {
             </button>
             {showLangDropdown && (
               <ul
-                className={`absolute left-0 mt-2 w-24 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50
-                ${isDark ? "bg-gray-900" : "bg-white"}`}
+                className={`absolute left-1/2 z-50 mt-2 w-40 -translate-x-1/2 rounded-xl border border-white/[0.1] p-1.5 shadow-2xl backdrop-blur-xl ${
+                  isDark ? "bg-gray-900/95" : "bg-white/95"
+                }`}
               >
-                {["en", "jp"]
-                  .filter((code) => code !== lng)
-                  .map((code) => (
-                    <li key={code}>
-                      <button
-                        type="button"
-                        className={`flex items-center w-full px-3 py-1 rounded-md transition font-semibold
-                          ${
-                            isDark
-                              ? "text-white hover:bg-primary-dark/10"
-                              : "text-heading hover:bg-primary/10"
-                          }`}
-                        onClick={() => {
-                          i18next.changeLanguage(code);
-                          if (typeof window !== "undefined") {
-                            window.localStorage.setItem("i18nextLng", code);
-                          }
-                          setShowLangDropdown(false);
-                        }}
-                      >
-                        <span
-                          className={`fi ${
-                            code === "en" ? "fi-gb" : "fi-jp"
-                          } w-5 h-4 mr-2`}
-                        ></span>
-                        <span className="font-semibold">
-                          {code.toUpperCase()}
-                        </span>
-                      </button>
-                    </li>
-                  ))}
+                {["en", "jp"].map((code) => (
+                  <li key={code}>
+                    <button
+                      type="button"
+                      className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+                        lng === code
+                          ? "bg-primary/12 text-primary"
+                          : isDark
+                          ? "text-white hover:bg-primary-dark/10 hover:text-primary-light"
+                          : "text-heading hover:bg-primary/10 hover:text-primary"
+                      }`}
+                      onClick={() => {
+                        i18next.changeLanguage(code);
+                        if (typeof window !== "undefined") {
+                          window.localStorage.setItem("i18nextLng", code);
+                          document.documentElement.lang = code === "en" ? "en" : "ja";
+                        }
+                        setShowLangDropdown(false);
+                      }}
+                    >
+                      <span
+                        className={`fi ${code === "en" ? "fi-gb" : "fi-jp"} h-4 w-5 flex-shrink-0 rounded-sm`}
+                      ></span>
+                      <span className="font-medium">
+                        {code === "en" ? "English" : "日本語"}
+                      </span>
+                    </button>
+                  </li>
+                ))}
               </ul>
             )}
           </div>

@@ -15,30 +15,37 @@
   },
   {
     "id": 3,
-    "title": "Php",
+    "title": "React",
+    "title_en": "React",
+    "title_jp": "React",
+    "value": "react"
+  },
+  {
+    "id": 4,
+    "title": "PHP",
     "title_en": "PHP",
     "title_jp": "PHP",
     "value": "php"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "AWS",
     "title_en": "AWS",
     "title_jp": "AWS",
     "value": "aws"
   },
   {
-    "id": 5,
-    "title": "Web Development",
-    "title_en": "Web Development",
-    "title_jp": "Web開発",
+    "id": 6,
+    "title": "Web",
+    "title_en": "Web",
+    "title_jp": "Web",
     "value": "web"
   },
   {
-    "id": 6,
-    "title": "Window Development",
-    "title_en": "Windows Development",
-    "title_jp": "Windows開発",
+    "id": 7,
+    "title": "Windows",
+    "title_en": "Windows",
+    "title_jp": "Windows",
     "value": "window"
   }
 ]

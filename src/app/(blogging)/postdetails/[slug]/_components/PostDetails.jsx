@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { MarkdownRenderer } from "@/components/utils";
-import { shimmer, toBase64 } from "@/lib/utils";
+import { formatPostDateLine, shimmer, toBase64 } from "@/lib/utils";
 import Image from "next/image";
 import { CategoryLinks } from "./PostInteractiveElements";
 import i18next from "i18next";
@@ -15,11 +15,7 @@ export default function PostDetails({ postData }) {
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
-  const formattedDate = new Date(date).toLocaleDateString("en-us", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
+  const formattedDate = formatPostDateLine(date);
 
   return (
     <>

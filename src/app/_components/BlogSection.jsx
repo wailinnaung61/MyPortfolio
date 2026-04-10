@@ -1,6 +1,8 @@
 "use client";
 
 import { Spinner } from "@/components/utils";
+import { fadeUp } from "@/lib/motion";
+import { motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -39,7 +41,13 @@ const BlogSection = ({ posts }) => {
 	}
 
 	return (
-		<div className="swiper-holder">
+		<motion.div
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.15 }}
+			variants={fadeUp}
+			className="swiper-holder"
+		>
 			<Swiper
 				modules={[Autoplay]}
 				spaceBetween={28}
@@ -72,7 +80,7 @@ const BlogSection = ({ posts }) => {
 			</Swiper>
 			<button className="swiper-button-prev" onClick={handlePrev}></button>
 			<button className="swiper-button-next" onClick={handleNext}></button>
-		</div>
+		</motion.div>
 	);
 };
 

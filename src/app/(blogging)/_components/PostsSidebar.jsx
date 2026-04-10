@@ -4,6 +4,7 @@ import i18next from "i18next";
 import { childrenAnimation } from "@/lib/motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { formatPostCalendarParts } from "@/lib/utils";
 
 export default function PostsSidebar({ categories, recentPosts }) {
   const [lng, setLng] = useState(i18next.language);
@@ -49,27 +50,24 @@ export default function PostsSidebar({ categories, recentPosts }) {
           {lng === "jp" ? "最近の投稿" : "Recent Posts"}
         </h5>
         <ul className="mb-0 list-none pl-0">
-          {recentPosts.map((post, index) => (
-            <li key={index} className="mb-4 last:mb-0">
-              <p className="mb-0">
-                <Link
-                  href={`/postdetails/${post.slug}`}
-                  className="text-heading no-underline hover:text-primary hover:underline"
-                >
-                  {post.title}{" "}
-                </Link>
-              </p>
-              <small className="text-body">
-                {`${new Date(post.date).toLocaleDateString("en-us", {
-                  month: "short",
-                })} ${new Date(post.date).toLocaleDateString("en-us", {
-                  day: "2-digit",
-                })}, ${new Date(post.date).getFullYear({
-                  year: "numeric",
-                })}`}
-              </small>
-            </li>
-          ))}
+          {recentPosts.map((post, index) => {
+            const { month, day, year } = formatPostCalendarParts(post.date);
+            return (
+              <li key={index} className="mb-4 last:mb-0">
+                <p className="mb-0">
+                  <Link
+                    href={`/postdetails/${post.slug}`}
+                    className="text-heading no-underline hover:text-primary hover:underline"
+                  >
+                    {post.title}{" "}
+                  </Link>
+                </p>
+                <small className="text-body">
+                  {`${month} ${day}, ${year}`}
+                </small>
+              </li>
+            );
+          })}
         </ul>
       </motion.div>
     </div>

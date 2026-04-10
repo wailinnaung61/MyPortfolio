@@ -9,7 +9,7 @@ import { useAppContext } from "@/context/appContext";
 const Navigation = () => {
   const { isDark, setIsDark } = useAppContext();
   const [mounted, setMounted] = useState(false);
-  const [lng, setLng] = useState("en");
+  const [lng, setLng] = useState("jp");
   const [i18nReady, setI18nReady] = useState(false);
   const pathname = usePathname();
   const checkroute = pathname === "/";
@@ -26,36 +26,38 @@ const Navigation = () => {
           await i18next.init();
         }
 
-        // Language setup - ensure English is default
+        // Language: Japanese default for new visitors; respect saved choice
         const storedLang =
           typeof window !== "undefined"
             ? window.localStorage.getItem("i18nextLng")
             : null;
 
-        // Force English as default for new visitors
         if (!storedLang) {
-          setLng("en");
-          await i18next.changeLanguage("en");
+          setLng("jp");
+          await i18next.changeLanguage("jp");
           if (typeof window !== "undefined") {
-            window.localStorage.setItem("i18nextLng", "en");
+            window.localStorage.setItem("i18nextLng", "jp");
+            document.documentElement.lang = "ja";
           }
         } else if (storedLang && (storedLang === "en" || storedLang === "jp")) {
           setLng(storedLang);
           await i18next.changeLanguage(storedLang);
+          if (typeof document !== "undefined") {
+            document.documentElement.lang = storedLang === "en" ? "en" : "ja";
+          }
         } else {
-          // Fallback to English
-          setLng("en");
-          await i18next.changeLanguage("en");
+          setLng("jp");
+          await i18next.changeLanguage("jp");
           if (typeof window !== "undefined") {
-            window.localStorage.setItem("i18nextLng", "en");
+            window.localStorage.setItem("i18nextLng", "jp");
+            document.documentElement.lang = "ja";
           }
         }
 
         setI18nReady(true);
       } catch (error) {
         console.error("Failed to initialize i18next:", error);
-        // Fallback
-        setLng("en");
+        setLng("jp");
         setI18nReady(true);
       }
     };
@@ -91,8 +93,8 @@ const Navigation = () => {
   const t = (key) => i18next.t(key, { lng, ns: "common" });
 
   return (
-    <nav className="flex-grow px-5 text-center">
-      <ul className="mb-0 inline-flex list-none gap-7 pl-0">
+    <nav className="px-4 text-center">
+      <ul className="mb-0 inline-flex list-none gap-6 pl-0">
         <li className="inline-block align-middle">
           {!checkroute ? (
             <Link
@@ -227,11 +229,17 @@ const Navigation = () => {
           <button
             type="button"
             aria-label="Switch language"
-            className="flex items-center gap-1 px-3 py-1 border border-primary text-white rounded-md hover:bg-primary/10 transition"
+            className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-heading shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:shadow-[0_0_16px_rgba(16,185,129,0.15)]"
           >
-            <span className="text-heading">{lng === "en" ? "EN" : "JP"}</span>
+            <span
+              className={`fi ${lng === "en" ? "fi-gb" : "fi-jp"} h-4 w-5 flex-shrink-0 rounded-sm`}
+            ></span>
+            <span className="text-xs font-semibold tracking-wide">
+              {lng === "en" ? "English" : "日本語"}
+            </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(16,185,129,0.7)]"></span>
             <svg
-              className="w-4 h-4 ml-1 text-heading"
+              className="ml-0.5 h-3.5 w-3.5 text-heading/70 transition-transform duration-300 group-hover:rotate-180"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -244,30 +252,46 @@ const Navigation = () => {
               />
             </svg>
           </button>
-          <ul className="absolute left-0 mt-2 hidden min-w-[7rem] origin-top-right border border-primary bg-gray-200 shadow-lg group-hover:block z-50 list-none">
-            <li
-              onClick={() => {
-                i18next.changeLanguage("en");
-                if (typeof window !== "undefined") {
-                  window.localStorage.setItem("i18nextLng", "en");
-                }
-              }}
-              className="flex items-center gap-1 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 cursor-default"
-            >
-              <span className="fi fi-gb flex-shrink-0 w-5 h-4"></span>
-              English
+          <ul className="absolute left-0 z-50 mt-2 hidden min-w-[9rem] list-none overflow-hidden rounded-xl border border-white/[0.08] bg-grey-lighten/95 p-1.5 shadow-2xl backdrop-blur-xl group-hover:block">
+            <li>
+              <button
+                type="button"
+                onClick={() => {
+                  i18next.changeLanguage("en");
+                  if (typeof window !== "undefined") {
+                    window.localStorage.setItem("i18nextLng", "en");
+                    document.documentElement.lang = "en";
+                  }
+                }}
+                className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+                  lng === "en"
+                    ? "bg-primary/12 text-primary"
+                    : "text-heading hover:bg-primary/8 hover:text-primary"
+                }`}
+              >
+                <span className="fi fi-gb h-4 w-5 flex-shrink-0 rounded-sm"></span>
+                <span className="font-medium">English</span>
+              </button>
             </li>
-            <li
-              onClick={() => {
-                i18next.changeLanguage("jp");
-                if (typeof window !== "undefined") {
-                  window.localStorage.setItem("i18nextLng", "jp");
-                }
-              }}
-              className="flex items-center gap-1 px-4 py-2 text-sm text-gray-800 hover:bg-gray-300 cursor-default"
-            >
-              <span className="fi fi-jp flex-shrink-0 w-5 h-4"></span>
-              日本語
+            <li>
+              <button
+                type="button"
+                onClick={() => {
+                  i18next.changeLanguage("jp");
+                  if (typeof window !== "undefined") {
+                    window.localStorage.setItem("i18nextLng", "jp");
+                    document.documentElement.lang = "ja";
+                  }
+                }}
+                className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200 ${
+                  lng === "jp"
+                    ? "bg-primary/12 text-primary"
+                    : "text-heading hover:bg-primary/8 hover:text-primary"
+                }`}
+              >
+                <span className="fi fi-jp h-4 w-5 flex-shrink-0 rounded-sm"></span>
+                <span className="font-medium">日本語</span>
+              </button>
             </li>
           </ul>
         </li>

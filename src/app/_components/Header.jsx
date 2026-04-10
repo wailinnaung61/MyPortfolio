@@ -8,7 +8,7 @@ import { RiMenuLine } from "react-icons/ri";
 import { Link as ScrollLink } from "react-scroll";
 import MobileNavigation from "./MobileNavigation";
 import Navigation from "./Navigation";
-import i18next from "i18next";
+import i18next from "@/i18n";
 
 const Header = () => {
   const [sticky, setSticky] = useState(false);
@@ -34,11 +34,14 @@ const Header = () => {
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
   return (
-    <header
-      className={`header top-0 left-0 z-50 h-auto w-full ${
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`header top-0 left-0 z-50 h-auto w-full transition-all duration-400 ease-premium ${
         sticky
-          ? "fixed animate-slidedown border-b border-white border-opacity-20 bg-grey bg-opacity-80 backdrop-blur backdrop-filter"
-          : "absolute"
+          ? "fixed animate-slidedown border-b border-white/[0.06] bg-grey/75 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl supports-[backdrop-filter]:bg-grey/65"
+          : "absolute bg-gradient-to-b from-grey-darken/40 to-transparent backdrop-blur-[2px] supports-[backdrop-filter]:from-grey-darken/30"
       }`}
     >
       <div className="container mx-auto">
@@ -54,12 +57,10 @@ const Header = () => {
             <AnimatePresence>
               {mobileMenu && (
                 <motion.div
-                  initial={{ translateY: "100vh" }}
-                  animate={{ translateY: "0px" }}
-                  exit={{ translateY: "-100vh" }}
-                  transition={{
-                    duration: 0.5,
-                  }}
+                  initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-grey p-4 text-center"
                 >
                   <MobileNavigation changeState={setMobileMenu} />
@@ -67,25 +68,27 @@ const Header = () => {
               )}
             </AnimatePresence>
           </div>
-          <div className="header-nav hidden lg:block">
-            <Navigation />
-          </div>
-          <div className="header-button hidden lg:block">
-            <ScrollLink
-              activeClass="active"
-              to="section-contact"
-              spy={true}
-              smooth="easeInQuad"
-              offset={-74}
-              duration={1000}
-              className="btn"
-            >
-              <span> {t("hireme")}</span>
-            </ScrollLink>
+          <div className="hidden items-center gap-3 lg:flex xl:gap-4">
+            <div className="header-nav">
+              <Navigation />
+            </div>
+            <div className="header-button">
+              <ScrollLink
+                activeClass="active"
+                to="section-contact"
+                spy={true}
+                smooth="easeInQuad"
+                offset={-74}
+                duration={1000}
+                className="btn"
+              >
+                <span> {t("hireme")}</span>
+              </ScrollLink>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

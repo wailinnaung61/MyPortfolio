@@ -1,5 +1,6 @@
 "use client";
 
+import "@/i18n";
 import { AppProvider } from "@/context/appContext";
 import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";

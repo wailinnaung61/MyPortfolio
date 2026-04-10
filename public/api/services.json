@@ -4,29 +4,29 @@
     "title": "Backend Development",
     "title_en": "Backend Development",
     "title_jp": "バックエンド開発",
-    "text": "Experienced in scalable backend systems using Java, C#, .NET, Spring Boot, and PHP. Skilled in SQL databases, API integration, and backend architecture.",
-    "text_en": "Experienced in scalable backend systems using Java, C#, .NET, Spring Boot, and PHP. Skilled in SQL databases, API integration, and backend architecture.",
-    "text_jp": "Java、C#、.NET、Spring Boot、PHP を使用したスケーラブルなバックエンドシステムの開発経験あり。SQLデータベース、API連携、バックエンドアーキテクチャに精通。",
-    "icon": "/icons/quill-pen-line.svg"
-  },
-  {
-    "id": 2,
-    "title": "Frontend & DevOps",
-    "title_en": "Frontend & DevOps",
-    "title_jp": "フロントエンド＆DevOps",
-    "text": "Proficient in HTML, CSS, JavaScript, React, Bootstrap, and jQuery. Experienced with deployment, AWS, CI/CD pipelines, and web server configuration.",
-    "text_en": "Proficient in HTML, CSS, JavaScript, React, Bootstrap, and jQuery. Experienced with deployment, AWS, CI/CD pipelines, and web server configuration.",
-    "text_jp": "HTML、CSS、JavaScript、React、Bootstrap、jQuery に熟練。デプロイ、AWS、CI/CDパイプライン、Webサーバー構成の経験あり。",
+    "text": "Building robust, scalable server-side systems with Java, C#, .NET, and Spring Boot. Database design, RESTful APIs, and enterprise-grade architecture.",
+    "text_en": "Building robust, scalable server-side systems with Java, C#, .NET, and Spring Boot. Database design, RESTful APIs, and enterprise-grade architecture.",
+    "text_jp": "Java、C#、.NET、Spring Bootによる堅牢でスケーラブルなサーバーサイドシステムの構築。データベース設計、RESTful API、エンタープライズグレードのアーキテクチャ。",
     "icon": "/icons/code-s-slash-line.svg"
   },
   {
+    "id": 2,
+    "title": "Frontend & Web Apps",
+    "title_en": "Frontend & Web Apps",
+    "title_jp": "フロントエンド＆Webアプリ",
+    "text": "Creating responsive, interactive web experiences with React, Next.js, and Tailwind CSS. From pixel-perfect UIs to complex single-page applications.",
+    "text_en": "Creating responsive, interactive web experiences with React, Next.js, and Tailwind CSS. From pixel-perfect UIs to complex single-page applications.",
+    "text_jp": "React、Next.js、Tailwind CSSによるレスポンシブでインタラクティブなWeb体験の構築。ピクセルパーフェクトなUIから複雑なSPAまで。",
+    "icon": "/icons/quill-pen-line.svg"
+  },
+  {
     "id": 3,
-    "title": "Mobile & Tools",
-    "title_en": "Mobile & Tools",
-    "title_jp": "モバイル＆ツール",
-    "text": "Light experience in mobile development. Strong in development tools, remote access utilities, IDEs, testing, and collaborative tools.",
-    "text_en": "Light experience in mobile development. Strong in development tools, remote access utilities, IDEs, testing, and collaborative tools.",
-    "text_jp": "モバイル開発の経験は浅いが、開発ツール、リモートアクセスツール、IDE、テスト、コラボレーションツールに強みあり。",
+    "title": "Cloud & DevOps",
+    "title_en": "Cloud & DevOps",
+    "title_jp": "クラウド＆DevOps",
+    "text": "AWS-certified infrastructure design and deployment. CI/CD pipelines, containerization with Docker, and automated cloud operations for production workloads.",
+    "text_en": "AWS-certified infrastructure design and deployment. CI/CD pipelines, containerization with Docker, and automated cloud operations for production workloads.",
+    "text_jp": "AWS認定のインフラ設計とデプロイメント。CI/CDパイプライン、Dockerによるコンテナ化、本番ワークロードのためのクラウド自動運用。",
     "icon": "/icons/smartphone-line.svg"
   }
 ]

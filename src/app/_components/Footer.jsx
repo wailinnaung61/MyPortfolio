@@ -9,7 +9,7 @@ import i18next from "i18next";
 
 const Footer = () => {
   const { data } = useQuery("information", getInformation);
-  const [lng, setLng] = useState(i18next.language || "en");
+  const [lng, setLng] = useState(i18next.language || "jp");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

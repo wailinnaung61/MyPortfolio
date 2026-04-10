@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import i18next from "i18next";
+import i18next from "@/i18n";
 import { useEffect, useState } from "react";
 
 const Logo = ({ url = "/", text = false }) => {
@@ -31,16 +31,20 @@ const Logo = ({ url = "/", text = false }) => {
           await i18next.changeLanguage("jp");
           if (typeof window !== "undefined") {
             window.localStorage.setItem("i18nextLng", "jp");
+            document.documentElement.lang = "ja";
           }
         } else if (storedLang && (storedLang === "en" || storedLang === "jp")) {
           setLng(storedLang);
           await i18next.changeLanguage(storedLang);
+          if (typeof document !== "undefined") {
+            document.documentElement.lang = storedLang === "en" ? "en" : "ja";
+          }
         } else {
-          // Fallback to Japanese
           setLng("jp");
           await i18next.changeLanguage("jp");
           if (typeof window !== "undefined") {
             window.localStorage.setItem("i18nextLng", "jp");
+            document.documentElement.lang = "ja";
           }
         }
 

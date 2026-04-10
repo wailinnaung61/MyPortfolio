@@ -1,30 +1,68 @@
 [
     {
         "id": 1,
-        "title": "UI/UX Design",
-        "title_en": "UI/UX Design",
-        "title_jp": "UI/UXデザイン",
-        "percentage": 10
+        "title": "Backend Development",
+        "title_en": "Backend Development",
+        "title_jp": "バックエンド開発",
+        "percentage": 95,
+        "level": "Expert",
+        "level_jp": "エキスパート",
+        "category": "backend",
+        "items": ["C#", "Java", "Spring Boot", ".NET", "PHP"]
     },
     {
         "id": 2,
-        "title": "Back-end Development",
-        "title_en": "Back-end Development",
-        "title_jp": "バックエンド開発",
-        "percentage": 95
+        "title": "Frontend Development",
+        "title_en": "Frontend Development",
+        "title_jp": "フロントエンド開発",
+        "percentage": 80,
+        "level": "Advanced",
+        "level_jp": "上級",
+        "category": "frontend",
+        "items": ["React", "Next.js", "HTML/CSS", "JavaScript", "Tailwind CSS"]
     },
     {
         "id": 3,
-        "title": "Front-end Development",
-        "title_en": "Front-end Development",
-        "title_jp": "フロントエンド開発",
-        "percentage": 80
+        "title": "Cloud & AWS",
+        "title_en": "Cloud & AWS",
+        "title_jp": "クラウド＆AWS",
+        "percentage": 85,
+        "level": "Advanced",
+        "level_jp": "上級",
+        "category": "cloud",
+        "items": ["EC2", "S3", "RDS", "Lambda", "Route53"]
     },
     {
         "id": 4,
-        "title": "Mobile App Development",
-        "title_en": "Mobile App Development",
-        "title_jp": "モバイルアプリ開発",
-        "percentage": 20
+        "title": "Databases",
+        "title_en": "Databases",
+        "title_jp": "データベース",
+        "percentage": 85,
+        "level": "Advanced",
+        "level_jp": "上級",
+        "category": "database",
+        "items": ["MySQL", "SQL Server", "PostgreSQL"]
+    },
+    {
+        "id": 5,
+        "title": "DevOps & Tools",
+        "title_en": "DevOps & Tools",
+        "title_jp": "DevOps＆ツール",
+        "percentage": 70,
+        "level": "Intermediate",
+        "level_jp": "中級",
+        "category": "devops",
+        "items": ["Docker", "Jenkins", "Git", "CI/CD"]
+    },
+    {
+        "id": 6,
+        "title": "Mobile Development",
+        "title_en": "Mobile Development",
+        "title_jp": "モバイル開発",
+        "percentage": 30,
+        "level": "Beginner",
+        "level_jp": "初級",
+        "category": "mobile",
+        "items": ["Android SDK"]
     }
 ]

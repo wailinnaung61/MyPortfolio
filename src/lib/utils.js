@@ -18,3 +18,30 @@ export const toBase64 = (str) =>
 export const imageLoader = (src) => {
 	return src;
 };
+
+/**
+ * Format post dates in UTC so Node (SSR) and the browser produce the same strings
+ * and React hydration does not fail on blog/post lists.
+ */
+export function formatPostCalendarParts(dateInput) {
+	const d = new Date(dateInput);
+	if (Number.isNaN(d.getTime())) {
+		return { month: "—", day: "—", year: "—" };
+	}
+	return {
+		month: d.toLocaleDateString("en-US", { month: "short", timeZone: "UTC" }),
+		day: d.toLocaleDateString("en-US", { day: "2-digit", timeZone: "UTC" }),
+		year: d.getUTCFullYear(),
+	};
+}
+
+export function formatPostDateLine(dateInput) {
+	const d = new Date(dateInput);
+	if (Number.isNaN(d.getTime())) return "";
+	return d.toLocaleDateString("en-US", {
+		month: "short",
+		day: "2-digit",
+		year: "numeric",
+		timeZone: "UTC",
+	});
+}

@@ -1,10 +1,10 @@
 "use client";
-import { useAppContext } from "@/context/appContext";
+
 import i18next from "@/i18n";
 import { useEffect, useState } from "react";
+import { RiDownload2Fill, RiCalendarLine, RiAwardLine } from "react-icons/ri";
 
 const Review = ({ review }) => {
-  const { isDark } = useAppContext();
   const [lng, setLng] = useState(i18next.language);
   useEffect(() => {
     const handleLangChange = (lng) => setLng(lng);
@@ -14,7 +14,9 @@ const Review = ({ review }) => {
 
   const name = review[`name_${lng}`] || review.name_en || review.name;
   const text = review[`text_${lng}`] || review.text_en || review.text;
-  const { meta } = review;
+  const { meta, category } = review;
+
+  const isAws = category === "aws";
 
   const handleDownloadCertificate = () => {
     if (!review.certificateFile) return;
@@ -28,98 +30,48 @@ const Review = ({ review }) => {
 
   return (
     <div
-      className={`review card mt-11 p-6 md:p-8 rounded-2xl shadow-xl transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl border border-gray-200/20 min-h-[320px] flex flex-col justify-between ${
-        isDark ? "bg-[#23293a] border-[#2d3448]" : "bg-white border-gray-100"
+      className={`group card relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden p-5 transition-all duration-300 hover:-translate-y-1 ${
+        isAws
+          ? "hover:border-amber-500/20 hover:shadow-lg hover:shadow-amber-500/5"
+          : "hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5"
       }`}
     >
       <div>
-        <h5 className="mb-3 text-2xl font-semibold text-primary/90 tracking-tight dark:text-primary/90 text-primary">
-          {name}
-        </h5>
-        <p
-          className={`mb-3 text-sm ${
-            isDark ? "text-gray-300" : "text-gray-800"
-          } flex items-center`}
-        >
-          <span className="font-medium flex items-center">
-            <svg
-              className="inline-block mr-1 mb-0.5"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke={isDark ? "#d1d5db" : "#374151"}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-            {lng === "jp" ? "日付 ー " : "Date - "}
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white/[0.04]">
+            <RiAwardLine className={`text-base ${isAws ? "text-amber-500" : "text-primary"}`} />
+          </div>
+          <span className="flex items-center gap-1 text-xs text-body/50">
+            <RiCalendarLine className="text-xs" />
+            {meta}
           </span>
-          <span className="ml-2">{meta}</span>
-        </p>
-        <p
-          className={`mb-6 text-base leading-relaxed flex-1 ${
-            isDark ? "text-gray-300" : "text-gray-800"
-          } flex items-start`}
-        >
-          <svg
-            className="inline-block mr-2 mb-1 flex-shrink-0"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke={isDark ? "#d1d5db" : "#374151"}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M9 17H7a4 4 0 0 1 4-4V7a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4z" />
-            <path d="M17 17h-2a4 4 0 0 1 4-4V7a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4z" />
-          </svg>
-          {text}
-        </p>
+        </div>
+
+        <h5 className="mb-2 text-sm font-semibold leading-snug text-heading">{name}</h5>
+        <p className="mb-0 text-xs leading-relaxed text-body/60">{text}</p>
       </div>
-      <div className="flex justify-end mt-4">
+
+      <div className="mt-4 flex items-center justify-between">
+        {category && (
+          <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider ${
+            isAws
+              ? "border-amber-500/20 bg-amber-500/10 text-amber-500"
+              : "border-white/[0.08] bg-white/[0.04] text-body/50"
+          }`}>
+            {category}
+          </span>
+        )}
         <button
           onClick={handleDownloadCertificate}
-          className={`group relative inline-flex items-center justify-center h-12 w-12 rounded-full border-2 transition-all duration-200 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 hover:scale-110 hover:shadow-xl ${
-            isDark
-              ? "border-[#434b63] bg-[#23293a] hover:border-primary"
-              : "border-primary bg-gray-50 hover:border-primary"
+          className={`!m-0 !inline-flex !h-9 !w-9 !min-h-0 !shrink-0 !items-center !justify-center !rounded-full !p-0 border shadow-sm transition-all duration-200 ${
+            isAws
+              ? "border-amber-500/35 bg-amber-500/12 text-amber-300 hover:border-amber-500/55 hover:bg-amber-500/20 hover:text-amber-200"
+              : "border-primary/35 bg-primary/12 text-primary/90 hover:border-primary/55 hover:bg-primary/18 hover:text-primary"
           }`}
-          title="Download"
+          title={lng === "jp" ? "証明書をダウンロード" : "Download certificate"}
+          aria-label={lng === "jp" ? "証明書をダウンロード" : "Download certificate"}
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            className={`w-7 h-7 ${
-              isDark ? "text-gray-300" : "text-primary"
-            } group-hover:text-primary`}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 5v10"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M6 15l6 4 6-4"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
+          <RiDownload2Fill className="text-lg leading-none opacity-100" />
         </button>
       </div>
     </div>

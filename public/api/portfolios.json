@@ -1,5 +1,20 @@
 [
   {
+    "id": 0,
+    "title_en": "Spendio - Expense Tracker",
+    "title_jp": "Spendio - 経費追跡アプリ",
+    "subtitle_en": "AI-powered personal finance app with budget planning, multi-currency support, and beautiful analytics",
+    "subtitle_jp": "AI搭載のパーソナルファイナンスアプリ。予算管理、多通貨対応、美しい分析機能を搭載",
+    "coverimage": "/images/portfolios/spendio_eng.png",
+    "coverimage_en": "/images/portfolios/spendio_eng.png",
+    "coverimage_jp": "/images/portfolios/spendio_jp.png",
+    "imagegallery": [],
+    "videogallery": false,
+    "url": "https://www.usespendio.com/",
+    "filters": ["react", "aws", "web", "csharp"],
+    "featured": true
+  },
+  {
     "id": 1,
     "title_en": "E-Library CheckIn/Out System",
     "title_jp": "図書館ICカード入退館システム",

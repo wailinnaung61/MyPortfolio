@@ -1,9 +1,10 @@
 import { createSlug } from "@/lib";
-import { shimmer, toBase64 } from "@/lib/utils";
+import { formatPostCalendarParts, shimmer, toBase64 } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
 const Blog = ({ post: { title, date, thumb, category, slug } }) => {
+  const { month, day, year } = formatPostCalendarParts(date);
   return (
     <article className="blog card p-4 md:p-5">
       <div className="blog-top relative mb-4">
@@ -26,20 +27,10 @@ const Blog = ({ post: { title, date, thumb, category, slug } }) => {
         </Link>
         <div className="blog-date absolute left-auto right-5 top-5 inline-block min-h-[60px] min-w-[60px] rounded bg-primary p-2 text-center text-grey">
           <span className="month block text-sm uppercase leading-none">
-            {new Date(date).toLocaleDateString("en-us", {
-              month: "short",
-            })}
+            {month}
           </span>
-          <span className="date block text-2xl leading-none">
-            {new Date(date).toLocaleDateString("en-us", {
-              day: "2-digit",
-            })}
-          </span>
-          <span className="year block text-sm leading-none">
-            {new Date(date).getFullYear({
-              year: "numeric",
-            })}
-          </span>
+          <span className="date block text-2xl leading-none">{day}</span>
+          <span className="year block text-sm leading-none">{year}</span>
         </div>
       </div>
       <h5 className="mb-0">

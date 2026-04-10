@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { RiBriefcaseLine } from "react-icons/ri";
 import { useQuery } from "react-query";
 import { getJobExperience } from "../../fetchers";
-import { childrenAnimation } from "../../lib/motion";
+import { staggerContainer, staggerItem, fadeUp } from "../../lib/motion";
 import { TimelineItem } from "../elements";
 import i18next from "i18next";
 import { useEffect, useState } from "react";
@@ -21,30 +21,38 @@ const JobTimeline = () => {
 
   return (
     <div className="job-experience">
-      <h4>
+      <motion.h4
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         <RiBriefcaseLine className="mr-2 inline-block text-primary" />
         {lng === "jp" ? "職務経歴" : "Working Experience"}
-      </h4>
-      {data?.map((timeline, index) => (
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 * index }}
-          variants={childrenAnimation}
-          className="timeline-wrap"
-          key={timeline.id}
-        >
-          <TimelineItem
-            timeline={{
-              ...timeline,
-              title: lng === "jp" ? timeline.title_jp : timeline.title_en,
-              meta: lng === "jp" ? timeline.meta_jp : timeline.meta_en,
-              text: lng === "jp" ? timeline.text_jp : timeline.text_en,
-            }}
-          />
-        </motion.div>
-      ))}
+      </motion.h4>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainer(0.12)}
+      >
+        {data?.map((timeline) => (
+          <motion.div
+            variants={staggerItem}
+            className="timeline-wrap"
+            key={timeline.id}
+          >
+            <TimelineItem
+              timeline={{
+                ...timeline,
+                title: lng === "jp" ? timeline.title_jp : timeline.title_en,
+                meta: lng === "jp" ? timeline.meta_jp : timeline.meta_en,
+                text: lng === "jp" ? timeline.text_jp : timeline.text_en,
+              }}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };

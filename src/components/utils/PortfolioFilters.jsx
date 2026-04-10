@@ -18,26 +18,30 @@ const PortfolioFilters = ({ currentFilter, filterHandler }) => {
   if (!data) return null;
 
   return (
-    <div className="portfolio-filters flex flex-wrap justify-center gap-4">
+    <div className="portfolio-filters flex flex-wrap justify-center gap-2">
       <button
-        className={`btn btn-small ${
-          currentFilter === "" ? "" : "btn-transparent"
+        type="button"
+        className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
+          currentFilter === ""
+            ? "border-primary/30 bg-primary/10 text-primary"
+            : "border-white/[0.08] bg-white/[0.03] text-body hover:border-primary/20 hover:text-primary"
         }`}
         onClick={() => filterHandler("")}
       >
-        <span>{lng === "jp" ? "全て" : "All"}</span>
+        {lng === "jp" ? "全て" : "All"}
       </button>
       {data?.map((filter) => (
         <button
-          className={`btn btn-small ${
+          type="button"
+          className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
             currentFilter === filter.value
-              ? "before:invisible"
-              : "btn-transparent"
+              ? "border-primary/30 bg-primary/10 text-primary"
+              : "border-white/[0.08] bg-white/[0.03] text-body hover:border-primary/20 hover:text-primary"
           }`}
           onClick={() => filterHandler(filter.value)}
           key={filter.id}
         >
-          <span>{lng === "jp" ? filter.title_jp : filter.title_en}</span>
+          {lng === "jp" ? filter.title_jp : filter.title_en}
         </button>
       ))}
     </div>

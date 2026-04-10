@@ -1,9 +1,10 @@
 "use client";
 
-import i18next from "i18next";
+import i18next from "@/i18n";
 import {
   AboutSection,
   ContactSection,
+  FeaturedProject,
   HeroSection,
   PortfoliosSection,
   ResumeSection,
@@ -16,27 +17,30 @@ import SectionWrapper from "@/components/utils/SectionWrapper";
 import React from "react";
 import BlogSection from "./_components/BlogSection";
 
-const Homepage2 = () => {
-  const [lng, setLng] = React.useState(i18next.language || "en");
+const Homepage = () => {
+  const [lng, setLng] = React.useState(i18next.language || "jp");
   const [mounted, setMounted] = React.useState(false);
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     setMounted(true);
 
-    const storedLang = window.localStorage.getItem("i18nextLng") || "en";
-    i18next.changeLanguage(storedLang); // 🔐 Force i18next to use stored language
+    const storedLang = window.localStorage.getItem("i18nextLng") || "jp";
+    i18next.changeLanguage(storedLang);
     setLng(storedLang);
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = storedLang === "en" ? "en" : "ja";
+    }
 
     const handleLangChange = (lng) => setLng(lng);
     i18next.on("languageChanged", handleLangChange);
 
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
+
   React.useEffect(() => {
     const fetchPosts = async () => {
       try {
-        // For client-side, fetch from public API files
         const response = await fetch("/api/posts.json");
         const data = await response.json();
         setPosts(data);
@@ -49,18 +53,16 @@ const Homepage2 = () => {
 
   const t = (key) => i18next.t(key, { lng, ns: "common" });
 
-  // Prevent hydration mismatch: do not render until mounted on client
   if (!mounted) return null;
 
   return (
     <React.Fragment>
-      {/* Start Hero Section */}
+      {/* Hero */}
       <SectionWrapper name="section-home">
         <HeroSection />
       </SectionWrapper>
-      {/* End Hero Section */}
 
-      {/* Start About Section */}
+      {/* About Me */}
       <SectionWrapper
         name="section-about"
         className="about-section pt-24 lg:pt-28 xl:pt-32"
@@ -74,9 +76,23 @@ const Homepage2 = () => {
           <AboutSection />
         </div>
       </SectionWrapper>
-      {/* End About Section */}
 
-      {/* Start Skills Section */}
+      {/* Featured Project (Spendio) */}
+      <SectionWrapper
+        name="section-featured"
+        className="featured-section pt-24 lg:pt-28 xl:pt-32"
+      >
+        <div className="container mx-auto">
+          <SectionHeading
+            animated={false}
+            title={t("featuredproject")}
+            watermark={t("featured")}
+          />
+          <FeaturedProject />
+        </div>
+      </SectionWrapper>
+
+      {/* Skills */}
       <SectionWrapper
         name="section-skills"
         className="skills-section pt-24 lg:pt-28 xl:pt-32"
@@ -90,57 +106,8 @@ const Homepage2 = () => {
           <SkillsSection />
         </div>
       </SectionWrapper>
-      {/* End Skills Section */}
 
-      {/* Start Service Section */}
-      <SectionWrapper
-        name="section-service"
-        className="services-section pt-24 lg:pt-28 xl:pt-32"
-      >
-        <div className="container mx-auto">
-          <SectionHeading
-            animated={false}
-            title={t("myservices")}
-            watermark={t("services")}
-          />
-          <ServicesSection />
-        </div>
-      </SectionWrapper>
-      {/* End Service Section */}
-
-      {/* Start Resume Section */}
-      <SectionWrapper
-        name="section-resume"
-        className="resume-section pt-24 lg:pt-28 xl:pt-32"
-      >
-        <div className="container mx-auto">
-          <SectionHeading
-            animated={false}
-            title={t("myresume")}
-            watermark={t("resume")}
-          />
-          <ResumeSection />
-        </div>
-      </SectionWrapper>
-      {/* End Resume Section */}
-
-      {/* Start Portfolios Section */}
-      <SectionWrapper
-        name="section-portfolios"
-        className="portfolios-section pt-24 lg:pt-28 xl:pt-32"
-      >
-        <div className="container mx-auto">
-          <SectionHeading
-            animated={false}
-            title={t("myworks")}
-            watermark={t("portfolio")}
-          />
-          <PortfoliosSection />
-        </div>
-      </SectionWrapper>
-      {/* End Portfolios Section */}
-
-      {/* Start Reviews Section */}
+      {/* Certificates */}
       <SectionWrapper
         name="section-reviews"
         className="reviews-section pt-24 lg:pt-28 xl:pt-32"
@@ -154,9 +121,53 @@ const Homepage2 = () => {
           <ReviewsSection />
         </div>
       </SectionWrapper>
-      {/* End Reviews Section */}
 
-      {/* Start Blog Section */}
+      {/* Services */}
+      <SectionWrapper
+        name="section-service"
+        className="services-section pt-24 lg:pt-28 xl:pt-32"
+      >
+        <div className="container mx-auto">
+          <SectionHeading
+            animated={false}
+            title={t("myservices")}
+            watermark={t("services")}
+          />
+          <ServicesSection />
+        </div>
+      </SectionWrapper>
+
+      {/* Portfolio / Works */}
+      <SectionWrapper
+        name="section-portfolios"
+        className="portfolios-section pt-24 lg:pt-28 xl:pt-32"
+      >
+        <div className="container mx-auto">
+          <SectionHeading
+            animated={false}
+            title={t("myworks")}
+            watermark={t("portfolio")}
+          />
+          <PortfoliosSection />
+        </div>
+      </SectionWrapper>
+
+      {/* Resume */}
+      <SectionWrapper
+        name="section-resume"
+        className="resume-section pt-24 lg:pt-28 xl:pt-32"
+      >
+        <div className="container mx-auto">
+          <SectionHeading
+            animated={false}
+            title={t("myresume")}
+            watermark={t("resume")}
+          />
+          <ResumeSection />
+        </div>
+      </SectionWrapper>
+
+      {/* Blog */}
       <SectionWrapper
         name="section-blog"
         className="news-section pt-24 lg:pt-28 xl:pt-32"
@@ -170,9 +181,8 @@ const Homepage2 = () => {
           <BlogSection posts={posts} />
         </div>
       </SectionWrapper>
-      {/* End Blog Section */}
 
-      {/* Start Contact Section */}
+      {/* Contact */}
       <SectionWrapper
         name="section-contact"
         className="contact-section pt-24 lg:pt-28 xl:pt-32"
@@ -186,11 +196,10 @@ const Homepage2 = () => {
           <ContactSection />
         </div>
       </SectionWrapper>
-      {/* End Contact Section */}
 
       <span className="block pb-24 lg:pb-28 xl:pb-32"></span>
     </React.Fragment>
   );
 };
 
-export default Homepage2;
+export default Homepage;
