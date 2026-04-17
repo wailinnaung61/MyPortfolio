@@ -48,6 +48,7 @@ const JobTimeline = () => {
                 title: lng === "jp" ? timeline.title_jp : timeline.title_en,
                 meta: lng === "jp" ? timeline.meta_jp : timeline.meta_en,
                 text: lng === "jp" ? timeline.text_jp : timeline.text_en,
+                website: timeline.website,
               }}
             />
           </motion.div>

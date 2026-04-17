@@ -2,7 +2,7 @@
 
 import { useAppContext } from "@/context/appContext";
 
-const TimelineItem = ({ timeline: { title, meta, text, year } }) => {
+const TimelineItem = ({ timeline: { title, meta, text, year, website } }) => {
   const { isDark } = useAppContext();
   return (
     <div
@@ -44,6 +44,18 @@ const TimelineItem = ({ timeline: { title, meta, text, year } }) => {
         </span>
         <h5 className="mb-0 text-primary">{title}</h5>
         <p className="mb-2 text-heading">{meta}</p>
+        {website ? (
+          <p className="mb-2">
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline"
+            >
+              {website}
+            </a>
+          </p>
+        ) : null}
         <p>{text}</p>
       </div>
     </div>

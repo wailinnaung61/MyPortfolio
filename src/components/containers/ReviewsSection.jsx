@@ -8,6 +8,7 @@ import { staggerContainer, staggerScaleItem, fadeUp } from "../../lib/motion";
 import { Review } from "../elements";
 import i18next from "@/i18n";
 import { RiShieldCheckLine, RiDownloadLine } from "react-icons/ri";
+import JSZip from "jszip";
 
 const categoryConfig = {
   aws: {
@@ -43,6 +44,7 @@ const categoryOrder = ["aws", "professional", "programming", "language", "recomm
 const ReviewsSection = () => {
   const { data } = useQuery("certificates", getCertificates);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [isDownloadingAll, setIsDownloadingAll] = useState(false);
 
   const [lng, setLng] = useState(
     i18next.language ||
@@ -65,13 +67,43 @@ const ReviewsSection = () => {
     return () => i18next.off("languageChanged", handleLangChange);
   }, []);
 
-  const handleDownloadAll = () => {
-    const link = document.createElement("a");
-    link.href = "/certificates/all-certificates.pdf";
-    link.download = "all-certificates.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadAll = async () => {
+    if (!data?.length || isDownloadingAll) return;
+
+    const certFiles = data
+      .map((cert) => cert?.certificateFile)
+      .filter(Boolean);
+
+    if (!certFiles.length) return;
+
+    setIsDownloadingAll(true);
+
+    try {
+      const zip = new JSZip();
+
+      await Promise.all(
+        certFiles.map(async (fileName) => {
+          const safeName = String(fileName);
+          const fileUrl = `/certificates/${encodeURIComponent(safeName)}`;
+          const response = await fetch(fileUrl);
+          if (!response.ok) return;
+          const fileBlob = await response.blob();
+          zip.file(safeName, fileBlob);
+        })
+      );
+
+      const zipBlob = await zip.generateAsync({ type: "blob" });
+      const zipUrl = URL.createObjectURL(zipBlob);
+      const link = document.createElement("a");
+      link.href = zipUrl;
+      link.download = "all-certificates.zip";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(zipUrl);
+    } finally {
+      setIsDownloadingAll(false);
+    }
   };
 
   if (!data) return null;
@@ -199,12 +231,17 @@ const ReviewsSection = () => {
           type="button"
           className="btn btn-transparent inline-flex items-center gap-2"
           onClick={handleDownloadAll}
+          disabled={isDownloadingAll}
         >
           <RiDownloadLine className="relative z-10" />
           <span>
-            {lng === "jp"
-              ? `すべてダウンロード (${data.length})`
-              : `Download All (${data.length})`}
+            {isDownloadingAll
+              ? lng === "jp"
+                ? "ZIP作成中..."
+                : "Preparing ZIP..."
+              : lng === "jp"
+                ? `すべてZIPダウンロード (${data.length})`
+                : `Download All ZIP (${data.length})`}
           </span>
         </button>
       </motion.div>

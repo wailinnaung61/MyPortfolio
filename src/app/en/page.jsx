@@ -48,6 +48,14 @@ const HomepageEn = () => {
     fetchPosts();
   }, []);
 
+  React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.title =
+      lng === "en"
+        ? "Wai Linn Aung — Full-Stack Developer"
+        : "ウェイ・リン・アウン — フルスタック開発者";
+  }, [lng]);
+
   const t = (key) => i18next.t(key, { lng: "en", ns: "common" });
 
   if (!mounted) return null;
