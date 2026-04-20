@@ -6,17 +6,17 @@ import Link from "next/link";
 const Blog = ({ post: { title, date, thumb, category, slug } }) => {
   const { month, day, year } = formatPostCalendarParts(date);
   return (
-    <article className="blog card p-4 md:p-5">
-      <div className="blog-top relative mb-4">
+    <article className="blog card flex h-full w-full flex-col p-4 md:p-5">
+      <div className="blog-top relative mb-4 aspect-[600/289] w-full shrink-0 overflow-hidden rounded-lg">
         <Link
           href={`/postdetails/${slug}`}
-          className="fiximage hover-scale block"
+          className="fiximage hover-scale absolute inset-0 block"
           title={title}
         >
           <Image
             src={thumb}
-            height={289}
-            width={600}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             alt="Blog Image"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
@@ -33,7 +33,7 @@ const Blog = ({ post: { title, date, thumb, category, slug } }) => {
           <span className="year block text-sm leading-none">{year}</span>
         </div>
       </div>
-      <h5 className="mb-0">
+      <h5 className="mb-0 shrink-0">
         <Link
           href={`/postdetails/${slug}`}
           className=" block overflow-hidden overflow-ellipsis whitespace-nowrap transition-colors duration-500 hover:text-primary"
@@ -41,7 +41,8 @@ const Blog = ({ post: { title, date, thumb, category, slug } }) => {
         >
           {title}
         </Link>
-      </h5>      <div className="flex list-none gap-1.5 text-sm">
+      </h5>
+      <div className="mt-auto flex min-h-[1.75rem] flex-wrap list-none gap-1.5 text-sm">
         {category.map((cat, i) => (
           <span key={i} className="after:content-[','] last:after:hidden">
             <Link

@@ -11,6 +11,10 @@ import { RiShieldCheckLine, RiDownloadLine } from "react-icons/ri";
 import JSZip from "jszip";
 
 const categoryConfig = {
+  education: {
+    en: "Education",
+    jp: "学歴",
+  },
   aws: {
     en: "AWS Certifications",
     jp: "AWS認定資格",
@@ -39,7 +43,14 @@ const categoryConfig = {
 };
 
 /** "other" is grouped under the language pill (label is "Language & Other") */
-const categoryOrder = ["aws", "professional", "programming", "language", "recommendation"];
+const categoryOrder = [
+  "education",
+  "aws",
+  "professional",
+  "programming",
+  "language",
+  "recommendation",
+];
 
 const ReviewsSection = () => {
   const { data } = useQuery("certificates", getCertificates);
@@ -50,7 +61,7 @@ const ReviewsSection = () => {
     i18next.language ||
       (typeof window !== "undefined"
         ? window.localStorage.getItem("i18nextLng")
-        : "en")
+        : "en"),
   );
 
   useEffect(() => {
@@ -70,9 +81,7 @@ const ReviewsSection = () => {
   const handleDownloadAll = async () => {
     if (!data?.length || isDownloadingAll) return;
 
-    const certFiles = data
-      .map((cert) => cert?.certificateFile)
-      .filter(Boolean);
+    const certFiles = data.map((cert) => cert?.certificateFile).filter(Boolean);
 
     if (!certFiles.length) return;
 
@@ -89,7 +98,7 @@ const ReviewsSection = () => {
           if (!response.ok) return;
           const fileBlob = await response.blob();
           zip.file(safeName, fileBlob);
-        })
+        }),
       );
 
       const zipBlob = await zip.generateAsync({ type: "blob" });
@@ -129,7 +138,9 @@ const ReviewsSection = () => {
         value: cat,
         label: categoryConfig[cat]?.[lng] || categoryConfig[cat]?.en || cat,
         count:
-          cat === "language" ? languageAndOtherCount : grouped[cat]?.length || 0,
+          cat === "language"
+            ? languageAndOtherCount
+            : grouped[cat]?.length || 0,
       })),
   ];
 
@@ -140,7 +151,9 @@ const ReviewsSection = () => {
     return cat === filter;
   };
 
-  const filteredData = data.filter((cert) => certMatchesFilter(cert, activeFilter));
+  const filteredData = data.filter((cert) =>
+    certMatchesFilter(cert, activeFilter),
+  );
 
   const awsCerts = data.filter((c) => c.category === "aws").slice(0, 3);
   const showAwsHighlightRow = activeFilter === "all";
@@ -168,7 +181,9 @@ const ReviewsSection = () => {
                   <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/10">
                     <RiShieldCheckLine className="text-2xl text-amber-500" />
                   </div>
-                  <h5 className="mb-1 text-sm font-semibold text-heading">{name}</h5>
+                  <h5 className="mb-1 text-sm font-semibold text-heading">
+                    {name}
+                  </h5>
                   <p className="text-xs text-body/50">{cert.meta}</p>
                 </div>
               </motion.div>
@@ -208,7 +223,11 @@ const ReviewsSection = () => {
                 layout={false}
                 initial={{ opacity: 0, y: 16, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.2 } }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.96,
+                  transition: { duration: 0.2 },
+                }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="col-span-6 sm:col-span-3 lg:col-span-2"
               >

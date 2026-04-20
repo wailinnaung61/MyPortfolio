@@ -58,7 +58,9 @@ export default function CategoryPage({ params }) {
         
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-            <Blog key={index} post={post} />
+            <div key={index} className="flex h-full w-full">
+              <Blog post={post} />
+            </div>
           ))}
         </div>
         

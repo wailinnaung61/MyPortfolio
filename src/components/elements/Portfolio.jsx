@@ -53,7 +53,7 @@ const Portfolio = ({
   return (
     <motion.div
       whileHover={{ y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-      className={`portfolio card group relative p-4 transition-all duration-300 md:p-5 ${
+      className={`portfolio card group relative flex h-full w-full flex-col p-4 transition-all duration-300 md:p-5 ${
         featured
           ? "border-primary/20 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
           : "hover:border-white/[0.12] hover:shadow-lg hover:shadow-primary/5"
@@ -66,18 +66,19 @@ const Portfolio = ({
         </div>
       )}
 
-      <div className="portfolio-top relative overflow-hidden rounded-lg">
-        <div className="portfolio-image fiximage blur-0 filter transition-all duration-500 group-hover:blur-[2px] group-hover:scale-105">
+      <div className="portfolio-top relative aspect-[550/384] w-full shrink-0 overflow-hidden rounded-lg">
+        <div className="portfolio-image fiximage absolute inset-0 blur-0 filter transition-all duration-500 group-hover:blur-[2px] group-hover:scale-105">
           <Image
             key={coverSrc}
             loader={imageLoader}
             unoptimized={true}
             src={coverSrc}
-            height={384}
-            width={550}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             alt={title}
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(550, 384))}`}
+            className="object-cover"
           />
         </div>
         <div className="portfolio-hovercontent absolute left-0 top-0 z-20 flex h-full w-full -translate-x-full transform items-center justify-center gap-4 overflow-hidden bg-black/30 backdrop-blur-sm transition-all duration-500 group-hover:translate-x-0">
@@ -101,11 +102,13 @@ const Portfolio = ({
           )}
         </div>
       </div>
-      <div className="portfolio-content mt-4">
+      <div className="portfolio-content mt-4 flex min-h-0 flex-1 flex-col">
         <h5 className="mb-1 text-sm font-semibold transition-colors duration-300 group-hover:text-primary">
           {title}
         </h5>
-        <p className="mb-0 text-xs text-body/60">{subtitle}</p>
+        <p className="mb-0 line-clamp-2 min-h-[2.5rem] text-xs leading-relaxed text-body/60">
+          {subtitle}
+        </p>
       </div>
       {imagegallery && (
         <Portal>

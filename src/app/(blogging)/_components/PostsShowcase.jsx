@@ -15,7 +15,7 @@ export default function PostsShowcase({ posts }) {
 						viewport={{ once: true }}
 						transition={{ delay: 0.2 * index }}
 						variants={childrenAnimation}
-						className="col-span-2 sm:col-span-1"
+						className="col-span-2 flex h-full w-full sm:col-span-1"
 						key={index}
 					>
 						<Blog post={post} />

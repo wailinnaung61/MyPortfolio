@@ -1,5 +1,15 @@
 [
   {
+    "id": 23,
+    "name_en": "Bachelor of Computer Science (Honours)",
+    "name_jp": "コンピュータサイエンス学士（優等）",
+    "meta": "2019",
+    "text_en": "Dagon University, Myanmar. Core and advanced computer science including software development, algorithms, databases, and systems. Graduated with honours.",
+    "text_jp": "ダゴン大学（ミャンマー）。ソフトウェア開発、アルゴリズム、データベース、システムなど、コンピュータサイエンスの基礎および応用を学習。優等で卒業。",
+    "certificateFile": "degree.pdf",
+    "category": "education"
+  },
+  {
     "id": 1,
     "name_en": "AWS DevOps Engineer – Professional",
     "name_jp": "AWS認定DevOpsエンジニア – プロフェッショナル",

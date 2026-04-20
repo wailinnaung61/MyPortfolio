@@ -530,6 +530,20 @@
 	position: relative;
 	margin-bottom: 68px;
 }
+.blog-swiper {
+	.swiper-wrapper {
+		align-items: stretch;
+	}
+	.swiper-slide {
+		display: flex;
+		height: auto;
+		box-sizing: border-box;
+	}
+	.slider-item {
+		width: 100%;
+		min-height: 100%;
+	}
+}
 .swiper {
   &-button-next,
   &-button-prev {

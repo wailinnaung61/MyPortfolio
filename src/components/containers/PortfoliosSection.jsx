@@ -68,7 +68,7 @@ const PortfoliosSection = () => {
             initial={{ opacity: 0, y: 20, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-6 sm:col-span-3 lg:col-span-2"
+            className="col-span-6 flex h-full w-full sm:col-span-3 lg:col-span-2"
           >
             <Portfolio portfolio={portfolio} />
           </motion.div>

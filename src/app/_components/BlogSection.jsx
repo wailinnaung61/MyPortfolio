@@ -49,6 +49,7 @@ const BlogSection = ({ posts }) => {
 			className="swiper-holder"
 		>
 			<Swiper
+				className="blog-swiper"
 				modules={[Autoplay]}
 				spaceBetween={28}
 				slidesPerView={3}
@@ -71,8 +72,8 @@ const BlogSection = ({ posts }) => {
 			>
 				{posts &&
 					posts.map((post, index) => (
-						<SwiperSlide key={index}>
-							<div className="slider-item">
+						<SwiperSlide key={index} className="!h-auto">
+							<div className="slider-item flex h-full">
 								<Blog post={post} />
 							</div>
 						</SwiperSlide>
