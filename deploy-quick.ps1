@@ -1,4 +1,11 @@
-# Quick Deploy Script (assumes build is already done)
+# Quick Deploy Script (Next.js output: 'export' => build generates /out)
+
+Write-Host "Building static site..." -ForegroundColor Green
+npm run build
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Build failed! Exiting..." -ForegroundColor Red
+    exit 1
+}
 
 # Deploy to S3
 Write-Host "Deploying to S3..." -ForegroundColor Green
@@ -22,3 +29,4 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "CloudFront cache cleared successfully!" -ForegroundColor Green
 Write-Host "Deployment completed! Your website should be updated in a few minutes." -ForegroundColor Cyan
+ 

@@ -29,7 +29,11 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
   const bio = data[`bio_${lng}`] || data.bio;
 
   const handleDownloadAll = () => {
-    const files = ["/ウェイリンアウン_履歴書.pdf", "/ウェイリンアウン職務経歴書.pdf"];
+    const files = [
+      "/ウェイリンアウン_履歴書.pdf",
+      "/ウェイリンアウン職務経歴書.pdf",
+      "/certificates/degree.pdf",
+    ];
     files.forEach((file) => {
       const link = document.createElement("a");
       link.href = file;
