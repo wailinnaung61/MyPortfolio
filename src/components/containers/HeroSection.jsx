@@ -7,8 +7,13 @@ import { useQuery } from "react-query";
 import { Link } from "react-scroll";
 import { TypeAnimation } from "react-type-animation";
 import { getInformation } from "../../fetchers";
-import { heroName, heroSubtitle, heroBio, heroCTA, heroSocial } from "../../lib/motion";
-import { shimmer, toBase64 } from "../../lib/utils";
+import {
+  heroName,
+  heroSubtitle,
+  heroBio,
+  heroCTA,
+  heroSocial,
+} from "../../lib/motion";
 import { SocialIcons } from "../elements";
 import i18next from "i18next";
 import { useEffect, useState } from "react";
@@ -55,11 +60,24 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
         }`}
       >
         {/* Gradient orbs for hero */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full opacity-20 blur-[100px]"
-            style={{ background: "radial-gradient(circle, rgba(16,185,129,0.4), transparent 70%)" }} />
-          <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full opacity-15 blur-[100px]"
-            style={{ background: "radial-gradient(circle, rgba(20,184,166,0.4), transparent 70%)" }} />
+        <div
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+          aria-hidden="true"
+        >
+          <div
+            className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full opacity-20 blur-[100px]"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(16,185,129,0.4), transparent 70%)",
+            }}
+          />
+          <div
+            className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full opacity-15 blur-[100px]"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(20,184,166,0.4), transparent 70%)",
+            }}
+          />
         </div>
 
         <div className="container relative mx-auto">
@@ -74,7 +92,9 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                   variants={heroSubtitle}
                   className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-primary"
                 >
-                  {lng === "jp" ? "フルスタックWeb開発者" : "Full-Stack Web Developer"}
+                  {lng === "jp"
+                    ? "フルスタックWeb開発者"
+                    : "Full-Stack Web Developer"}
                 </motion.p>
 
                 <motion.h1
@@ -99,9 +119,13 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                     <TypeAnimation
                       key={lng}
                       sequence={[
-                        lng === "jp" ? "フルスタックWeb開発者" : "Full-Stack Web Developer",
+                        lng === "jp"
+                          ? "フルスタックWeb開発者"
+                          : "Full-Stack Web Developer",
                         2000,
-                        lng === "jp" ? "AWS認定エンジニア" : "AWS Certified Engineer",
+                        lng === "jp"
+                          ? "AWS認定エンジニア"
+                          : "AWS Certified Engineer",
                         2000,
                         lng === "jp" ? "Spendioの開発者" : "Creator of Spendio",
                         2000,
@@ -112,7 +136,9 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
                     />
                   ) : (
                     <span className="text-body/70">
-                      {lng === "jp" ? "フルスタックWeb開発者" : "Full-Stack Web Developer"}
+                      {lng === "jp"
+                        ? "フルスタックWeb開発者"
+                        : "Full-Stack Web Developer"}
                     </span>
                   )}
                 </motion.div>
@@ -169,23 +195,24 @@ const HeroSection = ({ blurred, scroll = true, typed = true }) => {
 
               {/* Right: Profile image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.4,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="relative hidden lg:flex lg:justify-center"
               >
                 <div className="relative">
-                  <div className="absolute -inset-4 rounded-full opacity-30 blur-2xl"
-                    style={{ background: "linear-gradient(135deg, rgba(16,185,129,0.4), rgba(20,184,166,0.3))" }}
-                    aria-hidden="true" />
-                  <div className="relative h-[320px] w-[320px] overflow-hidden rounded-full border-2 border-white/10 xl:h-[380px] xl:w-[380px]">
+                  <div className="relative h-[320px] w-[320px] overflow-hidden rounded-full border-2 border-primary/25 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] xl:h-[380px] xl:w-[380px]">
                     <Image
                       src={data.thumbImage}
                       alt={fullName}
                       fill
-                      className="object-cover"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(380, 380))}`}
+                      className="object-cover object-[100%_70%]"
+                      sizes="(min-width: 1280px) 380px, 390px"
+                      priority
                     />
                   </div>
                 </div>
